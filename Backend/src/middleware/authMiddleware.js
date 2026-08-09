@@ -20,12 +20,13 @@ export const protect = async (req, res, next) => {
 
     // Fetch user and append profile entity payload to request context
     req.user = await User.findById(decoded.id);
-    
+
     // console.log("DEBUG AUTH:", { userFound: !!req.user, status: req.user?.status, userRole: req.user?.role });
 
     if (!req.user || !req.user.status) {
       return res.status(401).json({ success: false, message: 'User session invalid or deactivated' });
     }
+    
 
     next();
   } catch (error) {
