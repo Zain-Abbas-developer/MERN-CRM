@@ -1,0 +1,109 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "inspect-profile-api-pattern",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\Users\\LENOVO\\OneDrive\\ドキュメント\\CRM'; Select-String -Path 'client/src' -Pattern 'api\\.(put|post|patch)' -CaseSensitive:$false -List | Select-Object -First 40 | ForEach-Object { $_.Path + ':' + $_.LineNumber + ':' + $_.Line }\"",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "inspect-profile-related-files",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\Users\\LENOVO\\OneDrive\\ドキュメント\\CRM'; Write-Host '--- Profile.jsx ---'; Get-Content 'client/src/pages/Customer/Profile.jsx' -Raw; Write-Host '--- AuthContext ---'; Get-Content 'client/src/Context/AuthContext.jsx' -Raw; Write-Host '--- api lib ---'; Get-Content 'client/src/lib/api.js' -Raw\"",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "find-user-update-api-pattern",
+			"type": "shell",
+			"command": "cd /d c:/Users/LENOVO/OneDrive/ドキュメント/CRM && rg -n \"api\\.(put|patch|post)\\(|/users|profile\" client/src server -g '!node_modules'",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "inspect-backend-user-update",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\Users\\LENOVO\\OneDrive\\ドキュメント\\CRM'; Write-Host '--- customerController.js ---'; Get-Content 'Backend/src/controllers/customerController.js' -Raw; Write-Host '--- userRoutes.js ---'; Get-Content 'Backend/src/routes/userRoutes.js' -Raw; Write-Host '--- User.js ---'; Get-Content 'Backend/src/models/User.js' -Raw\"",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "fix-customer-controller",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\Users\\LENOVO\\OneDrive\\ドキュメント\\CRM'; Set-Content -LiteralPath 'Backend/src/controllers/customerController.js' -Value @'\nimport { User } from '../models/User.js'\n\n// Get all Users\nexport const getUsers = async (req, res) => {\n    const users = await User.find();\n    res.json(users);\n}\n\n// create user \nexport const createUser = async(req, res) => {\n    const user = await User.create(req.body);\n    res.json(user);\n};\n\n// update user \nexport const updatedUser = async (req, res) => {\n    const user = await User.findByIdAndUpdate(req.params.id, req.body, {\n        returnDocument: 'after',\n        runValidators: true,\n    });\n    res.json(user)\n}\n\n// delete User\nexport const deleteUser = async (req, res) => {\n    await User.findByIdAndDelete(req.params.id);\n    res.json({message: \"User deleted successfully\"})\n}\n\n//get user profile\nexport const getUserProfile = async (req, res) => {\n    try {\n        const user = await User.findById(req.user.id).select('-password');\n        res.status(200).json({ success: true, data: user });\n    } catch (error) {\n        res.status(500).json({ success: false, message: \"Server Error\" });\n    }\n};\n\n// update user profile\nexport const updateUserProfile = async (req, res) => {\n    try {\n        const updateUser = await User.findByIdAndUpdate(req.user.id, req.body, { returnDocument: 'after', runValidators: true }).select('-password');\n        res.status(200).json({ success: true, data: updateUser });\n    } catch (error) {\n        res.status(500).json({ success: false, message: \"Server Error\" });\n    }\n}\n'@\""
+		},
+		{
+			"label": "rewrite-customer-controller",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\Users\\LENOVO\\OneDrive\\ドキュメント\\CRM'; $content = @'\nimport { User } from '../models/User.js'\n\n// Get all Users\nexport const getUsers = async (req, res) => {\n    const users = await User.find();\n    res.json(users);\n}\n\n// create user \nexport const createUser = async(req, res) => {\n    const user = await User.create(req.body);\n    res.json(user);\n};\n\n// update user \nexport const updatedUser = async (req, res) => {\n    const user = await User.findByIdAndUpdate(req.params.id, req.body, {\n        returnDocument: 'after',\n        runValidators: true,\n    });\n    res.json(user);\n}\n\n// delete User\nexport const deleteUser = async (req, res) => {\n    await User.findByIdAndDelete(req.params.id);\n    res.json({message: 'User deleted successfully'});\n}\n\n//get user profile\nexport const getUserProfile = async (req, res) => {\n    try {\n        const user = await User.findById(req.user.id).select('-password');\n        res.status(200).json({ success: true, data: user });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n};\n\n// update user profile\nexport const updateUserProfile = async (req, res) => {\n    try {\n        const updateUser = await User.findByIdAndUpdate(req.user.id, req.body, { returnDocument: 'after', runValidators: true }).select('-password');\n        res.status(200).json({ success: true, data: updateUser });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n}\n'@; Set-Content -LiteralPath 'Backend/src/controllers/customerController.js' -Value $content -Encoding utf8\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "rewrite-customer-controller-valid",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\Users\\LENOVO\\OneDrive\\ドキュメント\\CRM'; $content = \\\"import { User } from '../models/User.js'`n`n// Get all Users`nexport const getUsers = async (req, res) => {`n    const users = await User.find();`n    res.json(users);`n}`n`n// create user `nexport const createUser = async (req, res) => {`n    const user = await User.create(req.body);`n    res.json(user);`n};`n`n// update user `nexport const updatedUser = async (req, res) => {`n    const user = await User.findByIdAndUpdate(req.params.id, req.body, {`n        returnDocument: 'after',`n        runValidators: true,`n    });`n    res.json(user);`n}`n`n// delete User`nexport const deleteUser = async (req, res) => {`n    await User.findByIdAndDelete(req.params.id);`n    res.json({ message: 'User deleted successfully' });`n}`n`n//get user profile`nexport const getUserProfile = async (req, res) => {`n    try {`n        const user = await User.findById(req.user.id).select('-password');`n        res.status(200).json({ success: true, data: user });`n    } catch (error) {`n        res.status(500).json({ success: false, message: 'Server Error' });`n    }`n};`n`n// update user profile`nexport const updateUserProfile = async (req, res) => {`n    try {`n        const updateUser = await User.findByIdAndUpdate(req.user.id, req.body, { returnDocument: 'after', runValidators: true }).select('-password');`n        res.status(200).json({ success: true, data: updateUser });`n    } catch (error) {`n        res.status(500).json({ success: false, message: 'Server Error' });`n    }`n}`n\\\"; Set-Content -LiteralPath 'Backend/src/controllers/customerController.js' -Value $content -Encoding utf8\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "rewrite-customer-controller-valid",
+			"type": "shell",
+			"command": "cd /d /c/Users/LENOVO/OneDrive/ドキュメント/CRM && cat > Backend/src/controllers/customerController.js <<'EOF'\nimport { User } from '../models/User.js'\n\n// Get all Users\nexport const getUsers = async (req, res) => {\n    const users = await User.find();\n    res.json(users);\n}\n\n// create user \nexport const createUser = async (req, res) => {\n    const user = await User.create(req.body);\n    res.json(user);\n};\n\n// update user \nexport const updatedUser = async (req, res) => {\n    const user = await User.findByIdAndUpdate(req.params.id, req.body, {\n        returnDocument: 'after',\n        runValidators: true,\n    });\n    res.json(user);\n}\n\n// delete User\nexport const deleteUser = async (req, res) => {\n    await User.findByIdAndDelete(req.params.id);\n    res.json({ message: 'User deleted successfully' });\n}\n\n//get user profile\nexport const getUserProfile = async (req, res) => {\n    try {\n        const user = await User.findById(req.user.id).select('-password');\n        res.status(200).json({ success: true, data: user });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n};\n\n// update user profile\nexport const updateUserProfile = async (req, res) => {\n    try {\n        const updateUser = await User.findByIdAndUpdate(req.user.id, req.body, { returnDocument: 'after', runValidators: true }).select('-password');\n        res.status(200).json({ success: true, data: updateUser });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n}\nEOF",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "rewrite-customer-controller-valid",
+			"type": "shell",
+			"command": "cat > /c/Users/LENOVO/OneDrive/ドキュメント/CRM/Backend/src/controllers/customerController.js <<'EOF'\nimport { User } from '../models/User.js'\n\n// Get all Users\nexport const getUsers = async (req, res) => {\n    const users = await User.find();\n    res.json(users);\n}\n\n// create user \nexport const createUser = async (req, res) => {\n    const user = await User.create(req.body);\n    res.json(user);\n};\n\n// update user \nexport const updatedUser = async (req, res) => {\n    const user = await User.findByIdAndUpdate(req.params.id, req.body, {\n        returnDocument: 'after',\n        runValidators: true,\n    });\n    res.json(user);\n}\n\n// delete User\nexport const deleteUser = async (req, res) => {\n    await User.findByIdAndDelete(req.params.id);\n    res.json({ message: 'User deleted successfully' });\n}\n\n//get user profile\nexport const getUserProfile = async (req, res) => {\n    try {\n        const user = await User.findById(req.user.id).select('-password');\n        res.status(200).json({ success: true, data: user });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n};\n\n// update user profile\nexport const updateUserProfile = async (req, res) => {\n    try {\n        const updateUser = await User.findByIdAndUpdate(req.user.id, req.body, { returnDocument: 'after', runValidators: true }).select('-password');\n        res.status(200).json({ success: true, data: updateUser });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n}\nEOF",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "rewrite-customer-controller-valid",
+			"type": "shell",
+			"command": "cd /c/Users/LENOVO/OneDrive/ドキュメント/CRM && python - <<'PY'\nfrom pathlib import Path\npath = Path('/c/Users/LENOVO/OneDrive/ドキュメント/CRM/Backend/src/controllers/customerController.js')\ncode = '''import { User } from '../models/User.js'\n\n// Get all Users\nexport const getUsers = async (req, res) => {\n    const users = await User.find();\n    res.json(users);\n}\n\n// create user \nexport const createUser = async (req, res) => {\n    const user = await User.create(req.body);\n    res.json(user);\n};\n\n// update user \nexport const updatedUser = async (req, res) => {\n    const user = await User.findByIdAndUpdate(req.params.id, req.body, {\n        returnDocument: 'after',\n        runValidators: true,\n    });\n    res.json(user);\n}\n\n// delete User\nexport const deleteUser = async (req, res) => {\n    await User.findByIdAndDelete(req.params.id);\n    res.json({ message: 'User deleted successfully' });\n}\n\n//get user profile\nexport const getUserProfile = async (req, res) => {\n    try {\n        const user = await User.findById(req.user.id).select('-password');\n        res.status(200).json({ success: true, data: user });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n};\n\n// update user profile\nexport const updateUserProfile = async (req, res) => {\n    try {\n        const updateUser = await User.findByIdAndUpdate(req.user.id, req.body, { returnDocument: 'after', runValidators: true }).select('-password');\n        res.status(200).json({ success: true, data: updateUser });\n    } catch (error) {\n        res.status(500).json({ success: false, message: 'Server Error' });\n    }\n}\n'''\npath.write_text(code, encoding='utf-8')\nprint('written')\nPY",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "echo-test",
+			"type": "shell",
+			"command": "echo test",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "task-echo-test",
+			"type": "shell",
+			"command": "echo hello",
+			"isBackground": false
+		},
+		{
+			"label": "write-customer-controller",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Content -Path 'Backend/src/controllers/customerController.js' -Value 'import { User } from ''../models/User.js'''; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value ''; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '// Get all Users'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value 'export const getUsers = async (req, res) => {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    const users = await User.find();'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    res.json(users);'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '}'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value ''; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '// create user'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value 'export const createUser = async (req, res) => {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    const user = await User.create(req.body);'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    res.json(user);'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '};'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value ''; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '// update user'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value 'export const updatedUser = async (req, res) => {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    const user = await User.findByIdAndUpdate(req.params.id, req.body, {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        returnDocument: ''after'', '; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        runValidators: true,'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    });'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    res.json(user);'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '}'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value ''; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '// delete User'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value 'export const deleteUser = async (req, res) => {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    await User.findByIdAndDelete(req.params.id);'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    res.json({ message: ''User deleted successfully'' });'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '}'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value ''; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '//get user profile'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value 'export const getUserProfile = async (req, res) => {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    try {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        const user = await User.findById(req.user.id).select(''-password'');'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        res.status(200).json({ success: true, data: user });'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    } catch (error) {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        res.status(500).json({ success: false, message: ''Server Error'' });'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    }'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '};'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value ''; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '// update user profile'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value 'export const updateUserProfile = async (req, res) => {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    try {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        const updateUser = await User.findByIdAndUpdate(req.user.id, req.body, { returnDocument: ''after'', runValidators: true }).select(''-password'');'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        res.status(200).json({ success: true, data: updateUser });'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    } catch (error) {'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '        res.status(500).json({ success: false, message: ''Server Error'' });'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '    }'; Add-Content -Path 'Backend/src/controllers/customerController.js' -Value '}';\""
+		},
+		{
+			"label": "test-simple-shell",
+			"type": "shell",
+			"command": "echo hi"
+		},
+		{
+			"label": "read-controller",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Get-Content 'Backend/src/controllers/customerController.js' -Raw\""
+		}
+	]
+}
