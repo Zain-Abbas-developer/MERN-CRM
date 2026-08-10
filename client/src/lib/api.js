@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://mern-crm-8tur.onrender.com/api",
+  baseURL: import.meta.env.API_VITE_URL,
   
 });
 api.interceptors.request.use((config) => {
