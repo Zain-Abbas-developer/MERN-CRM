@@ -208,19 +208,35 @@ VITE_API_URL=http://localhost:5000/api
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
-> Add screenshots inside a `screenshots` folder.
+### Login
 
-* Login Page
-* Admin Dashboard
-* Employee Dashboard
-* Customer Dashboard
-* Leads
-* Customers
-* Tasks
-* Analytics
-* Chat System
+![Login](./screenshots/login.png)
+
+### Admin Dashboard
+
+![Admin Dashboard](./screenshots/admin-dashboard.png)
+
+### Leads
+
+![Leads](./screenshots/leads.png)
+
+### Customers
+
+![Customers](./screenshots/customers.png)
+
+### Tasks
+
+![Tasks](./screenshots/tasks.png)
+
+### Analytics
+
+![Analytics](./screenshots/analytics.png)
+
+### Chat
+
+![Chat](./screenshots/chat.png)
 
 ---
 
