@@ -31,6 +31,7 @@ const Dashboard = () => {
           withCredentials: true
         });
         setDashboardData(response.data.data);
+        
 
         //lead chart
         setLeadChart(response.data.data.leadChart || Array(12).fill(0));
