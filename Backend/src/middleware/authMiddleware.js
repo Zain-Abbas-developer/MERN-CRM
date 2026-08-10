@@ -17,12 +17,9 @@ export const protect = async (req, res, next) => {
   try {
     // Decode token parameters
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log("Decoded ID:", decoded.id);
 
     // Fetch user and append profile entity payload to request context
     req.user = await User.findById(decoded.id);
-
-    console.log("User:", req.user);
 
     // console.log("DEBUG AUTH:", { userFound: !!req.user, status: req.user?.status, userRole: req.user?.role });
 
@@ -33,7 +30,6 @@ export const protect = async (req, res, next) => {
 
     next();
   } catch (error) {
-    console.log("JWT ERROR:", error);
     return res.status(401).json({ success: false, message: 'Token verification failed' });
   }
 };

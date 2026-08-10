@@ -7,9 +7,6 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("crm_token");
 
-  console.log("Request URL:", config.baseURL + config.url);
-  console.log("Token:", token);
-
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
