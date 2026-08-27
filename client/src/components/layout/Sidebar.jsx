@@ -4,11 +4,10 @@ import { FiChevronLeft, FiLogOut } from 'react-icons/fi';
 import { 
   HiOutlineViewGrid, HiOutlineUsers, HiOutlineClipboardList, 
   HiOutlineChartBar, HiOutlineChatAlt2, HiOutlineUserGroup,
-  HiOutlineUser, HiOutlineCog, HiOutlineTrendingUp
+  HiOutlineUser, HiOutlineTrendingUp
 } from 'react-icons/hi';
 import useAuth from '../../hooks/useAuth'
 import { ROLES } from '../../constant/roles';
-import { getInitials } from '../../utils/helpers';
 
 const menuItems = {
   [ROLES.ADMIN]: [
@@ -39,6 +38,9 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
   const navigate = useNavigate();
   const role = user?.role || ROLES.ADMIN; //here we use pipe of customer in future
   const items = menuItems[role] || [];
+  const profileImage = user?.profilePicture || user?.profileImage || user?.avatar || user?.image || '';
+  const defaultProfileImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.name || 'User')}&background=111111&color=f97316`;
+  const avatarSrc = profileImage || defaultProfileImage;
 
   const handleLogout = () => {
     logout();
@@ -117,9 +119,16 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
       <div className="border-t border-[#2a2a2a] p-3">
         <div className={`flex items-center gap-3 px-2 py-2 ${collapsed ? 'justify-center' : ''}`}>
           <div className="w-9 h-9 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center shrink-0">
-            <span className="text-orange-400 text-sm font-semibold">
-              {getInitials(user?.name)}
-            </span>
+            <img
+              src={avatarSrc}
+              alt={user?.name ? `${user.name} profile` : 'Profile'}
+              className="w-full h-full rounded-full object-cover"
+              onError={(e) => {
+                if (e.currentTarget.src !== defaultProfileImage) {
+                  e.currentTarget.src = defaultProfileImage;
+                }
+              }}
+            />
           </div>
           <AnimatePresence>
             {!collapsed && (
