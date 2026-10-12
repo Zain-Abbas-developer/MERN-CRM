@@ -1,0 +1,25 @@
+EXISTING (Repo mein hai):
+✅ Auth + RBAC
+✅ Dashboard
+✅ Customers
+✅ Leads
+✅ Tasks
+✅ Chat
+✅ Analytics
+✅ Profile
+
+ADD KARNE HAIN (2 weeks):
+🆕 Sales Pipeline (Kanban)
+🆕 Deals Module
+🆕 Quotations + Invoices
+🆕 PDF/Excel Export
+🆕 Email Notifications
+🆕 File Uploads
+🆕 Calendar Integration
+🆕 Activity Logs
+🆕 WhatsApp Integration
+🆕 AI Insights
+🆕 Multi-language
+🆕 Testing (40%)
+🆕 Docker + CI/CD
+🆕 Documentation
