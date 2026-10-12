@@ -15,8 +15,6 @@ lerna-debug.log*
 .vscode/
 
 node_modules
-.env
-*.env.local
 dist
 dist-ssr
 *.local
