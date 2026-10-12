@@ -9,7 +9,6 @@ lerna-debug.log*
 
 #env file
 .env
-.env.*
 
 #vscode
 .vscode/
