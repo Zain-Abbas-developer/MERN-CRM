@@ -139,7 +139,7 @@ const Analytics = () => {
   },
   {
     label: "Total Customers",
-    value: `${analytics?.totalCustomers || 10}`,
+    value: `${analytics?.totalCustomers || 0}`,
     color: "text-emerald-400",
   },
   {

@@ -44,7 +44,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate( '/home_page');
   };
 
   return (
