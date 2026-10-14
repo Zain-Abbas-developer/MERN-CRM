@@ -15,7 +15,7 @@ import Unauthorized from "../pages/common/Unauthorized";
 import Features from '../pages/product/Features';
 import Pricing from '../pages/product/Pricing';
 import Integration from '../pages/product/Integrations';
-import ChangeLog from '../pages/product/ChangeLog';
+import ChangeLog from '../pages/product/Changelog';
 import Roadmap from '../pages/product/Roadmap';
 
 //company pages are here
