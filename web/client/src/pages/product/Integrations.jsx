@@ -1,7 +1,8 @@
 // src/pages/Product/Integrations.jsx
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Plug, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Search, Plug, ArrowUpRight, CheckCircle2, X } from "lucide-react";
 import N from "../../components/parts/Navbar.jsx";
 import F from "../../components/parts/Footer.jsx";
 import PageHero from "../../components/common/PageHero.jsx";
@@ -23,23 +24,97 @@ const categories = [
 ];
 
 const integrations = [
-  { name: "Slack", category: "Communication", desc: "Get deal alerts and pipeline updates right inside your channels.", initials: "SL", color: "#4A154B" },
-  { name: "Gmail", category: "Communication", desc: "Two-way email sync with open and click tracking.", initials: "GM", color: "#EA4335" },
-  { name: "Zoom", category: "Communication", desc: "Schedule and log calls automatically on contact records.", initials: "ZM", color: "#2D8CFF" },
-  { name: "Mailchimp", category: "Marketing", desc: "Sync audiences and trigger campaigns from CRM segments.", initials: "MC", color: "#FFE01B" },
-  { name: "HubSpot Forms", category: "Marketing", desc: "Capture every form submission as a tracked lead.", initials: "HS", color: "#FF7A59" },
-  { name: "Meta Ads", category: "Marketing", desc: "Attribute ad spend to closed revenue automatically.", initials: "MA", color: "#0866FF" },
-  { name: "Stripe", category: "Payments", desc: "See subscriptions and invoices directly on the customer card.", initials: "ST", color: "#635BFF" },
-  { name: "PayPal", category: "Payments", desc: "Reconcile payments and refunds without leaving the CRM.", initials: "PP", color: "#003087" },
-  { name: "Notion", category: "Productivity", desc: "Embed docs and meeting notes into any deal record.", initials: "NO", color: "#111111" },
-  { name: "Google Calendar", category: "Productivity", desc: "Two-way calendar sync for tasks and meetings.", initials: "GC", color: "#4285F4" },
-  { name: "Zapier", category: "Developer", desc: "Connect to 6,000+ apps with zero-code automations.", initials: "ZP", color: "#FF4F00" },
-  { name: "REST API", category: "Developer", desc: "Full CRUD access with webhooks and generous rate limits.", initials: "API", color: "#f97316" },
+  {
+    name: "Slack",
+    category: "Communication",
+    desc: "Get deal alerts and pipeline updates right inside your channels.",
+    initials: "SL",
+    color: "#4A154B",
+  },
+  {
+    name: "Gmail",
+    category: "Communication",
+    desc: "Two-way email sync with open and click tracking.",
+    initials: "GM",
+    color: "#EA4335",
+  },
+  {
+    name: "Zoom",
+    category: "Communication",
+    desc: "Schedule and log calls automatically on contact records.",
+    initials: "ZM",
+    color: "#2D8CFF",
+  },
+  {
+    name: "Mailchimp",
+    category: "Marketing",
+    desc: "Sync audiences and trigger campaigns from CRM segments.",
+    initials: "MC",
+    color: "#FFE01B",
+  },
+  {
+    name: "HubSpot Forms",
+    category: "Marketing",
+    desc: "Capture every form submission as a tracked lead.",
+    initials: "HS",
+    color: "#FF7A59",
+  },
+  {
+    name: "Meta Ads",
+    category: "Marketing",
+    desc: "Attribute ad spend to closed revenue automatically.",
+    initials: "MA",
+    color: "#0866FF",
+  },
+  {
+    name: "Stripe",
+    category: "Payments",
+    desc: "See subscriptions and invoices directly on the customer card.",
+    initials: "ST",
+    color: "#635BFF",
+  },
+  {
+    name: "PayPal",
+    category: "Payments",
+    desc: "Reconcile payments and refunds without leaving the CRM.",
+    initials: "PP",
+    color: "#003087",
+  },
+  {
+    name: "Notion",
+    category: "Productivity",
+    desc: "Embed docs and meeting notes into any deal record.",
+    initials: "NO",
+    color: "#111111",
+  },
+  {
+    name: "Google Calendar",
+    category: "Productivity",
+    desc: "Two-way calendar sync for tasks and meetings.",
+    initials: "GC",
+    color: "#4285F4",
+  },
+  {
+    name: "Zapier",
+    category: "Developer",
+    desc: "Connect to 6,000+ apps with zero-code automations.",
+    initials: "ZP",
+    color: "#FF4F00",
+  },
+  {
+    name: "REST API",
+    category: "Developer",
+    desc: "Full CRUD access with webhooks and generous rate limits.",
+    initials: "API",
+    color: "#f97316",
+  },
 ];
 
 const Integrations = () => {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState("All");
+  const [selectedIntegration, setSelectedIntegration] = useState(null);
+  const navigate = useNavigate();
 
   const filtered = useMemo(() => {
     return integrations.filter((item) => {
@@ -122,7 +197,10 @@ const Integrations = () => {
                   <div className="flex items-center justify-between">
                     <div
                       className="w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-sm border border-[#2a2a2a]"
-                      style={{ backgroundColor: `${item.color}22`, color: "#f97316" }}
+                      style={{
+                        backgroundColor: `${item.color}22`,
+                        color: "#f97316",
+                      }}
                     >
                       {item.initials}
                     </div>
@@ -136,7 +214,10 @@ const Integrations = () => {
                     {item.desc}
                   </p>
 
-                  <button className="inline-flex items-center gap-1.5 text-orange-500 text-sm font-semibold group-hover:gap-2.5 transition-all cursor-pointer">
+                  <button
+                    onClick={() => setSelectedIntegration(item)}
+                    className="inline-flex items-center gap-1.5 text-orange-500 text-sm font-semibold group-hover:gap-2.5 transition-all cursor-pointer"
+                  >
                     Connect <ArrowUpRight size={15} />
                   </button>
                 </motion.div>
@@ -168,17 +249,20 @@ const Integrations = () => {
               </p>
               <div className="flex flex-wrap gap-5 mt-4 text-gray-400 text-sm font-medium">
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-orange-500" /> REST & Webhooks
+                  <CheckCircle2 size={16} className="text-orange-500" /> REST &
+                  Webhooks
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-orange-500" /> 10k req/min
+                  <CheckCircle2 size={16} className="text-orange-500" /> 10k
+                  req/min
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-orange-500" /> SDKs available
+                  <CheckCircle2 size={16} className="text-orange-500" /> SDKs
+                  available
                 </span>
               </div>
             </div>
-            <button className="shrink-0 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors cursor-pointer">
+            <button onClick={() => navigate('/integrations/api-docs')} className="shrink-0 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors cursor-pointer">
               Read API Docs
             </button>
           </motion.div>
@@ -192,6 +276,67 @@ const Integrations = () => {
         primaryLabel="Start Free Trial"
         secondaryLabel="Talk to Sales"
       />
+
+      {/* modal for connection app */}
+
+      {selectedIntegration && (
+        <div
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 px-4"
+          onClick={() => setSelectedIntegration(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="integration-modal-title"
+            className="w-full max-w-md rounded-2xl border border-[#2a2a2a] bg-[#181818] p-6 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-5 flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-orange-500">
+                  Integration Setup
+                </p>
+                <h2
+                  id="integration-modal-title"
+                  className="mt-1 text-2xl font-bold text-white"
+                >
+                  {selectedIntegration.name}
+                </h2>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setSelectedIntegration(null)}
+                aria-label="Close dialog"
+                className="rounded-lg p-2 text-gray-400 hover:bg-[#252525] hover:text-white"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <p className="mb-6 text-sm leading-6 text-gray-400">
+              {selectedIntegration.desc}
+            </p>
+
+            <div className="rounded-lg border border-orange-500/20 bg-orange-500/10 p-4">
+              <p className="font-semibold text-white">Ready to configure?</p>
+              <p className="mt-2 text-sm leading-6 text-gray-400">
+                The connection setup for {selectedIntegration.name} will be
+                available here once its authentication and integration logic are
+                implemented.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setSelectedIntegration(null)}
+              className="mt-6 w-full rounded-lg bg-orange-500 px-5 py-3 font-semibold text-white transition-colors hover:bg-orange-600"
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
 
       <F />
     </>

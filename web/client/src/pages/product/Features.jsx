@@ -1,5 +1,6 @@
 // src/pages/Product/Features.jsx
 import React from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import {
   Users,
@@ -99,6 +100,7 @@ const deepDives = [
 ];
 
 const Features = () => {
+  const navigate = useNavigate();
   return (
     <>
       <N />
@@ -222,6 +224,10 @@ const Features = () => {
               <motion.button
                 variants={fadeInUp}
                 whileHover={{ x: 4 }}
+                onClick={() => {
+                  const targetPath = block.tag.toLowerCase();
+                  navigate(`/features/${targetPath}`);
+                }}
                 className="self-start mt-2 inline-flex items-center gap-2 text-orange-500 font-semibold cursor-pointer"
               >
                 Learn more <ArrowRightToLine size={18} />

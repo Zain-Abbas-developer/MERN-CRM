@@ -10,6 +10,7 @@ const CtaBanner = ({
   primaryLabel = "Start Free Trial",
   secondaryLabel = "Book a Demo",
   onSecondary,
+  onPrimary,
 }) => {
   const navigate = useNavigate();
 
@@ -37,7 +38,7 @@ const CtaBanner = ({
             whileHover={{ y: -3, scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 18 }}
-            onClick={() => navigate("/register")}
+            onClick={onPrimary}
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors cursor-pointer"
           >
             {primaryLabel}

@@ -1,6 +1,7 @@
 // src/pages/Product/Roadmap.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Lightbulb, Loader, CheckCircle2, ArrowUpRight } from "lucide-react";
 import N from "../../components/parts/Navbar.jsx";
 import F from "../../components/parts/Footer.jsx";
@@ -53,6 +54,7 @@ const columns = [
 ];
 
 const Roadmap = () => {
+  const navigate = useNavigate();
   return (
     <>
       <N />
@@ -145,6 +147,7 @@ const Roadmap = () => {
         description="Every released feature is live for all trial accounts today."
         primaryLabel="Start Free Trial"
         secondaryLabel="View Changelog"
+        onSecondary={() => navigate("/changelog")}
       />
 
       <F />

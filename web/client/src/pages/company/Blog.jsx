@@ -1,7 +1,15 @@
 // src/pages/Company/Blog.jsx
 import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, Clock, ArrowUpRight, Mail, Send, CheckCircle2 } from "lucide-react";
+import {
+  Search,
+  Clock,
+  ArrowUpRight,
+  Mail,
+  Send,
+  CheckCircle2,
+} from "lucide-react";
 import N from "../../components/parts/Navbar.jsx";
 import F from "../../components/parts/Footer.jsx";
 import PageHero from "../../components/common/PageHero.jsx";
@@ -12,71 +20,9 @@ import {
   viewportOnce,
 } from "../../components/common/motionVariants";
 
-const categories = ["All", "Sales", "Product", "Engineering", "Growth"];
+import { posts } from "../../mock/mockArticles.js";
 
-const posts = [
-  {
-    title: "The 7 pipeline metrics every sales leader should track",
-    excerpt: "Vanity metrics hide the truth. Here are the seven numbers that actually predict whether your quarter will land.",
-    category: "Sales",
-    date: "Mar 12, 2025",
-    read: "8 min read",
-    img: "https://picsum.photos/seed/crm1/800/600",
-    featured: true,
-    author: "Ahmed Raza",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-  },
-  {
-    title: "How we cut dashboard load time by 60%",
-    excerpt: "A deep dive into query batching, caching layers and the render pipeline changes behind our fastest release yet.",
-    category: "Engineering",
-    date: "Mar 05, 2025",
-    read: "11 min read",
-    img: "https://picsum.photos/seed/crm2/800/600",
-    author: "Sara Malik",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-  },
-  {
-    title: "Designing automation for non-technical teams",
-    excerpt: "Why our workflow builder looks nothing like a flowchart tool, and what we learned from 4,000 user sessions.",
-    category: "Product",
-    date: "Feb 26, 2025",
-    read: "6 min read",
-    img: "https://picsum.photos/seed/crm3/800/600",
-    author: "Hina Sheikh",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-  },
-  {
-    title: "Cold outreach that doesn't get marked as spam",
-    excerpt: "Deliverability is a product problem. Practical steps to keep your sequences landing in the inbox.",
-    category: "Growth",
-    date: "Feb 18, 2025",
-    read: "9 min read",
-    img: "https://picsum.photos/seed/crm4/800/600",
-    author: "Bilal Khan",
-    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
-  },
-  {
-    title: "Building a sales playbook from scratch",
-    excerpt: "A step-by-step framework for turning your best rep's instincts into a repeatable, documented process.",
-    category: "Sales",
-    date: "Feb 09, 2025",
-    read: "7 min read",
-    img: "https://picsum.photos/seed/crm5/800/600",
-    author: "Ahmed Raza",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-  },
-  {
-    title: "Why we chose Postgres over a dedicated search engine",
-    excerpt: "Full-text search at our scale turned out to be a configuration problem, not an infrastructure problem.",
-    category: "Engineering",
-    date: "Jan 30, 2025",
-    read: "10 min read",
-    img: "https://picsum.photos/seed/crm6/800/600",
-    author: "Sara Malik",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-  },
-];
+const categories = ["All", "Sales", "Product", "Engineering", "Growth"];
 
 const Blog = () => {
   const [active, setActive] = useState("All");
@@ -145,39 +91,41 @@ const Blog = () => {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="flex flex-col justify-center gap-4 p-8 sm:p-10">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-orange-500 bg-orange-500/10 border border-orange-500/30 px-2.5 py-1 rounded-full">
-                  Featured
-                </span>
-                <span className="text-gray-500 text-xs">{featured.date}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white leading-snug group-hover:text-orange-500 transition-colors">
-                {featured.title}
-              </h2>
-              <p className="text-gray-400 leading-7">{featured.excerpt}</p>
-              <div className="flex items-center justify-between mt-2">
+            <Link to={`/blog/article/${featured.id}`}>
+              <div className="flex flex-col justify-center gap-4 p-8 sm:p-10">
                 <div className="flex items-center gap-3">
-                  <img
-                    src={featured.avatar}
-                    alt={featured.author}
-                    className="w-9 h-9 rounded-full"
-                  />
-                  <div>
-                    <div className="text-white text-sm font-bold">
-                      {featured.author}
-                    </div>
-                    <div className="text-gray-500 text-xs flex items-center gap-1.5">
-                      <Clock size={12} /> {featured.read}
+                  <span className="text-xs font-bold uppercase tracking-wider text-orange-500 bg-orange-500/10 border border-orange-500/30 px-2.5 py-1 rounded-full">
+                    Featured
+                  </span>
+                  <span className="text-gray-500 text-xs">{featured.date}</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white leading-snug group-hover:text-orange-500 transition-colors">
+                  {featured.title}
+                </h2>
+                <p className="text-gray-400 leading-7">{featured.excerpt}</p>
+                <div className="flex items-center justify-between mt-2">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={featured.avatar}
+                      alt={featured.author}
+                      className="w-9 h-9 rounded-full"
+                    />
+                    <div>
+                      <div className="text-white text-sm font-bold">
+                        {featured.author}
+                      </div>
+                      <div className="text-gray-500 text-xs flex items-center gap-1.5">
+                        <Clock size={12} /> {featured.read}
+                      </div>
                     </div>
                   </div>
+                  <ArrowUpRight
+                    size={20}
+                    className="text-orange-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                  />
                 </div>
-                <ArrowUpRight
-                  size={20}
-                  className="text-orange-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                />
               </div>
-            </div>
+            </Link>
           </motion.div>
         </section>
       )}
@@ -245,9 +193,12 @@ const Blog = () => {
                         <Clock size={12} /> {post.read}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-white leading-snug group-hover:text-orange-500 transition-colors">
+                    <Link
+                      to={`/blog/article/${post.id}`}
+                      className="text-lg font-bold text-white leading-snug group-hover:text-orange-500 transition-colors"
+                    >
                       {post.title}
-                    </h3>
+                    </Link>
                     <p className="text-gray-400 text-sm leading-6 flex-1">
                       {post.excerpt}
                     </p>

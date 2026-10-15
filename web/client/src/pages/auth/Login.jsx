@@ -38,18 +38,18 @@ const Login = () => {
     }
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen flex flex-col items-center justify-center bg-[#0f0f0f]">
         {/* Logo */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex items-center justify-center gap-3 mb-8 mt-12"
+        className="flex items-center justify-center gap-3 mb-8"
       >
         <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30">
           <HiOutlineViewGrid className="text-white" size={24} />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-white">CRM System</h1>
+          <h1 className="text-2xl font-bold text-white uppercase tracking-wide"><span className='text-orange-500'>apex</span> crm</h1>
           <p className="text-xs text-gray-500">
             Customer Relationship Management
           </p>

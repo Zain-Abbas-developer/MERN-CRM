@@ -53,7 +53,7 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full my-5">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const Register = () => {
           <HiOutlineViewGrid className="text-white" size={24} />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-white">CRM System</h1>
+          <h1 className="text-2xl font-bold text-white uppercase tracking-wide"><span className='text-orange-500'>apex</span> crm</h1>
           <p className="text-xs text-gray-500">Create your account</p>
         </div>
       </motion.div>
@@ -74,7 +74,7 @@ const Register = () => {
         transition={{ delay: 0.1 }}
         className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-[#2a2a2a]/50 rounded-xl p-8"
       >
-        <div className="text-center mb-6">
+        <div className="text-center mb-2">
           <h2 className="text-xl font-semibold text-white">Register</h2>
           <p className="text-sm text-gray-400 mt-1">Fill in the details below</p>
         </div>

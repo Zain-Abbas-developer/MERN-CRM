@@ -1,6 +1,7 @@
 // src/pages/Company/About.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView, animate } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   Target,
   Heart,
@@ -89,6 +90,7 @@ const team = [
 ];
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <>
       <N />
@@ -316,6 +318,8 @@ const About = () => {
         title="Want to build with us?"
         description="We're hiring across engineering, design and customer success."
         primaryLabel="View Open Roles"
+        onPrimary={() => navigate("/careers")}
+        onSecondary={() => navigate("/contact")}
         secondaryLabel="Contact Us"
       />
 
