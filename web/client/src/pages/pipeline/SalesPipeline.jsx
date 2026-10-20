@@ -695,7 +695,11 @@ const SalesPipeline = () => {
   };
 
   const openCreate = (stage = "lead") => setModal({ mode: "create", deal: null, stage });
-  const openEdit = (deal) => setModal({ mode: "edit", deal, stage: deal.stage });
+
+  // 👇 YAHAN CHANGE KIYA HAI: Edit Modal ki jagah Admin Route par navigate kar rahe hain
+  const handleCardClick = (deal) => {
+    navigate(`/admin/deals/${deal._id}`);
+  };
 
   const handleSaved = (message) => {
     setModal(null);
@@ -714,9 +718,6 @@ const SalesPipeline = () => {
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            {/* <div className="text-sm font-bold uppercase tracking-widest text-orange-500">
-              Sales
-            </div> */}
             <h1 className="mt-2 text-3xl font-bold tracking-wide text-white sm:text-4xl">
               Deals <span className="text-orange-500">Pipeline</span>
             </h1>
@@ -833,7 +834,8 @@ const SalesPipeline = () => {
                 onDrop={(e) => handleDrop(e, col.key)}
                 onDragStart={handleDragStart}
                 onDragEnd={handleDragEnd}
-                onCardClick={openEdit}
+                // 👇 YAHAN CHANGE KIYA HAI
+                onCardClick={handleCardClick}
                 onAdd={() => openCreate(col.key)}
               />
             ))}
@@ -853,7 +855,7 @@ const SalesPipeline = () => {
         </div>
       </div>
 
-      {/* MODAL */}
+      {/* MODAL (Sirf New Deal create karne ke liye) */}
       {modal && (
         <DealFormModal
           mode={modal.mode}

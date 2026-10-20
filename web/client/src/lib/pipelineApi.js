@@ -56,7 +56,7 @@ export const getPipeline = ({ stage, assignedTo, search, limit } = {}, signal) =
   return request(`/pipeline${q ? `?${q}` : ""}`, { signal });
 };
 
-/* ---------------- Deals ---------------- */
+/* ---------------- Deals (Pipeline) ---------------- */
 
 export const createDeal = (data) => request("/pipeline/deals", { method: "POST", body: data });
 
@@ -72,4 +72,21 @@ export const moveDeal = (dealId, { stage, position, lostReason }) =>
 export const archiveDeal = (dealId) =>
   request(`/pipeline/deals/${dealId}`, { method: "DELETE" });
 
-export default { getStages, getPipeline, createDeal, updateDeal, moveDeal, archiveDeal };
+/* ---------------- Deal Details (from dealRoutes) ---------------- */
+
+export const getDealById = (dealId, signal) => 
+  request(`/deals/${dealId}`, { signal });
+
+export const getDealActivities = (dealId, signal) => 
+  request(`/deals/${dealId}/activities`, { signal });
+
+export const addDealActivity = (dealId, { type = "note", content }) => 
+  request(`/deals/${dealId}/activities`, { method: "POST", body: { type, content } });
+
+/* ---------------- Export request for custom calls ---------------- */
+export { request };
+
+export default { 
+  getStages, getPipeline, createDeal, updateDeal, moveDeal, archiveDeal,
+  getDealById, getDealActivities, addDealActivity, request 
+};
