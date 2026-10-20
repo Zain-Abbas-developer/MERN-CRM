@@ -151,6 +151,19 @@ const Dashboard = () => {
 
   return (
     <motion.div variants={container} initial="hidden" animate="show" className='space-y-6'>
+
+      <div>
+            {/* <div className="text-sm font-bold uppercase tracking-widest text-orange-500">
+              Sales
+            </div> */}
+            <h1 className="mt-2 text-3xl font-bold tracking-wide text-white sm:text-4xl">
+              Dash <span className="text-orange-500">Board</span>
+            </h1>
+            <p className="mt-2 max-w-xl text-sm text-gray-500 sm:text-base">
+              Manage Your Customers, Leads, Task & Pipelines.
+            </p>
+          </div>
+
       {/*here are the stat card*/}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat, idx) => (

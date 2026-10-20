@@ -131,9 +131,13 @@ const handleDelete = async (id) => {
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold text-white">Task Management</h2>
-          <p className="text-sm text-gray-500">{tasks.length} total tasks</p>
-        </div>
+            <h1 className="mt-2 text-3xl font-bold tracking-wide text-white sm:text-4xl">
+              Task <span className="text-orange-500">Management</span>
+            </h1>
+            <p className="mt-2 max-w-xl text-sm text-gray-500 sm:text-base">
+              {tasks.length} Total task found.
+            </p>
+          </div>
         <div className="flex items-center gap-3">
           <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)} className=" bg-[#1a1a1a] border border-[#2a2a2a] text-white placeholder-gray-500 rounded-lg px-4 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all duration-200 text-sm py-2 w-auto">
             <option value="all">All Status</option>

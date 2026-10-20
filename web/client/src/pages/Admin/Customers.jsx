@@ -160,9 +160,13 @@ const Customers = () => {
       {/*header row in search and add customer*/}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-white">All Customers</h2>
-          <p className="text-sm text-gray-500">{customers.length} total customers</p>
-        </div>
+            <h1 className="mt-2 text-3xl font-bold tracking-wide text-white sm:text-4xl">
+              All <span className="text-orange-500">Customer</span>
+            </h1>
+            <p className="mt-2 max-w-xl text-sm text-gray-500 sm:text-base">
+              {customers.length} customers found
+            </p>
+          </div>
         <Button onClick={openAdd} icon={<FiPlus size={16} />}>Add Customer</Button>
       </div>
       {/*data table*/}

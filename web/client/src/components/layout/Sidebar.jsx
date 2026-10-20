@@ -1,10 +1,11 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronLeft, FiLogOut } from 'react-icons/fi';
+import { TbLayoutKanbanFilled } from "react-icons/tb";
 import { 
   HiOutlineViewGrid, HiOutlineUsers, HiOutlineClipboardList, 
   HiOutlineChartBar, HiOutlineChatAlt2, HiOutlineUserGroup,
-  HiOutlineUser, HiOutlineTrendingUp
+  HiOutlineUser, HiOutlineTrendingUp,
 } from 'react-icons/hi';
 import useAuth from '../../hooks/useAuth'
 import { ROLES } from '../../constant/roles';
@@ -15,6 +16,7 @@ const menuItems = {
     { path: '/admin/customers', label: 'Customers', icon: HiOutlineUsers },
     { path: '/admin/leads', label: 'Leads', icon: HiOutlineTrendingUp },
     { path: '/admin/tasks', label: 'Tasks', icon: HiOutlineClipboardList },
+    { path: '/admin/sales-pipeline', label: 'Sales Pipeline', icon: TbLayoutKanbanFilled },
     { path: '/admin/users', label: 'Users', icon: HiOutlineUserGroup },
     { path: '/admin/analytics', label: 'Analytics', icon: HiOutlineChartBar },
     { path: '/admin/chat', label: 'Chat', icon: HiOutlineChatAlt2 },

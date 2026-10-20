@@ -269,9 +269,16 @@ const Leads = () => {
       {/*main div*/}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-white">Leads Pipeline</h2>
-          <p className="text-sm text-gray-500">{leads.length} total leads</p>
-        </div>
+            {/* <div className="text-sm font-bold uppercase tracking-widest text-orange-500">
+              Sales
+            </div> */}
+            <h1 className="mt-2 text-3xl font-bold tracking-wide text-white sm:text-4xl">
+              Leads <span className="text-orange-500">Pipeline</span>
+            </h1>
+            <p className="mt-2 max-w-xl text-sm text-gray-500 sm:text-base">
+              {leads.length} leads found. Manage your leads and their status here.
+            </p>
+          </div>
         <Button onClick={openAdd} icon={<FiPlus size={16} />}>
           Add Lead
         </Button>

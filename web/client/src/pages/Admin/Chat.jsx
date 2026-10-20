@@ -107,8 +107,8 @@ const Chat = () => {
       {/* Customer List Panel */}
       <div className="w-80 shrink-0 bg-[#1a1a1a]/80 backdrop-blur-xl border border-[#2a2a2a] rounded-xl flex flex-col overflow-hidden">
         <div className="p-4 border-b border-[#2a2a2a]">
-          <h3 className="text-sm font-semibold text-white mb-3">
-            Conversations
+          <h3 className="text-lg font-semibold text-white mb-3">
+            Customer Chat
           </h3>
           <div className="relative">
             <FiSearch

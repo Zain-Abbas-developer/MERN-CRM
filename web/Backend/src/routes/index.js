@@ -7,6 +7,8 @@ import employeeRoutes from './employeeRoutes.js';
 import customerRoutes from  './customerRoutes.js';
 import chatRoutes from './chatRoutes.js';
 
+import pipelineRoutes from './pipelineRoutes.js';
+
 
 //protected routes here add
 import { protect, authorize } from '../middleware/authMiddleware.js';
@@ -17,5 +19,6 @@ router.use('/customer', protect, authorize('customer'), customerRoutes);
 
 
 router.use('/chat', protect, chatRoutes);
+router.use('/pipeline', protect, authorize('admin', 'employee'), pipelineRoutes);
 
 export default router;

@@ -5,6 +5,7 @@ import Dashboard from "../pages/Admin/Dashboard";
 import Customers from "../pages/Admin/Customers";
 import Leads from "../pages/Admin/Leads";
 import Tasks from "../pages/Admin/Tasks";
+import SalesPipeline from "../pages/pipeline/SalesPipeline";
 import Users from "../pages/Admin/Users";
 import Analytics from "../pages/Admin/Analytics";
 import Chat from "../pages/Admin/Chat";
@@ -24,6 +25,7 @@ const AdminRoutes = (
     <Route path="customers" element={<Customers />} />
     <Route path="leads" element={<Leads />} />
     <Route path="tasks" element={<Tasks />} />
+    <Route path="sales-pipeline" element={<SalesPipeline />} />
     <Route path="users" element={<Users />} />
     <Route path="analytics" element={<Analytics />} />
     <Route path="chat" element={<Chat />} />
