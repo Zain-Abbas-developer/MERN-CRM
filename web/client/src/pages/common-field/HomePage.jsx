@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { motion, useInView, animate } from "framer-motion";
 import {
@@ -19,7 +20,7 @@ import {
 import adminPage from "../../assets/admin-dashboard.png";
 import N from "../../components/parts/Navbar.jsx";
 import F from "../../components/parts/Footer.jsx";
-import { useLanguage } from "../../Context/LanguageContext.jsx";
+// import {languages} from '../../locales/translation.js';
 
 // ---------------- VARIANTS ----------------
 const fadeInUp = {
@@ -83,7 +84,7 @@ const CountUp = ({ to, decimals = 0, suffix = "" }) => {
 
 // ---------------- MAIN ----------------
 const HomePage = () => {
-  const { t } = useLanguage();
+  const { t, i18n } = useTranslation("home");
   const navigate = useNavigate();
 
   return (
@@ -106,20 +107,20 @@ const HomePage = () => {
             variants={fadeInUp}
             className="inline-block px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-500 text-sm font-semibold tracking-wide"
           >
-            {t.heroBadge}
+            {t("heroBadge")}
           </motion.div>
           <motion.h1
             variants={fadeInUp}
             className="font-bold text-3xl sm:text-4xl lg:text-5xl tracking-wider leading-tight sm:leading-[1.15] text-white"
           >
-            {t.heroTitle1} <br />
+            {t("heroTitle1")} <br />
             <span className="text-orange-500">{t.heroTitle2}</span>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
             className="text-gray-300 text-lg sm:text-xl font-medium tracking-wide leading-7 sm:leading-9"
           >
-            {t.heroDesc}
+            {t("heroDesc")}
           </motion.p>
 
           <motion.div
@@ -133,7 +134,7 @@ const HomePage = () => {
               onClick={() => navigate("/register")}
               className="group inline-flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600 cursor-pointer"
             >
-              {t.getStarted}
+              {t("getStarted")}
               <ArrowRightToLine
                 size={18}
                 className="transition-transform duration-300 group-hover:translate-x-1"
@@ -149,7 +150,7 @@ const HomePage = () => {
                 size={18}
                 className="transition-transform duration-300 group-hover:scale-110"
               />
-              {t.viewDemo}
+              {t("viewDemo")}
             </motion.button>
           </motion.div>
 
@@ -158,14 +159,14 @@ const HomePage = () => {
             className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-4 text-gray-400 text-sm font-medium"
           >
             <div className="flex items-center gap-2">
-              <CheckCircle2 size={18} className="text-orange-500" /> {t.secure}
+              <CheckCircle2 size={18} className="text-orange-500" /> {t("secure")}
             </div>
             <div className="flex items-center gap-2">
-              <Zap size={18} className="text-orange-500" /> {t.fast}
+              <Zap size={18} className="text-orange-500" /> {t("fast")}
             </div>
             <div className="flex items-center gap-2">
               <MousePointerClick size={18} className="text-orange-500" />{" "}
-              {t.easyToUse}
+              {t("easyToUse")}
             </div>
           </motion.div>
         </motion.div>
@@ -214,20 +215,20 @@ const HomePage = () => {
             variants={fadeInUp}
             className="text-orange-500 text-sm font-bold tracking-widest uppercase"
           >
-            {t.featuresTag}
+            {t("featuresTag")}
           </motion.div>
           <motion.h2
             variants={fadeInUp}
             className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
           >
-            {t.featuresTitle1}{" "}
+            {t("featuresTitle1")}{" "}
             <span className="text-orange-500">{t.featuresTitle2}</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-gray-400 max-w-2xl text-center"
           >
-            {t.featuresDesc}
+            {t("featuresDesc")}
           </motion.p>
         </motion.div>
 
@@ -241,23 +242,23 @@ const HomePage = () => {
           {[
             {
               icon: <Users size={24} />,
-              title: t.feature1Title,
-              desc: t.feature1Desc,
+              title: t("feature1Title"),
+              desc: t("feature1Desc"),
             },
             {
               icon: <UserGroup size={24} />,
-              title: t.feature2Title,
-              desc: t.feature2Desc,
+              title: t("feature2Title"),
+              desc: t("feature2Desc"),
             },
             {
               icon: <BarChart3 size={24} />,
-              title: t.feature3Title,
-              desc: t.feature3Desc,
+              title: t("feature3Title"),
+              desc: t("feature3Desc"),
             },
             {
               icon: <CheckSquare size={24} />,
-              title: t.feature4Title,
-              desc: t.feature4Desc,
+              title: t("feature4Title"),
+              desc: t("feature4Desc"),
             },
           ].map((feature, i) => (
             <motion.div
@@ -302,23 +303,23 @@ const HomePage = () => {
             variants={fadeInLeft}
             className="text-orange-500 text-sm font-bold tracking-widest uppercase"
           >
-            {t.dashTag}
+            {t("dashTag")}
           </motion.div>
           <motion.h2
             variants={fadeInLeft}
             className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
           >
-            {t.dashTitle1} <br /> {t.dashTitle2}{" "}
-            <span className="text-orange-500">{t.dashTitle3}</span>
+            {t("dashTitle1")} <br /> {t("dashTitle2")}{" "}
+            <span className="text-orange-500">{t("dashTitle3")}</span>
           </motion.h2>
           <motion.p variants={fadeInLeft} className="text-gray-400 text-lg">
-            {t.dashDesc}
+            {t("dashDesc")}
           </motion.p>
           <motion.ul
             variants={staggerContainer}
             className="flex flex-col gap-4 mt-2"
           >
-            {[t.dashPoint1, t.dashPoint2, t.dashPoint3, t.dashPoint4].map(
+            {[t("dashPoint1"), t("dashPoint2"), t("dashPoint3"), t("dashPoint4")].map(
               (item, i) => (
                 <motion.li
                   key={i}
@@ -368,20 +369,20 @@ const HomePage = () => {
             variants={fadeInUp}
             className="text-orange-500 text-sm font-bold tracking-widest uppercase"
           >
-            {t.rolesTag}
+            {t("rolesTag")}
           </motion.div>
           <motion.h2
             variants={fadeInUp}
             className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
           >
-            {t.rolesTitle1}{" "}
-            <span className="text-orange-500">{t.rolesTitle2}</span>
+            {t("rolesTitle1")}{" "}
+            <span className="text-orange-500">{t("rolesTitle2")}</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-gray-400 max-w-2xl text-center"
           >
-            {t.rolesDesc}
+            {t("rolesDesc")}
           </motion.p>
         </motion.div>
 
@@ -395,24 +396,24 @@ const HomePage = () => {
           {[
             {
               icon: <UserCog size={24} />,
-              title: t.adminTitle,
-              subtitle: t.adminSubtitle,
-              items: [t.adminPoint1, t.adminPoint2, t.adminPoint3],
-              cta: t.adminCta,
+              title: t("adminTitle"),
+              subtitle: t("adminSubtitle"),
+              items: [t("adminPoint1"), t("adminPoint2"), t("adminPoint3")],
+              cta: t("adminCta"),
             },
             {
               icon: <CircleUserRound size={24} />,
-              title: t.empTitle,
-              subtitle: t.empSubtitle,
-              items: [t.empPoint1, t.empPoint2, t.empPoint3],
-              cta: t.empCta,
+              title: t("empTitle"),
+              subtitle: t("empSubtitle"),
+              items: [t("empPoint1"), t("empPoint2"), t("empPoint3")],
+              cta: t("empCta"),
             },
             {
               icon: <UserGroup size={24} />,
-              title: t.custTitle,
-              subtitle: t.custSubtitle,
-              items: [t.custPoint1, t.custPoint2, t.custPoint3],
-              cta: t.custCta,
+              title: t("custTitle"),
+              subtitle: t("custSubtitle"),
+              items: [t("custPoint1"), t("custPoint2"), t("custPoint3")],
+              cta: t("custCta"),
             },
           ].map((role, i) => (
             <motion.div
@@ -466,7 +467,7 @@ const HomePage = () => {
               icon: <UserGroup size={32} className="text-orange-500 mb-2" />,
               to: 1248,
               suffix: "+",
-              label: t.stat1Label,
+              label: t("stat1Label"),
             },
             {
               icon: (
@@ -474,20 +475,20 @@ const HomePage = () => {
               ),
               to: 48,
               suffix: "+",
-              label: t.stat2Label,
+              label: t("stat2Label"),
             },
             {
               icon: <CheckSquare size={32} className="text-orange-500 mb-2" />,
               to: 86,
               suffix: "+",
-              label: t.stat3Label,
+              label: t("stat3Label"),
             },
             {
               icon: <ShieldCheck size={32} className="text-orange-500 mb-2" />,
               to: 99.9,
               decimals: 1,
               suffix: "%",
-              label: t.stat4Label,
+              label: t("stat4Label"),
             },
           ].map((stat, i) => (
             <motion.div
@@ -526,14 +527,14 @@ const HomePage = () => {
             variants={fadeInUp}
             className="text-orange-500 text-sm font-bold tracking-widest uppercase"
           >
-            {t.testiTag}
+            {t("testiTag")}
           </motion.div>
           <motion.h2
             variants={fadeInUp}
             className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
           >
-            {t.testiTitle1}{" "}
-            <span className="text-orange-500">{t.testiTitle2}</span>
+            {t("testiTitle1")}{" "}
+            <span className="text-orange-500">{t("testiTitle2")}</span>
           </motion.h2>
         </motion.div>
 
@@ -546,22 +547,22 @@ const HomePage = () => {
         >
           {[
             {
-              quote: t.testi1,
+              quote: t("testi1"),
               img: "https://randomuser.me/api/portraits/men/32.jpg",
-              name: t.testi1Name,
-              role: t.testi1Role,
+              name: t("testi1Name"),
+              role: t("testi1Role"),
             },
             {
-              quote: t.testi2,
+              quote: t("testi2"),
               img: "https://randomuser.me/api/portraits/women/44.jpg",
-              name: t.testi2Name,
-              role: t.testi2Role,
+              name: t("testi2Name"),
+              role: t("testi2Role"),
             },
             {
-              quote: t.testi3,
+              quote: t("testi3"),
               img: "https://randomuser.me/api/portraits/men/75.jpg",
-              name: t.testi3Name,
-              role: t.testi3Role,
+              name: t("testi3Name"),
+              role: t("testi3Role"),
             },
           ].map((testi, i) => (
             <motion.div
@@ -611,12 +612,12 @@ const HomePage = () => {
         >
           <div>
             <div className="text-orange-500 text-sm font-bold tracking-widest uppercase mb-2">
-              {t.ctaTag}
+              {t("ctaTag")}
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
-              {t.ctaTitle}
+              {t("ctaTitle")}
             </h2>
-            <p className="text-gray-400 mt-2">{t.ctaDesc}</p>
+            <p className="text-gray-400 mt-2">{t("ctaDesc")}</p>
           </div>
           <div className="flex gap-4">
             <motion.button
@@ -626,7 +627,7 @@ const HomePage = () => {
               onClick={() => navigate("/register")}
               className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
             >
-              {t.ctaBtn1}
+              {t("ctaBtn1")}
             </motion.button>
             <motion.button
               whileHover={{ y: -3, scale: 1.05 }}
@@ -634,7 +635,7 @@ const HomePage = () => {
               transition={{ type: "spring", stiffness: 400, damping: 18 }}
               className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors"
             >
-              {t.ctaBtn2}
+              {t("ctaBtn2")}
             </motion.button>
           </div>
         </motion.div>

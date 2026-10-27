@@ -1,6 +1,7 @@
 // src/pages/Product/Features.jsx
 import React from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import {
   Users,
@@ -29,97 +30,101 @@ import {
   viewportOnce,
 } from "../../components/common/motionVariants";
 
-const coreFeatures = [
-  {
-    icon: <Users size={24} />,
-    title: "Contact Management",
-    desc: "Keep every lead, customer and conversation in one clean, searchable timeline.",
-  },
-  {
-    icon: <UserGroup size={24} />,
-    title: "Team Collaboration",
-    desc: "Assign owners, mention teammates and keep everyone aligned on the same record.",
-  },
-  {
-    icon: <BarChart3 size={24} />,
-    title: "Advanced Analytics",
-    desc: "Real-time dashboards for pipeline value, conversion rate and team performance.",
-  },
-  {
-    icon: <CheckSquare size={24} />,
-    title: "Task Automation",
-    desc: "Automate follow-ups, reminders and stage changes with zero-code workflows.",
-  },
-  {
-    icon: <ShieldCheck size={24} />,
-    title: "Role Permissions",
-    desc: "Granular access control for admins, managers and agents out of the box.",
-  },
-  {
-    icon: <Bell size={24} />,
-    title: "Smart Notifications",
-    desc: "Never miss a deal again with intelligent alerts across email and in-app.",
-  },
-  {
-    icon: <Workflow size={24} />,
-    title: "Pipeline Builder",
-    desc: "Design custom sales stages that mirror exactly how your team actually sells.",
-  },
-  {
-    icon: <Globe size={24} />,
-    title: "Multi-language",
-    desc: "Serve global teams with built-in localization and region-aware formatting.",
-  },
-];
-
-const deepDives = [
-  {
-    tag: "Pipeline",
-    title: "A sales pipeline that matches",
-    highlight: "how you sell",
-    desc: "Drag, drop and close. Build unlimited pipelines, set automations per stage and get a live forecast that actually updates itself.",
-    points: [
-      "Unlimited custom pipelines and stages",
-      "Automatic stage-based follow-ups",
-      "Weighted forecasting and revenue targets",
-      "Deal rotting alerts and inactivity rules",
-    ],
-  },
-  {
-    tag: "Automation",
-    title: "Put your busywork on",
-    highlight: "autopilot",
-    desc: "From lead capture to handoff, automate the repetitive parts so your team can focus on conversations that convert.",
-    points: [
-      "Zero-code workflow builder",
-      "Email sequences and templates",
-      "Webhook and API triggers",
-      "Round-robin lead distribution",
-    ],
-  },
-];
-
 const Features = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation("features");
+
+  const coreFeatures = [
+    {
+      icon: <Users size={24} />,
+      title: t("feature1Title"),
+      desc: t("feature1Desc"),
+    },
+    {
+      icon: <UserGroup size={24} />,
+      title: t("feature2Title"),
+      desc: t("feature2Desc"),
+    },
+    {
+      icon: <BarChart3 size={24} />,
+      title: t("feature3Title"),
+      desc: t("feature3Desc"),
+    },
+    {
+      icon: <CheckSquare size={24} />,
+      title: t("feature4Title"),
+      desc: t("feature4Desc"),
+    },
+    {
+      icon: <ShieldCheck size={24} />,
+      title: t("feature5Title"),
+      desc: t("feature5Desc"),
+    },
+    {
+      icon: <Bell size={24} />,
+      title: t("feature6Title"),
+      desc: t("feature6Desc"),
+    },
+    {
+      icon: <Workflow size={24} />,
+      title: t("feature7Title"),
+      desc: t("feature7Desc"),
+    },
+    {
+      icon: <Globe size={24} />,
+      title: t("feature8Title"),
+      desc: t("feature8Desc"),
+    },
+  ];
+
+  const deepDives = [
+    {
+      tag: t("deepDive1Tag"),
+      pathKey: "pipeline",
+      title: t("deepDive1Title"),
+      highlight: t("deepDive1Highlight"),
+      desc: t("deepDive1Desc"),
+      points: [
+        t("deepDive1Point1"),
+        t("deepDive1Point2"),
+        t("deepDive1Point3"),
+        t("deepDive1Point4"),
+      ],
+    },
+    {
+      tag: t("deepDive2Tag"),
+      pathKey: "automation",
+      title: t("deepDive2Title"),
+      highlight: t("deepDive2Highlight"),
+      desc: t("deepDive2Desc"),
+      points: [
+        t("deepDive2Point1"),
+        t("deepDive2Point2"),
+        t("deepDive2Point3"),
+        t("deepDive2Point4"),
+      ],
+    },
+  ];
+
   return (
     <>
       <N />
 
       <PageHero
-        badge="Features"
-        title="Everything your team needs to"
-        highlight="close faster"
-        description="One connected platform for contacts, pipelines, tasks and reporting — built for teams that outgrow spreadsheets."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       >
         <div className="flex flex-wrap items-center justify-center gap-6 mt-4 text-gray-400 text-sm font-medium">
           <div className="flex items-center gap-2">
-            <CheckCircle2 size={18} className="text-orange-500" /> No credit card
+            <CheckCircle2 size={18} className="text-orange-500" /> {t("noCreditCard")}
           </div>
           <div className="flex items-center gap-2">
-            <Zap size={18} className="text-orange-500" /> Setup in 5 minutes
+            <Zap size={18} className="text-orange-500" /> {t("setupIn5Minutes")}
           </div>
           <div className="flex items-center gap-2">
-            <ShieldCheck size={18} className="text-orange-500" /> SOC 2 ready
+            <ShieldCheck size={18} className="text-orange-500" /> {t("soc2Ready")}
           </div>
         </div>
       </PageHero>
@@ -138,13 +143,14 @@ const Features = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Core Capabilities
+              {t("coreCapabilitiesTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Built for <span className="text-orange-500">real workflows</span>
+              {t("coreTitle")}{" "}
+              <span className="text-orange-500">{t("coreHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -225,12 +231,11 @@ const Features = () => {
                 variants={fadeInUp}
                 whileHover={{ x: 4 }}
                 onClick={() => {
-                  const targetPath = block.tag.toLowerCase();
-                  navigate(`/features/${targetPath}`);
+                  navigate(`/features/${block.pathKey}`);
                 }}
                 className="self-start mt-2 inline-flex items-center gap-2 text-orange-500 font-semibold cursor-pointer"
               >
-                Learn more <ArrowRightToLine size={18} />
+                {t("learnMore")} <ArrowRightToLine size={18} />
               </motion.button>
             </motion.div>
 
@@ -271,11 +276,11 @@ const Features = () => {
       ))}
 
       <CtaBanner
-        tag="Get Started"
-        title="See every feature in action"
-        description="Start your 14-day free trial. No credit card required."
-        primaryLabel="Start Free Trial"
-        secondaryLabel="Book a Demo"
+        tag={t("ctaTag")}
+        title={t("ctaTitle")}
+        description={t("ctaDesc")}
+        primaryLabel={t("ctaPrimary")}
+        secondaryLabel={t("ctaSecondary")}
       />
 
       <F />

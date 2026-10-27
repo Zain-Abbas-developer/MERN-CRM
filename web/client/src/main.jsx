@@ -1,16 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import './i18n';
 import { ThemeProvider } from "./Context/ThemeContext.jsx";
 import { AuthProvider } from "./Context/AuthContext.jsx";
 import { Toaster } from "react-hot-toast";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { LanguageProvider } from "./Context/LanguageContext.jsx";
+// import { LanguageProvider } from "./Context/LanguageContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <LanguageProvider>
       <ThemeProvider>
         <BrowserRouter>
           <AuthProvider>
@@ -37,6 +37,5 @@ createRoot(document.getElementById("root")).render(
           </AuthProvider>
         </BrowserRouter>
       </ThemeProvider>
-    </LanguageProvider>
   </StrictMode>,
 );
