@@ -1,0 +1,99 @@
+{
+  "pageBadge": "Precios",
+  "pageTitle": "Precios simples que",
+  "pageHighlight": "crecen contigo",
+  "pageDescription": "Comienza gratis, mejora cuando estés listo. Todos los planes incluyen negocios ilimitados y sin cargos de configuración.",
+  "monthly": "Mensual",
+  "yearly": "Anual",
+  "saveBadge": "Ahorra 20%",
+
+  "plan1Name": "Inicial",
+  "plan1Tagline": "Para fundadores individuales y equipos pequeños",
+  "plan1Cta": "Comenzar prueba gratuita",
+  "plan1Features": [
+    "Hasta 3 usuarios",
+    "1.000 contactos",
+    "2 pipelines",
+    "Integración de correo",
+    "Informes básicos",
+    "Soporte comunitario"
+  ],
+
+  "plan2Name": "Profesional",
+  "plan2Tagline": "Para equipos de ventas en crecimiento",
+  "plan2Cta": "Comenzar prueba gratuita",
+  "plan2Features": [
+    "Hasta 25 usuarios",
+    "50.000 contactos",
+    "Pipelines ilimitados",
+    "Automatización de flujo de trabajo",
+    "Analíticas avanzadas",
+    "Permisos por rol",
+    "Soporte prioritario por correo"
+  ],
+
+  "plan3Name": "Empresarial",
+  "plan3Tagline": "Para grandes organizaciones",
+  "plan3Cta": "Contactar ventas",
+  "plan3Features": [
+    "Usuarios ilimitados",
+    "Contactos ilimitados",
+    "SSO y SAML",
+    "Integraciones personalizadas",
+    "Gerente de éxito dedicado",
+    "SLA de 99,9% de disponibilidad",
+    "Soporte telefónico 24/7"
+  ],
+
+  "mostPopular": "MÁS POPULAR",
+  "perUserMo": "/ usuario / mes",
+  "billedAnnually": "Facturado anualmente",
+  "billedMonthly": "Facturado mensualmente",
+
+  "trialBadge": "Prueba gratuita de 14 días",
+  "cancelBadge": "Cancela cuando quieras",
+  "noSetupBadge": "Sin cargos de configuración",
+
+  "compareTag": "Comparar",
+  "compareTitle": "Comparación de",
+  "compareHighlight": "planes",
+  "featureCol": "Función",
+  "starterCol": "Inicial",
+  "proCol": "Profesional",
+  "entCol": "Empresarial",
+
+  "compUsers": "Usuarios",
+  "compContacts": "Contactos",
+  "compPipelines": "Pipelines",
+  "compAutomation": "Automatización",
+  "compAnalytics": "Analíticas avanzadas",
+  "compPermissions": "Permisos por rol",
+  "compSso": "SSO / SAML",
+  "compApi": "Acceso API",
+  "compManager": "Gerente dedicado",
+
+  "valUsersStarter": "3",
+  "valUsersPro": "25",
+  "valContactsStarter": "1.000",
+  "valContactsPro": "50.000",
+  "valPipelinesStarter": "2",
+  "unlimited": "Ilimitado",
+
+  "faqTag": "Preguntas frecuentes",
+  "faqTitle": "¿Preguntas?",
+  "faqHighlight": "Respondidas.",
+  "faq1Q": "¿Puedo cambiar mi plan más adelante?",
+  "faq1A": "Por supuesto. Puedes mejorar, degradar o cancelar en cualquier momento desde la configuración de facturación. Los cambios se prorratean automáticamente.",
+  "faq2Q": "¿Hay una prueba gratuita?",
+  "faq2A": "Sí — cada plan de pago incluye una prueba gratuita de 14 días. No se requiere tarjeta de crédito para comenzar.",
+  "faq3Q": "¿Qué métodos de pago aceptan?",
+  "faq3A": "Aceptamos todas las tarjetas de crédito y débito principales, además de transferencia bancaria y órdenes de compra para planes Empresariales anuales.",
+  "faq4Q": "¿Ofrecen descuentos?",
+  "faq4A": "Ofrecemos un 20% de descuento en facturación anual y precios especiales para organizaciones sin fines de lucro, startups e instituciones educativas.",
+
+  "ctaTag": "¿Aún decidiendo?",
+  "ctaTitle": "Habla con nuestro equipo de ventas",
+  "ctaDesc": "Te ayudaremos a elegir el plan adecuado para el tamaño y flujo de trabajo de tu equipo.",
+  "ctaPrimary": "Comenzar prueba gratuita",
+  "ctaSecondary": "Contactar ventas"
+}

@@ -1,0 +1,99 @@
+{
+  "pageBadge": "Tarifs",
+  "pageTitle": "Des tarifs simples qui",
+  "pageHighlight": "évoluent avec vous",
+  "pageDescription": "Commencez gratuitement, passez à la version supérieure quand vous êtes prêt. Chaque forfait inclut des transactions illimitées et aucun frais d'installation.",
+  "monthly": "Mensuel",
+  "yearly": "Annuel",
+  "saveBadge": "Économisez 20%",
+
+  "plan1Name": "Débutant",
+  "plan1Tagline": "Pour les fondateurs solo et les petites équipes",
+  "plan1Cta": "Démarrer l'essai gratuit",
+  "plan1Features": [
+    "Jusqu'à 3 utilisateurs",
+    "1 000 contacts",
+    "2 pipelines",
+    "Intégration e-mail",
+    "Rapports de base",
+    "Support communautaire"
+  ],
+
+  "plan2Name": "Professionnel",
+  "plan2Tagline": "Pour les équipes commerciales en croissance",
+  "plan2Cta": "Démarrer l'essai gratuit",
+  "plan2Features": [
+    "Jusqu'à 25 utilisateurs",
+    "50 000 contacts",
+    "Pipelines illimités",
+    "Automatisation des workflows",
+    "Analyses avancées",
+    "Permissions par rôle",
+    "Support e-mail prioritaire"
+  ],
+
+  "plan3Name": "Entreprise",
+  "plan3Tagline": "Pour les grandes organisations",
+  "plan3Cta": "Contacter les ventes",
+  "plan3Features": [
+    "Utilisateurs illimités",
+    "Contacts illimités",
+    "SSO & SAML",
+    "Intégrations personnalisées",
+    "Gestionnaire de succès dédié",
+    "SLA de disponibilité de 99,9 %",
+    "Support téléphonique 24/7"
+  ],
+
+  "mostPopular": "LE PLUS POPULAIRE",
+  "perUserMo": "/ utilisateur / mois",
+  "billedAnnually": "Facturé annuellement",
+  "billedMonthly": "Facturé mensuellement",
+
+  "trialBadge": "Essai gratuit de 14 jours",
+  "cancelBadge": "Annulez à tout moment",
+  "noSetupBadge": "Aucun frais d'installation",
+
+  "compareTag": "Comparer",
+  "compareTitle": "Comparaison des",
+  "compareHighlight": "forfaits",
+  "featureCol": "Fonctionnalité",
+  "starterCol": "Débutant",
+  "proCol": "Professionnel",
+  "entCol": "Entreprise",
+
+  "compUsers": "Utilisateurs",
+  "compContacts": "Contacts",
+  "compPipelines": "Pipelines",
+  "compAutomation": "Automatisation",
+  "compAnalytics": "Analyses avancées",
+  "compPermissions": "Permissions par rôle",
+  "compSso": "SSO / SAML",
+  "compApi": "Accès API",
+  "compManager": "Gestionnaire dédié",
+
+  "valUsersStarter": "3",
+  "valUsersPro": "25",
+  "valContactsStarter": "1 000",
+  "valContactsPro": "50 000",
+  "valPipelinesStarter": "2",
+  "unlimited": "Illimité",
+
+  "faqTag": "FAQ",
+  "faqTitle": "Questions ?",
+  "faqHighlight": "Répondues.",
+  "faq1Q": "Puis-je changer de forfait plus tard ?",
+  "faq1A": "Absolument. Vous pouvez passer à un forfait supérieur, inférieur ou annuler à tout moment depuis vos paramètres de facturation. Les changements sont calculés au prorata automatiquement.",
+  "faq2Q": "Y a-t-il un essai gratuit ?",
+  "faq2A": "Oui — chaque forfait payant inclut un essai gratuit de 14 jours. Aucune carte de crédit requise pour commencer.",
+  "faq3Q": "Quels moyens de paiement acceptez-vous ?",
+  "faq3A": "Nous acceptons toutes les principales cartes de crédit et de débit, ainsi que le virement bancaire et les bons de commande pour les forfaits Entreprise annuels.",
+  "faq4Q": "Offrez-vous des réductions ?",
+  "faq4A": "Nous offrons 20 % de réduction sur la facturation annuelle et des tarifs spéciaux pour les organisations à but non lucratif, les startups et les établissements d'enseignement.",
+
+  "ctaTag": "Vous hésitez encore ?",
+  "ctaTitle": "Parlez à notre équipe commerciale",
+  "ctaDesc": "Nous vous aiderons à choisir le bon forfait pour la taille de votre équipe et votre flux de travail.",
+  "ctaPrimary": "Démarrer l'essai gratuit",
+  "ctaSecondary": "Contacter les ventes"
+}

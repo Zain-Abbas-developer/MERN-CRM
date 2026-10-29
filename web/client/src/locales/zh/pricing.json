@@ -1,0 +1,99 @@
+{
+  "pageBadge": "价格",
+  "pageTitle": "简洁的定价，",
+  "pageHighlight": "随您成长",
+  "pageDescription": "免费开始，准备好时再升级。每个套餐都包含无限交易，且无安装费。",
+  "monthly": "月付",
+  "yearly": "年付",
+  "saveBadge": "节省20%",
+
+  "plan1Name": "入门版",
+  "plan1Tagline": "适合独立创始人和小团队",
+  "plan1Cta": "开始免费试用",
+  "plan1Features": [
+    "最多3个用户",
+    "1,000个联系人",
+    "2个销售管道",
+    "电子邮件集成",
+    "基础报告",
+    "社区支持"
+  ],
+
+  "plan2Name": "专业版",
+  "plan2Tagline": "适合成长中的销售团队",
+  "plan2Cta": "开始免费试用",
+  "plan2Features": [
+    "最多25个用户",
+    "50,000个联系人",
+    "无限销售管道",
+    "工作流自动化",
+    "高级分析",
+    "角色权限",
+    "优先邮件支持"
+  ],
+
+  "plan3Name": "企业版",
+  "plan3Tagline": "适合大型组织",
+  "plan3Cta": "联系销售",
+  "plan3Features": [
+    "无限用户",
+    "无限联系人",
+    "SSO和SAML",
+    "自定义集成",
+    "专属成功经理",
+    "99.9%正常运行时间SLA",
+    "24/7电话支持"
+  ],
+
+  "mostPopular": "最受欢迎",
+  "perUserMo": "/ 用户 / 月",
+  "billedAnnually": "按年计费",
+  "billedMonthly": "按月计费",
+
+  "trialBadge": "14天免费试用",
+  "cancelBadge": "随时取消",
+  "noSetupBadge": "无安装费",
+
+  "compareTag": "比较",
+  "compareTitle": "套餐",
+  "compareHighlight": "对比",
+  "featureCol": "功能",
+  "starterCol": "入门版",
+  "proCol": "专业版",
+  "entCol": "企业版",
+
+  "compUsers": "用户",
+  "compContacts": "联系人",
+  "compPipelines": "销售管道",
+  "compAutomation": "自动化",
+  "compAnalytics": "高级分析",
+  "compPermissions": "角色权限",
+  "compSso": "SSO / SAML",
+  "compApi": "API访问",
+  "compManager": "专属经理",
+
+  "valUsersStarter": "3",
+  "valUsersPro": "25",
+  "valContactsStarter": "1,000",
+  "valContactsPro": "50,000",
+  "valPipelinesStarter": "2",
+  "unlimited": "无限",
+
+  "faqTag": "常见问题",
+  "faqTitle": "有疑问？",
+  "faqHighlight": "已解答。",
+  "faq1Q": "以后可以更改套餐吗？",
+  "faq1A": "当然可以。您可以随时从账单设置中升级、降级或取消。更改会自动按比例计算。",
+  "faq2Q": "有免费试用吗？",
+  "faq2A": "有 — 每个付费套餐都包含14天免费试用。无需信用卡即可开始。",
+  "faq3Q": "你们接受哪些付款方式？",
+  "faq3A": "我们接受所有主要信用卡和借记卡，以及年度企业版套餐的银行转账和采购订单。",
+  "faq4Q": "你们提供折扣吗？",
+  "faq4A": "我们为年度账单提供8折优惠，并为非营利组织、初创公司和教育机构提供特别定价。",
+
+  "ctaTag": "还在犹豫？",
+  "ctaTitle": "与我们销售团队交流",
+  "ctaDesc": "我们会帮您根据团队规模和工作流选择合适的套餐。",
+  "ctaPrimary": "开始免费试用",
+  "ctaSecondary": "联系销售"
+}

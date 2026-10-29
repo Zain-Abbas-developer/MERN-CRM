@@ -1,0 +1,99 @@
+{
+  "pageBadge": "Pricing",
+  "pageTitle": "Simple pricing that",
+  "pageHighlight": "scales with you",
+  "pageDescription": "Start free, upgrade when you're ready. Every plan includes unlimited deals and no setup fees.",
+  "monthly": "Monthly",
+  "yearly": "Yearly",
+  "saveBadge": "Save 20%",
+
+  "plan1Name": "Starter",
+  "plan1Tagline": "For solo founders and small teams",
+  "plan1Cta": "Start Free Trial",
+  "plan1Features": [
+    "Up to 3 users",
+    "1,000 contacts",
+    "2 pipelines",
+    "Email integration",
+    "Basic reporting",
+    "Community support"
+  ],
+
+  "plan2Name": "Professional",
+  "plan2Tagline": "For growing sales teams",
+  "plan2Cta": "Start Free Trial",
+  "plan2Features": [
+    "Up to 25 users",
+    "50,000 contacts",
+    "Unlimited pipelines",
+    "Workflow automation",
+    "Advanced analytics",
+    "Role permissions",
+    "Priority email support"
+  ],
+
+  "plan3Name": "Enterprise",
+  "plan3Tagline": "For large organizations",
+  "plan3Cta": "Contact Sales",
+  "plan3Features": [
+    "Unlimited users",
+    "Unlimited contacts",
+    "SSO & SAML",
+    "Custom integrations",
+    "Dedicated success manager",
+    "99.9% uptime SLA",
+    "24/7 phone support"
+  ],
+
+  "mostPopular": "MOST POPULAR",
+  "perUserMo": "/ user / mo",
+  "billedAnnually": "Billed annually",
+  "billedMonthly": "Billed monthly",
+
+  "trialBadge": "14-day free trial",
+  "cancelBadge": "Cancel anytime",
+  "noSetupBadge": "No setup fees",
+
+  "compareTag": "Compare",
+  "compareTitle": "Plan",
+  "compareHighlight": "comparison",
+  "featureCol": "Feature",
+  "starterCol": "Starter",
+  "proCol": "Professional",
+  "entCol": "Enterprise",
+
+  "compUsers": "Users",
+  "compContacts": "Contacts",
+  "compPipelines": "Pipelines",
+  "compAutomation": "Automation",
+  "compAnalytics": "Advanced Analytics",
+  "compPermissions": "Role Permissions",
+  "compSso": "SSO / SAML",
+  "compApi": "API Access",
+  "compManager": "Dedicated Manager",
+
+  "valUsersStarter": "3",
+  "valUsersPro": "25",
+  "valContactsStarter": "1,000",
+  "valContactsPro": "50,000",
+  "valPipelinesStarter": "2",
+  "unlimited": "Unlimited",
+
+  "faqTag": "FAQ",
+  "faqTitle": "Questions?",
+  "faqHighlight": "Answered.",
+  "faq1Q": "Can I change my plan later?",
+  "faq1A": "Absolutely. You can upgrade, downgrade or cancel at any time from your billing settings. Changes are prorated automatically.",
+  "faq2Q": "Is there a free trial?",
+  "faq2A": "Yes — every paid plan comes with a 14-day free trial. No credit card required to get started.",
+  "faq3Q": "What payment methods do you accept?",
+  "faq3A": "We accept all major credit and debit cards, plus bank transfer and purchase orders for annual Enterprise plans.",
+  "faq4Q": "Do you offer discounts?",
+  "faq4A": "We offer 20% off on annual billing and special pricing for non-profits, startups and educational institutions.",
+
+  "ctaTag": "Still deciding?",
+  "ctaTitle": "Talk to our sales team",
+  "ctaDesc": "We'll help you pick the right plan for your team size and workflow.",
+  "ctaPrimary": "Start Free Trial",
+  "ctaSecondary": "Contact Sales"
+}

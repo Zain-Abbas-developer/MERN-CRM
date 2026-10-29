@@ -1,5 +1,6 @@
 // src/pages/Product/Pricing.jsx
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Check,
@@ -23,86 +24,51 @@ import {
 
 const plans = [
   {
-    name: "Starter",
-    tagline: "For solo founders and small teams",
+    nameKey: "plan1Name",
+    taglineKey: "plan1Tagline",
     monthly: 19,
     yearly: 15,
     highlight: false,
-    cta: "Start Free Trial",
-    features: [
-      "Up to 3 users",
-      "1,000 contacts",
-      "2 pipelines",
-      "Email integration",
-      "Basic reporting",
-      "Community support",
-    ],
+    ctaKey: "plan1Cta",
+    featuresKey: "plan1Features",
   },
   {
-    name: "Professional",
-    tagline: "For growing sales teams",
+    nameKey: "plan2Name",
+    taglineKey: "plan2Tagline",
     monthly: 49,
     yearly: 39,
     highlight: true,
-    cta: "Start Free Trial",
-    features: [
-      "Up to 25 users",
-      "50,000 contacts",
-      "Unlimited pipelines",
-      "Workflow automation",
-      "Advanced analytics",
-      "Role permissions",
-      "Priority email support",
-    ],
+    ctaKey: "plan2Cta",
+    featuresKey: "plan2Features",
   },
   {
-    name: "Enterprise",
-    tagline: "For large organizations",
+    nameKey: "plan3Name",
+    taglineKey: "plan3Tagline",
     monthly: 99,
     yearly: 79,
     highlight: false,
-    cta: "Contact Sales",
-    features: [
-      "Unlimited users",
-      "Unlimited contacts",
-      "SSO & SAML",
-      "Custom integrations",
-      "Dedicated success manager",
-      "99.9% uptime SLA",
-      "24/7 phone support",
-    ],
+    ctaKey: "plan3Cta",
+    featuresKey: "plan3Features",
   },
 ];
 
 const comparison = [
-  { label: "Users", starter: "3", pro: "25", ent: "Unlimited" },
-  { label: "Contacts", starter: "1,000", pro: "50,000", ent: "Unlimited" },
-  { label: "Pipelines", starter: "2", pro: "Unlimited", ent: "Unlimited" },
-  { label: "Automation", starter: false, pro: true, ent: true },
-  { label: "Advanced Analytics", starter: false, pro: true, ent: true },
-  { label: "Role Permissions", starter: false, pro: true, ent: true },
-  { label: "SSO / SAML", starter: false, pro: false, ent: true },
-  { label: "API Access", starter: false, pro: true, ent: true },
-  { label: "Dedicated Manager", starter: false, pro: false, ent: true },
+  { labelKey: "compUsers", starterKey: "valUsersStarter", proKey: "valUsersPro", entKey: "unlimited" },
+  { labelKey: "compContacts", starterKey: "valContactsStarter", proKey: "valContactsPro", entKey: "unlimited" },
+  { labelKey: "compPipelines", starterKey: "valPipelinesStarter", proKey: "unlimited", entKey: "unlimited" },
+  { labelKey: "compAutomation", starter: false, pro: true, ent: true },
+  { labelKey: "compAnalytics", starter: false, pro: true, ent: true },
+  { labelKey: "compPermissions", starter: false, pro: true, ent: true },
+  { labelKey: "compSso", starter: false, pro: false, ent: true },
+  { labelKey: "compApi", starter: false, pro: true, ent: true },
+  { labelKey: "compManager", starter: false, pro: false, ent: true },
 ];
 
 const faqs = [
-  {
-    q: "Can I change my plan later?",
-    a: "Absolutely. You can upgrade, downgrade or cancel at any time from your billing settings. Changes are prorated automatically.",
-  },
-  {
-    q: "Is there a free trial?",
-    a: "Yes — every paid plan comes with a 14-day free trial. No credit card required to get started.",
-  },
-  {
-    q: "What payment methods do you accept?",
-    a: "We accept all major credit and debit cards, plus bank transfer and purchase orders for annual Enterprise plans.",
-  },
-  {
-    q: "Do you offer discounts?",
-    a: "We offer 20% off on annual billing and special pricing for non-profits, startups and educational institutions.",
-  },
+  { qKey: "faq1Q", aKey: "faq1A" },
+  { qKey: "faq2Q", aKey: "faq2A" },
+  { qKey: "faq3Q", aKey: "faq3A" },
+  { qKey: "faq4Q", aKey: "faq4A" },
 ];
 
 const Cell = ({ value }) => {
@@ -114,18 +80,26 @@ const Cell = ({ value }) => {
 };
 
 const Pricing = () => {
+  const { t } = useTranslation("pricing");
   const [yearly, setYearly] = useState(true);
   const [openFaq, setOpenFaq] = useState(0);
+
+  const resolveRow = (row) => ({
+    label: t(row.labelKey),
+    starter: row.starter !== undefined ? row.starter : t(row.starterKey),
+    pro: row.pro !== undefined ? row.pro : t(row.proKey),
+    ent: row.ent !== undefined ? row.ent : t(row.entKey),
+  });
 
   return (
     <>
       <N />
 
       <PageHero
-        badge="Pricing"
-        title="Simple pricing that"
-        highlight="scales with you"
-        description="Start free, upgrade when you're ready. Every plan includes unlimited deals and no setup fees."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       >
         {/* Billing toggle */}
         <div className="flex items-center justify-center gap-4 mt-6">
@@ -134,7 +108,7 @@ const Pricing = () => {
               !yearly ? "text-white" : "text-gray-500"
             }`}
           >
-            Monthly
+            {t("monthly")}
           </span>
           <button
             onClick={() => setYearly((v) => !v)}
@@ -154,10 +128,10 @@ const Pricing = () => {
               yearly ? "text-white" : "text-gray-500"
             }`}
           >
-            Yearly
+            {t("yearly")}
           </span>
           <span className="text-xs font-bold text-orange-500 bg-orange-500/10 border border-orange-500/30 px-2.5 py-1 rounded-full">
-            Save 20%
+            {t("saveBadge")}
           </span>
         </div>
       </PageHero>
@@ -171,68 +145,83 @@ const Pricing = () => {
           variants={staggerContainer}
           className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8"
         >
-          {plans.map((plan, i) => (
-            <motion.div
-              key={i}
-              variants={staggerItem}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`relative flex flex-col p-8 rounded-2xl border ${
-                plan.highlight
-                  ? "bg-linear-to-b from-orange-500/15 to-[#181818] border-orange-500/60 shadow-[0_0_40px_rgba(249,115,22,0.15)]"
-                  : "bg-[#181818]/90 border-[#2a2a2a]"
-              }`}
-            >
-              {plan.highlight && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-bold tracking-wide">
-                  <Star size={12} fill="currentColor" /> MOST POPULAR
-                </div>
-              )}
-
-              <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-              <p className="text-gray-400 text-sm mt-1">{plan.tagline}</p>
-
-              <div className="flex items-end gap-1.5 mt-6">
-                <span className="text-4xl font-bold text-white">
-                  ${yearly ? plan.yearly : plan.monthly}
-                </span>
-                <span className="text-gray-500 text-sm mb-1.5">/ user / mo</span>
-              </div>
-              <p className="text-gray-500 text-xs mt-1">
-                {yearly ? "Billed annually" : "Billed monthly"}
-              </p>
-
-              <button
-                className={`mt-6 w-full py-3 rounded-lg font-semibold transition-colors cursor-pointer ${
+          {plans.map((plan, i) => {
+            const features = t(plan.featuresKey, { returnObjects: true });
+            return (
+              <motion.div
+                key={i}
+                variants={staggerItem}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className={`relative flex flex-col p-8 rounded-2xl border ${
                   plan.highlight
-                    ? "bg-orange-500 hover:bg-orange-600 text-white"
-                    : "border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+                    ? "bg-linear-to-b from-orange-500/15 to-[#181818] border-orange-500/60 shadow-[0_0_40px_rgba(249,115,22,0.15)]"
+                    : "bg-[#181818]/90 border-[#2a2a2a]"
                 }`}
               >
-                {plan.cta}
-              </button>
+                {plan.highlight && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-bold tracking-wide">
+                    <Star size={12} fill="currentColor" /> {t("mostPopular")}
+                  </div>
+                )}
 
-              <ul className="flex flex-col gap-3 mt-8">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-3 text-gray-300 text-sm">
-                    <Check size={16} className="text-orange-500 mt-0.5 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                <h3 className="text-2xl font-bold text-white">
+                  {t(plan.nameKey)}
+                </h3>
+                <p className="text-gray-400 text-sm mt-1">
+                  {t(plan.taglineKey)}
+                </p>
+
+                <div className="flex items-end gap-1.5 mt-6">
+                  <span className="text-4xl font-bold text-white">
+                    ${yearly ? plan.yearly : plan.monthly}
+                  </span>
+                  <span className="text-gray-500 text-sm mb-1.5">
+                    {t("perUserMo")}
+                  </span>
+                </div>
+                <p className="text-gray-500 text-xs mt-1">
+                  {yearly ? t("billedAnnually") : t("billedMonthly")}
+                </p>
+
+                <button
+                  className={`mt-6 w-full py-3 rounded-lg font-semibold transition-colors cursor-pointer ${
+                    plan.highlight
+                      ? "bg-orange-500 hover:bg-orange-600 text-white"
+                      : "border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+                  }`}
+                >
+                  {t(plan.ctaKey)}
+                </button>
+
+                <ul className="flex flex-col gap-3 mt-8">
+                  {features.map((f, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-3 text-gray-300 text-sm"
+                    >
+                      <Check
+                        size={16}
+                        className="text-orange-500 mt-0.5 shrink-0"
+                      />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <div className="max-w-6xl mx-auto mt-10 flex flex-wrap items-center justify-center gap-6 text-gray-400 text-sm font-medium">
           <div className="flex items-center gap-2">
-            <ShieldCheck size={18} className="text-orange-500" /> 14-day free trial
+            <ShieldCheck size={18} className="text-orange-500" /> {t("trialBadge")}
           </div>
           <div className="flex items-center gap-2">
-            <Zap size={18} className="text-orange-500" /> Cancel anytime
+            <Zap size={18} className="text-orange-500" /> {t("cancelBadge")}
           </div>
           <div className="flex items-center gap-2">
-            <Check size={18} className="text-orange-500" /> No setup fees
+            <Check size={18} className="text-orange-500" /> {t("noSetupBadge")}
           </div>
         </div>
       </section>
@@ -251,13 +240,14 @@ const Pricing = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Compare
+              {t("compareTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Plan <span className="text-orange-500">comparison</span>
+              {t("compareTitle")}{" "}
+              <span className="text-orange-500">{t("compareHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -269,39 +259,42 @@ const Pricing = () => {
               <thead>
                 <tr className="border-b border-[#2a2a2a]">
                   <th className="text-left text-gray-400 text-sm font-semibold px-6 py-4">
-                    Feature
+                    {t("featureCol")}
                   </th>
                   <th className="text-center text-gray-300 text-sm font-bold px-6 py-4">
-                    Starter
+                    {t("starterCol")}
                   </th>
                   <th className="text-center text-orange-500 text-sm font-bold px-6 py-4">
-                    Professional
+                    {t("proCol")}
                   </th>
                   <th className="text-center text-gray-300 text-sm font-bold px-6 py-4">
-                    Enterprise
+                    {t("entCol")}
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {comparison.map((row, i) => (
-                  <tr
-                    key={i}
-                    className="border-b border-[#2a2a2a] last:border-0 hover:bg-[#1f1f1f]/50 transition-colors"
-                  >
-                    <td className="text-left text-gray-300 text-sm font-medium px-6 py-4">
-                      {row.label}
-                    </td>
-                    <td className="text-center px-6 py-4">
-                      <Cell value={row.starter} />
-                    </td>
-                    <td className="text-center px-6 py-4 bg-orange-500/5">
-                      <Cell value={row.pro} />
-                    </td>
-                    <td className="text-center px-6 py-4">
-                      <Cell value={row.ent} />
-                    </td>
-                  </tr>
-                ))}
+                {comparison.map((row, i) => {
+                  const r = resolveRow(row);
+                  return (
+                    <tr
+                      key={i}
+                      className="border-b border-[#2a2a2a] last:border-0 hover:bg-[#1f1f1f]/50 transition-colors"
+                    >
+                      <td className="text-left text-gray-300 text-sm font-medium px-6 py-4">
+                        {r.label}
+                      </td>
+                      <td className="text-center px-6 py-4">
+                        <Cell value={r.starter} />
+                      </td>
+                      <td className="text-center px-6 py-4 bg-orange-500/5">
+                        <Cell value={r.pro} />
+                      </td>
+                      <td className="text-center px-6 py-4">
+                        <Cell value={r.ent} />
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </motion.div>
@@ -322,13 +315,14 @@ const Pricing = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              FAQ
+              {t("faqTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Questions? <span className="text-orange-500">Answered.</span>
+              {t("faqTitle")}{" "}
+              <span className="text-orange-500">{t("faqHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -345,7 +339,7 @@ const Pricing = () => {
                 >
                   <span className="flex items-center gap-3 text-white font-semibold">
                     <HelpCircle size={18} className="text-orange-500 shrink-0" />
-                    {faq.q}
+                    {t(faq.qKey)}
                   </span>
                   <ChevronDown
                     size={18}
@@ -365,7 +359,7 @@ const Pricing = () => {
                       className="overflow-hidden"
                     >
                       <p className="px-6 pb-5 pl-15 text-gray-400 text-sm leading-6">
-                        {faq.a}
+                        {t(faq.aKey)}
                       </p>
                     </motion.div>
                   )}
@@ -377,11 +371,11 @@ const Pricing = () => {
       </section>
 
       <CtaBanner
-        tag="Still deciding?"
-        title="Talk to our sales team"
-        description="We'll help you pick the right plan for your team size and workflow."
-        primaryLabel="Start Free Trial"
-        secondaryLabel="Contact Sales"
+        tag={t("ctaTag")}
+        title={t("ctaTitle")}
+        description={t("ctaDesc")}
+        primaryLabel={t("ctaPrimary")}
+        secondaryLabel={t("ctaSecondary")}
       />
 
       <F />
