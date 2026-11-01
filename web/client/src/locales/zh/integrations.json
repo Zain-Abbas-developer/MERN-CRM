@@ -1,0 +1,49 @@
+{
+  "pageBadge": "集成",
+  "pageTitle": "连接您",
+  "pageHighlight": "已经喜爱的工具",
+  "pageDescription": "超过100种原生集成以及完整的 REST API。几分钟内双向同步数据，而不是数月。",
+  "searchPlaceholder": "搜索集成...",
+
+  "catAll": "全部",
+  "catCommunication": "通讯",
+  "catMarketing": "营销",
+  "catPayments": "支付",
+  "catProductivity": "生产力",
+  "catDeveloper": "开发者",
+
+  "connect": "连接",
+  "noResults": "没有与您搜索相匹配的集成。",
+
+  "intSlackDesc": "直接在您的频道中接收交易提醒和管道更新。",
+  "intGmailDesc": "双向电子邮件同步，支持打开和点击跟踪。",
+  "intZoomDesc": "在联系人记录上自动安排和记录通话。",
+  "intMailchimpDesc": "从 CRM 细分同步受众并触发营销活动。",
+  "intHubspotDesc": "将每次表单提交捕获为可跟踪的潜在客户。",
+  "intMetaDesc": "自动将广告支出归属于已成交的收入。",
+  "intStripeDesc": "直接在客户卡片上查看订阅和发票。",
+  "intPaypalDesc": "无需离开 CRM 即可核对付款和退款。",
+  "intNotionDesc": "将文档和会议记录嵌入到任何交易记录中。",
+  "intGcalDesc": "任务和会议的双向日历同步。",
+  "intZapierDesc": "通过零代码自动化连接 6,000 多个应用。",
+  "intApiDesc": "完整的 CRUD 访问，支持 webhooks 和宽裕的速率限制。",
+
+  "apiTitle": "找不到您需要的？",
+  "apiDesc": "使用我们文档完善的 REST API 和 webhooks 构建您自己的集成。",
+  "apiBadge1": "REST 和 Webhooks",
+  "apiBadge2": "每分钟1万次请求",
+  "apiBadge3": "提供SDK",
+  "apiBtn": "阅读 API 文档",
+
+  "ctaTag": "准备好了吗？",
+  "ctaTitle": "几分钟内开始连接",
+  "ctaDesc": "所有集成均包含在专业版和企业版套餐中。",
+  "ctaPrimary": "开始免费试用",
+  "ctaSecondary": "联系销售",
+
+  "modalSetupLabel": "集成设置",
+  "modalReadyTitle": "准备好配置了吗？",
+  "modalReadyBody": "一旦 {{name}} 的身份验证和集成逻辑实现，其连接设置将在此处提供。",
+  "modalCloseBtn": "知道了",
+  "modalCloseAria": "关闭对话框"
+}

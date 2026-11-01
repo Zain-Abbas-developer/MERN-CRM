@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Search, Plug, ArrowUpRight, CheckCircle2, X } from "lucide-react";
 import N from "../../components/parts/Navbar.jsx";
 import F from "../../components/parts/Footer.jsx";
@@ -15,126 +16,136 @@ import {
 } from "../../components/common/motionVariants";
 
 const categories = [
-  "All",
-  "Communication",
-  "Marketing",
-  "Payments",
-  "Productivity",
-  "Developer",
+  { id: "All", labelKey: "catAll" },
+  { id: "Communication", labelKey: "catCommunication" },
+  { id: "Marketing", labelKey: "catMarketing" },
+  { id: "Payments", labelKey: "catPayments" },
+  { id: "Productivity", labelKey: "catProductivity" },
+  { id: "Developer", labelKey: "catDeveloper" },
 ];
+
+const categoryLabelMap = {
+  Communication: "catCommunication",
+  Marketing: "catMarketing",
+  Payments: "catPayments",
+  Productivity: "catProductivity",
+  Developer: "catDeveloper",
+};
 
 const integrations = [
   {
     name: "Slack",
     category: "Communication",
-    desc: "Get deal alerts and pipeline updates right inside your channels.",
+    descKey: "intSlackDesc",
     initials: "SL",
     color: "#4A154B",
   },
   {
     name: "Gmail",
     category: "Communication",
-    desc: "Two-way email sync with open and click tracking.",
+    descKey: "intGmailDesc",
     initials: "GM",
     color: "#EA4335",
   },
   {
     name: "Zoom",
     category: "Communication",
-    desc: "Schedule and log calls automatically on contact records.",
+    descKey: "intZoomDesc",
     initials: "ZM",
     color: "#2D8CFF",
   },
   {
     name: "Mailchimp",
     category: "Marketing",
-    desc: "Sync audiences and trigger campaigns from CRM segments.",
+    descKey: "intMailchimpDesc",
     initials: "MC",
     color: "#FFE01B",
   },
   {
     name: "HubSpot Forms",
     category: "Marketing",
-    desc: "Capture every form submission as a tracked lead.",
+    descKey: "intHubspotDesc",
     initials: "HS",
     color: "#FF7A59",
   },
   {
     name: "Meta Ads",
     category: "Marketing",
-    desc: "Attribute ad spend to closed revenue automatically.",
+    descKey: "intMetaDesc",
     initials: "MA",
     color: "#0866FF",
   },
   {
     name: "Stripe",
     category: "Payments",
-    desc: "See subscriptions and invoices directly on the customer card.",
+    descKey: "intStripeDesc",
     initials: "ST",
     color: "#635BFF",
   },
   {
     name: "PayPal",
     category: "Payments",
-    desc: "Reconcile payments and refunds without leaving the CRM.",
+    descKey: "intPaypalDesc",
     initials: "PP",
     color: "#003087",
   },
   {
     name: "Notion",
     category: "Productivity",
-    desc: "Embed docs and meeting notes into any deal record.",
+    descKey: "intNotionDesc",
     initials: "NO",
     color: "#111111",
   },
   {
     name: "Google Calendar",
     category: "Productivity",
-    desc: "Two-way calendar sync for tasks and meetings.",
+    descKey: "intGcalDesc",
     initials: "GC",
     color: "#4285F4",
   },
   {
     name: "Zapier",
     category: "Developer",
-    desc: "Connect to 6,000+ apps with zero-code automations.",
+    descKey: "intZapierDesc",
     initials: "ZP",
     color: "#FF4F00",
   },
   {
     name: "REST API",
     category: "Developer",
-    desc: "Full CRUD access with webhooks and generous rate limits.",
+    descKey: "intApiDesc",
     initials: "API",
     color: "#f97316",
   },
 ];
 
 const Integrations = () => {
+  const { t } = useTranslation("integration");
   const [query, setQuery] = useState("");
   const [active, setActive] = useState("All");
   const [selectedIntegration, setSelectedIntegration] = useState(null);
   const navigate = useNavigate();
 
   const filtered = useMemo(() => {
+    const q = query.toLowerCase();
     return integrations.filter((item) => {
       const matchCat = active === "All" || item.category === active;
       const matchQuery =
-        item.name.toLowerCase().includes(query.toLowerCase()) ||
-        item.desc.toLowerCase().includes(query.toLowerCase());
+        item.name.toLowerCase().includes(q) ||
+        t(item.descKey).toLowerCase().includes(q);
       return matchCat && matchQuery;
     });
-  }, [query, active]);
+  }, [query, active, t]);
 
   return (
     <>
       <N />
 
       <PageHero
-        badge="Integrations"
-        title="Connect the tools you"
-        highlight="already love"
-        description="Over 100 native integrations plus a full REST API. Sync data both ways in minutes, not months."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       >
         {/* SEARCH */}
         <div className="relative max-w-xl mx-auto mt-6">
@@ -145,7 +156,7 @@ const Integrations = () => {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search integrations..."
+            placeholder={t("searchPlaceholder")}
             className="w-full bg-[#181818] border border-[#2a2a2a] focus:border-orange-500 rounded-lg pl-11 pr-4 py-3.5 text-white placeholder:text-gray-500 outline-none transition-colors"
           />
         </div>
@@ -163,16 +174,16 @@ const Integrations = () => {
           >
             {categories.map((cat) => (
               <motion.button
-                key={cat}
+                key={cat.id}
                 variants={fadeInUp}
-                onClick={() => setActive(cat)}
+                onClick={() => setActive(cat.id)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors cursor-pointer ${
-                  active === cat
+                  active === cat.id
                     ? "bg-orange-500 border-orange-500 text-white"
                     : "bg-[#181818] border-[#2a2a2a] text-gray-400 hover:border-orange-500 hover:text-orange-500"
                 }`}
               >
-                {cat}
+                {t(cat.labelKey)}
               </motion.button>
             ))}
           </motion.div>
@@ -205,20 +216,20 @@ const Integrations = () => {
                       {item.initials}
                     </div>
                     <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 bg-[#0f0f0f] border border-[#2a2a2a] px-2.5 py-1 rounded-full">
-                      {item.category}
+                      {t(categoryLabelMap[item.category])}
                     </span>
                   </div>
 
                   <h3 className="text-lg font-bold text-white">{item.name}</h3>
                   <p className="text-gray-400 text-sm leading-6 flex-1">
-                    {item.desc}
+                    {t(item.descKey)}
                   </p>
 
                   <button
                     onClick={() => setSelectedIntegration(item)}
                     className="inline-flex items-center gap-1.5 text-orange-500 text-sm font-semibold group-hover:gap-2.5 transition-all cursor-pointer"
                   >
-                    Connect <ArrowUpRight size={15} />
+                    {t("connect")} <ArrowUpRight size={15} />
                   </button>
                 </motion.div>
               ))}
@@ -226,9 +237,7 @@ const Integrations = () => {
           ) : (
             <div className="text-center py-20">
               <Plug size={40} className="text-gray-700 mx-auto mb-4" />
-              <p className="text-gray-400 font-medium">
-                No integrations match your search.
-              </p>
+              <p className="text-gray-400 font-medium">{t("noResults")}</p>
             </div>
           )}
 
@@ -242,39 +251,40 @@ const Integrations = () => {
           >
             <div>
               <h3 className="text-2xl font-bold text-white tracking-wide">
-                Can't find what you need?
+                {t("apiTitle")}
               </h3>
-              <p className="text-gray-400 mt-2">
-                Build your own with our fully documented REST API and webhooks.
-              </p>
+              <p className="text-gray-400 mt-2">{t("apiDesc")}</p>
               <div className="flex flex-wrap gap-5 mt-4 text-gray-400 text-sm font-medium">
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-orange-500" /> REST &
-                  Webhooks
+                  <CheckCircle2 size={16} className="text-orange-500" />{" "}
+                  {t("apiBadge1")}
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-orange-500" /> 10k
-                  req/min
+                  <CheckCircle2 size={16} className="text-orange-500" />{" "}
+                  {t("apiBadge2")}
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-orange-500" /> SDKs
-                  available
+                  <CheckCircle2 size={16} className="text-orange-500" />{" "}
+                  {t("apiBadge3")}
                 </span>
               </div>
             </div>
-            <button onClick={() => navigate('/integrations/api-docs')} className="shrink-0 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors cursor-pointer">
-              Read API Docs
+            <button
+              onClick={() => navigate("/integrations/api-docs")}
+              className="shrink-0 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors cursor-pointer"
+            >
+              {t("apiBtn")}
             </button>
           </motion.div>
         </div>
       </section>
 
       <CtaBanner
-        tag="Ready?"
-        title="Start connecting in minutes"
-        description="Every integration is included on Professional and Enterprise plans."
-        primaryLabel="Start Free Trial"
-        secondaryLabel="Talk to Sales"
+        tag={t("ctaTag")}
+        title={t("ctaTitle")}
+        description={t("ctaDesc")}
+        primaryLabel={t("ctaPrimary")}
+        secondaryLabel={t("ctaSecondary")}
       />
 
       {/* modal for connection app */}
@@ -294,7 +304,7 @@ const Integrations = () => {
             <div className="mb-5 flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-orange-500">
-                  Integration Setup
+                  {t("modalSetupLabel")}
                 </p>
                 <h2
                   id="integration-modal-title"
@@ -307,7 +317,7 @@ const Integrations = () => {
               <button
                 type="button"
                 onClick={() => setSelectedIntegration(null)}
-                aria-label="Close dialog"
+                aria-label={t("modalCloseAria")}
                 className="rounded-lg p-2 text-gray-400 hover:bg-[#252525] hover:text-white"
               >
                 <X size={20} />
@@ -315,15 +325,13 @@ const Integrations = () => {
             </div>
 
             <p className="mb-6 text-sm leading-6 text-gray-400">
-              {selectedIntegration.desc}
+              {t(selectedIntegration.descKey)}
             </p>
 
             <div className="rounded-lg border border-orange-500/20 bg-orange-500/10 p-4">
-              <p className="font-semibold text-white">Ready to configure?</p>
+              <p className="font-semibold text-white">{t("modalReadyTitle")}</p>
               <p className="mt-2 text-sm leading-6 text-gray-400">
-                The connection setup for {selectedIntegration.name} will be
-                available here once its authentication and integration logic are
-                implemented.
+                {t("modalReadyBody", { name: selectedIntegration.name })}
               </p>
             </div>
 
@@ -332,7 +340,7 @@ const Integrations = () => {
               onClick={() => setSelectedIntegration(null)}
               className="mt-6 w-full rounded-lg bg-orange-500 px-5 py-3 font-semibold text-white transition-colors hover:bg-orange-600"
             >
-              Got it
+              {t("modalCloseBtn")}
             </button>
           </div>
         </div>

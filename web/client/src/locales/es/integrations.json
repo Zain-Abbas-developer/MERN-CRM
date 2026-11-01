@@ -1,0 +1,49 @@
+{
+  "pageBadge": "Integraciones",
+  "pageTitle": "Conecta las herramientas que",
+  "pageHighlight": "ya te encantan",
+  "pageDescription": "Más de 100 integraciones nativas y una API REST completa. Sincroniza datos en ambos sentidos en minutos, no en meses.",
+  "searchPlaceholder": "Buscar integraciones...",
+
+  "catAll": "Todas",
+  "catCommunication": "Comunicación",
+  "catMarketing": "Marketing",
+  "catPayments": "Pagos",
+  "catProductivity": "Productividad",
+  "catDeveloper": "Desarrollador",
+
+  "connect": "Conectar",
+  "noResults": "Ninguna integración coincide con tu búsqueda.",
+
+  "intSlackDesc": "Recibe alertas de negocios y actualizaciones del pipeline directamente en tus canales.",
+  "intGmailDesc": "Sincronización bidireccional de correo con seguimiento de aperturas y clics.",
+  "intZoomDesc": "Programa y registra llamadas automáticamente en los registros de contactos.",
+  "intMailchimpDesc": "Sincroniza audiencias y lanza campañas desde segmentos del CRM.",
+  "intHubspotDesc": "Captura cada envío de formulario como un lead rastreado.",
+  "intMetaDesc": "Atribuye el gasto publicitario a los ingresos cerrados automáticamente.",
+  "intStripeDesc": "Consulta suscripciones y facturas directamente en la ficha del cliente.",
+  "intPaypalDesc": "Concilia pagos y reembolsos sin salir del CRM.",
+  "intNotionDesc": "Incrusta documentos y notas de reunión en cualquier registro de negocio.",
+  "intGcalDesc": "Sincronización bidireccional del calendario para tareas y reuniones.",
+  "intZapierDesc": "Conecta con más de 6.000 apps con automatizaciones sin código.",
+  "intApiDesc": "Acceso CRUD completo con webhooks y límites de tasa generosos.",
+
+  "apiTitle": "¿No encuentras lo que necesitas?",
+  "apiDesc": "Crea la tuya con nuestra API REST y webhooks totalmente documentados.",
+  "apiBadge1": "REST y Webhooks",
+  "apiBadge2": "10k sol/min",
+  "apiBadge3": "SDKs disponibles",
+  "apiBtn": "Ver docs de API",
+
+  "ctaTag": "¿Listo?",
+  "ctaTitle": "Empieza a conectar en minutos",
+  "ctaDesc": "Todas las integraciones están incluidas en los planes Profesional y Empresarial.",
+  "ctaPrimary": "Comenzar prueba gratuita",
+  "ctaSecondary": "Hablar con ventas",
+
+  "modalSetupLabel": "Configuración de integración",
+  "modalReadyTitle": "¿Listo para configurar?",
+  "modalReadyBody": "La configuración de conexión para {{name}} estará disponible aquí una vez implementados su autenticación y lógica de integración.",
+  "modalCloseBtn": "Entendido",
+  "modalCloseAria": "Cerrar diálogo"
+}

@@ -1,0 +1,49 @@
+{
+  "pageBadge": "Integrations",
+  "pageTitle": "Connect the tools you",
+  "pageHighlight": "already love",
+  "pageDescription": "Over 100 native integrations plus a full REST API. Sync data both ways in minutes, not months.",
+  "searchPlaceholder": "Search integrations...",
+
+  "catAll": "All",
+  "catCommunication": "Communication",
+  "catMarketing": "Marketing",
+  "catPayments": "Payments",
+  "catProductivity": "Productivity",
+  "catDeveloper": "Developer",
+
+  "connect": "Connect",
+  "noResults": "No integrations match your search.",
+
+  "intSlackDesc": "Get deal alerts and pipeline updates right inside your channels.",
+  "intGmailDesc": "Two-way email sync with open and click tracking.",
+  "intZoomDesc": "Schedule and log calls automatically on contact records.",
+  "intMailchimpDesc": "Sync audiences and trigger campaigns from CRM segments.",
+  "intHubspotDesc": "Capture every form submission as a tracked lead.",
+  "intMetaDesc": "Attribute ad spend to closed revenue automatically.",
+  "intStripeDesc": "See subscriptions and invoices directly on the customer card.",
+  "intPaypalDesc": "Reconcile payments and refunds without leaving the CRM.",
+  "intNotionDesc": "Embed docs and meeting notes into any deal record.",
+  "intGcalDesc": "Two-way calendar sync for tasks and meetings.",
+  "intZapierDesc": "Connect to 6,000+ apps with zero-code automations.",
+  "intApiDesc": "Full CRUD access with webhooks and generous rate limits.",
+
+  "apiTitle": "Can't find what you need?",
+  "apiDesc": "Build your own with our fully documented REST API and webhooks.",
+  "apiBadge1": "REST & Webhooks",
+  "apiBadge2": "10k req/min",
+  "apiBadge3": "SDKs available",
+  "apiBtn": "Read API Docs",
+
+  "ctaTag": "Ready?",
+  "ctaTitle": "Start connecting in minutes",
+  "ctaDesc": "Every integration is included on Professional and Enterprise plans.",
+  "ctaPrimary": "Start Free Trial",
+  "ctaSecondary": "Talk to Sales",
+
+  "modalSetupLabel": "Integration Setup",
+  "modalReadyTitle": "Ready to configure?",
+  "modalReadyBody": "The connection setup for {{name}} will be available here once its authentication and integration logic are implemented.",
+  "modalCloseBtn": "Got it",
+  "modalCloseAria": "Close dialog"
+}

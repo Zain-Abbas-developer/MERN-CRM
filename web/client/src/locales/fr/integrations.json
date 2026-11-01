@@ -1,0 +1,49 @@
+{
+  "pageBadge": "Intégrations",
+  "pageTitle": "Connectez les outils que vous",
+  "pageHighlight": "aimez déjà",
+  "pageDescription": "Plus de 100 intégrations natives et une API REST complète. Synchronisez les données dans les deux sens en quelques minutes, pas en quelques mois.",
+  "searchPlaceholder": "Rechercher des intégrations...",
+
+  "catAll": "Toutes",
+  "catCommunication": "Communication",
+  "catMarketing": "Marketing",
+  "catPayments": "Paiements",
+  "catProductivity": "Productivité",
+  "catDeveloper": "Développeur",
+
+  "connect": "Connecter",
+  "noResults": "Aucune intégration ne correspond à votre recherche.",
+
+  "intSlackDesc": "Recevez des alertes de transactions et des mises à jour du pipeline directement dans vos canaux.",
+  "intGmailDesc": "Synchronisation d'e-mails bidirectionnelle avec suivi des ouvertures et des clics.",
+  "intZoomDesc": "Planifiez et enregistrez automatiquement les appels sur les fiches de contacts.",
+  "intMailchimpDesc": "Synchronisez les audiences et déclenchez des campagnes depuis les segments CRM.",
+  "intHubspotDesc": "Capturez chaque soumission de formulaire comme un lead suivi.",
+  "intMetaDesc": "Attribuez automatiquement les dépenses publicitaires aux revenus conclus.",
+  "intStripeDesc": "Voyez les abonnements et factures directement sur la fiche client.",
+  "intPaypalDesc": "Rapprochez les paiements et remboursements sans quitter le CRM.",
+  "intNotionDesc": "Intégrez documents et notes de réunion dans toute fiche de transaction.",
+  "intGcalDesc": "Synchronisation bidirectionnelle du calendrier pour tâches et réunions.",
+  "intZapierDesc": "Connectez-vous à plus de 6 000 applications avec des automatisations sans code.",
+  "intApiDesc": "Accès CRUD complet avec webhooks et limites de débit généreuses.",
+
+  "apiTitle": "Vous ne trouvez pas ce qu'il vous faut ?",
+  "apiDesc": "Créez la vôtre avec notre API REST et nos webhooks entièrement documentés.",
+  "apiBadge1": "REST & Webhooks",
+  "apiBadge2": "10k requêtes/min",
+  "apiBadge3": "SDKs disponibles",
+  "apiBtn": "Lire la doc API",
+
+  "ctaTag": "Prêt ?",
+  "ctaTitle": "Commencez à connecter en quelques minutes",
+  "ctaDesc": "Chaque intégration est incluse dans les forfaits Professionnel et Entreprise.",
+  "ctaPrimary": "Démarrer l'essai gratuit",
+  "ctaSecondary": "Parler aux ventes",
+
+  "modalSetupLabel": "Configuration de l'intégration",
+  "modalReadyTitle": "Prêt à configurer ?",
+  "modalReadyBody": "La configuration de connexion pour {{name}} sera disponible ici une fois son authentification et sa logique d'intégration implémentées.",
+  "modalCloseBtn": "Compris",
+  "modalCloseAria": "Fermer la fenêtre"
+}
