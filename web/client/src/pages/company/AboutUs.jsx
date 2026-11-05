@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Target,
   Heart,
@@ -46,60 +47,46 @@ const CountUp = ({ to, suffix = "" }) => {
 };
 
 const stats = [
-  { value: 2019, suffix: "", label: "Founded" },
-  { value: 12000, suffix: "+", label: "Active teams" },
-  { value: 48, suffix: "+", label: "Countries served" },
-  { value: 94, suffix: "%", label: "Retention rate" },
+  { value: 2019, suffixKey: null, labelKey: "stat1Label", isYear: true },
+  { value: 12000, suffixKey: "stat2Suffix", labelKey: "stat2Label" },
+  { value: 48, suffixKey: "stat3Suffix", labelKey: "stat3Label" },
+  { value: 94, suffixKey: "stat4Suffix", labelKey: "stat4Label" },
 ];
 
 const values = [
-  {
-    icon: <Target size={22} />,
-    title: "Customer Obsession",
-    desc: "Every roadmap decision starts with a real customer problem, not a competitor's feature list.",
-  },
-  {
-    icon: <Lightbulb size={22} />,
-    title: "Simplicity First",
-    desc: "Powerful doesn't have to mean complicated. We remove friction before we add features.",
-  },
-  {
-    icon: <Heart size={22} />,
-    title: "Build With Empathy",
-    desc: "We're humans building for humans. Support is treated as a product, not a cost center.",
-  },
-  {
-    icon: <ShieldCheck size={22} />,
-    title: "Earn Trust Daily",
-    desc: "Your data is yours. We ship security and transparency, not dark patterns.",
-  },
+  { icon: <Target size={22} />, titleKey: "value1Title", descKey: "value1Desc" },
+  { icon: <Lightbulb size={22} />, titleKey: "value2Title", descKey: "value2Desc" },
+  { icon: <Heart size={22} />, titleKey: "value3Title", descKey: "value3Desc" },
+  { icon: <ShieldCheck size={22} />, titleKey: "value4Title", descKey: "value4Desc" },
 ];
 
 const milestones = [
-  { year: "2019", title: "The beginning", desc: "Founded by three engineers frustrated with bloated CRMs." },
-  { year: "2021", title: "First 1,000 teams", desc: "Crossed 1,000 paying teams and launched workflow automation." },
-  { year: "2023", title: "Going global", desc: "Opened offices in Dubai and London, added 12 languages." },
-  { year: "2025", title: "12,000+ teams", desc: "Launched Automation 2.0 and hit 99.9% uptime SLA." },
+  { year: "2019", titleKey: "mile1Title", descKey: "mile1Desc" },
+  { year: "2021", titleKey: "mile2Title", descKey: "mile2Desc" },
+  { year: "2023", titleKey: "mile3Title", descKey: "mile3Desc" },
+  { year: "2025", titleKey: "mile4Title", descKey: "mile4Desc" },
 ];
 
 const team = [
-  { name: "Ahmed Raza", role: "Co-founder & CEO", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-  { name: "Sara Malik", role: "Co-founder & CTO", img: "https://randomuser.me/api/portraits/women/44.jpg" },
-  { name: "Bilal Khan", role: "VP of Product", img: "https://randomuser.me/api/portraits/men/75.jpg" },
-  { name: "Hina Sheikh", role: "Head of Design", img: "https://randomuser.me/api/portraits/women/68.jpg" },
+  { name: "Ahmed Raza", roleKey: "role1", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+  { name: "Sara Malik", roleKey: "role2", img: "https://randomuser.me/api/portraits/women/44.jpg" },
+  { name: "Bilal Khan", roleKey: "role3", img: "https://randomuser.me/api/portraits/men/75.jpg" },
+  { name: "Hina Sheikh", roleKey: "role4", img: "https://randomuser.me/api/portraits/women/68.jpg" },
 ];
 
 const About = () => {
+  const { t } = useTranslation("about");
   const navigate = useNavigate();
+
   return (
     <>
       <N />
 
       <PageHero
-        badge="About Us"
-        title="We build software that helps teams"
-        highlight="sell better"
-        description="Since 2019 we've been on a mission to replace bloated, overpriced CRMs with something fast, human and genuinely useful."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       />
 
       {/* STORY */}
@@ -116,24 +103,20 @@ const About = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Our Story
+              {t("storyTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide leading-snug"
             >
-              Started by engineers who{" "}
-              <span className="text-orange-500">hated their CRM</span>
+              {t("storyTitle")}{" "}
+              <span className="text-orange-500">{t("storyHighlight")}</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-400 leading-8">
-              In 2019, our founders were running a small sales team and spending
-              more time fighting their CRM than talking to customers. Every tool
-              was either too simple to scale or too complex to actually use.
+              {t("storyP1")}
             </motion.p>
             <motion.p variants={fadeInUp} className="text-gray-400 leading-8">
-              So they built the tool they wished existed — fast, focused and
-              priced fairly. Six years later, that same product powers sales
-              teams in 48 countries, and we still ship every two weeks.
+              {t("storyP2")}
             </motion.p>
 
             <motion.div
@@ -141,13 +124,13 @@ const About = () => {
               className="flex flex-wrap gap-5 mt-2 text-gray-300 text-sm font-medium"
             >
               <span className="flex items-center gap-2">
-                <Users size={18} className="text-orange-500" /> 85+ teammates
+                <Users size={18} className="text-orange-500" /> {t("storyBadge1")}
               </span>
               <span className="flex items-center gap-2">
-                <Globe size={18} className="text-orange-500" /> Fully remote
+                <Globe size={18} className="text-orange-500" /> {t("storyBadge2")}
               </span>
               <span className="flex items-center gap-2">
-                <Rocket size={18} className="text-orange-500" /> Shipping weekly
+                <Rocket size={18} className="text-orange-500" /> {t("storyBadge3")}
               </span>
             </motion.div>
           </motion.div>
@@ -165,10 +148,13 @@ const About = () => {
                 className="flex flex-col items-center justify-center gap-2 p-8 rounded-2xl border border-[#2a2a2a] bg-[#181818]/90"
               >
                 <div className="text-3xl font-bold text-orange-500">
-                  <CountUp to={s.value} suffix={s.suffix} />
+                  <CountUp
+                    to={s.value}
+                    suffix={s.suffixKey ? t(s.suffixKey) : ""}
+                  />
                 </div>
                 <div className="text-gray-400 text-sm font-medium text-center">
-                  {s.label}
+                  {t(s.labelKey)}
                 </div>
               </div>
             ))}
@@ -192,13 +178,14 @@ const About = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Our Values
+              {t("valuesTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              What we <span className="text-orange-500">stand for</span>
+              {t("valuesTitle")}{" "}
+              <span className="text-orange-500">{t("valuesHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -214,8 +201,12 @@ const About = () => {
                 <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-500">
                   {v.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white">{v.title}</h3>
-                <p className="text-gray-400 text-sm leading-6">{v.desc}</p>
+                <h3 className="text-lg font-bold text-white">
+                  {t(v.titleKey)}
+                </h3>
+                <p className="text-gray-400 text-sm leading-6">
+                  {t(v.descKey)}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -238,13 +229,14 @@ const About = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Milestones
+              {t("milestonesTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Our <span className="text-orange-500">journey</span>
+              {t("milestonesTitle")}{" "}
+              <span className="text-orange-500">{t("milestonesHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -255,8 +247,12 @@ const About = () => {
                 <div className="text-orange-500 font-bold text-sm tracking-widest">
                   {m.year}
                 </div>
-                <h3 className="text-xl font-bold text-white mt-1">{m.title}</h3>
-                <p className="text-gray-400 text-sm mt-1 leading-6">{m.desc}</p>
+                <h3 className="text-xl font-bold text-white mt-1">
+                  {t(m.titleKey)}
+                </h3>
+                <p className="text-gray-400 text-sm mt-1 leading-6">
+                  {t(m.descKey)}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -279,13 +275,14 @@ const About = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Leadership
+              {t("teamTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Meet the <span className="text-orange-500">team</span>
+              {t("teamTitle")}{" "}
+              <span className="text-orange-500">{t("teamHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -305,7 +302,9 @@ const About = () => {
                 />
                 <div>
                   <div className="text-white font-bold">{person.name}</div>
-                  <div className="text-gray-500 text-xs mt-1">{person.role}</div>
+                  <div className="text-gray-500 text-xs mt-1">
+                    {t(person.roleKey)}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -314,13 +313,13 @@ const About = () => {
       </section>
 
       <CtaBanner
-        tag="Join Us"
-        title="Want to build with us?"
-        description="We're hiring across engineering, design and customer success."
-        primaryLabel="View Open Roles"
+        tag={t("ctaTag")}
+        title={t("ctaTitle")}
+        description={t("ctaDesc")}
+        primaryLabel={t("ctaPrimary")}
         onPrimary={() => navigate("/careers")}
         onSecondary={() => navigate("/contact")}
-        secondaryLabel="Contact Us"
+        secondaryLabel={t("ctaSecondary")}
       />
 
       <F />

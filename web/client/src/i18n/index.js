@@ -9,6 +9,7 @@ import enPricing from "../locales/en/pricing.json";
 import enIntegration from "../locales/en/integrations.json";
 import enChangelog from '../locales/en/changelog.json';
 import enRoadmap from '../locales/en/roadmap.json';
+import enAbout from '../locales/en/about.json';
 
 import esCommon from "../locales/es/common.json";
 import esHome from "../locales/es/home.json";
@@ -17,6 +18,7 @@ import esPricing from "../locales/es/pricing.json";
 import esIntegration from "../locales/es/integrations.json";
 import esChangelog from '../locales/es/changelog.json';
 import esRoadmap from '../locales/es/roadmap.json';
+import esAbout from '../locales/es/about.json';
 
 import frCommon from "../locales/fr/common.json";
 import frHome from "../locales/fr/home.json";
@@ -25,6 +27,7 @@ import frPricing from "../locales/fr/pricing.json";
 import frIntegration from "../locales/fr/integrations.json";
 import frChangelog from '../locales/fr/changelog.json';
 import frRoadmap from '../locales/fr/roadmap.json';
+import frAbout from '../locales/fr/about.json';
 
 import arCommon from "../locales/ar/common.json";
 import arHome from "../locales/ar/home.json";
@@ -33,6 +36,7 @@ import arPricing from "../locales/ar/pricing.json";
 import arIntegration from "../locales/ar/integrations.json";
 import arChangelog from '../locales/ar/changelog.json';
 import arRoadmap from '../locales/ar/roadmap.json';
+import arAbout from '../locales/ar/about.json';
 
 import zhCommon from "../locales/zh/common.json";
 import zhHome from "../locales/zh/home.json";
@@ -41,6 +45,7 @@ import zhPricing from "../locales/zh/pricing.json";
 import zhIntegration from "../locales/zh/integrations.json";
 import zhChangelog from '../locales/zh/changelog.json';
 import zhRoadmap from '../locales/zh/roadmap.json';
+import zhAbout from '../locales/zh/about.json';
 
 const resources = {
   en: {
@@ -51,6 +56,7 @@ const resources = {
     integration: enIntegration,
     changelog: enChangelog,
     roadmap: enRoadmap,
+    about: enAbout,
   },
   es: {
     common: esCommon,
@@ -60,6 +66,7 @@ const resources = {
     integration: esIntegration,
     changelog: esChangelog,
     roadmap: esRoadmap,
+    about: esAbout,
   },
   fr: {
     common: frCommon,
@@ -69,6 +76,7 @@ const resources = {
     integration: frIntegration,
     changelog: frChangelog,
     roadmap: frRoadmap,
+    about: frAbout,
   },
   ar: {
     common: arCommon,
@@ -78,6 +86,7 @@ const resources = {
     integration: arIntegration,
     changelog: arChangelog,
     roadmap: arRoadmap,
+    about: arAbout,
   },
   zh: {
     common: zhCommon,
@@ -87,6 +96,7 @@ const resources = {
     integration: zhIntegration,
     changelog: zhChangelog,
     roadmap: zhRoadmap,
+    about: zhAbout,
   },
 };
 

@@ -53,7 +53,7 @@ const AppRoutes = () => {
       <Route path="/cookie-settings" element={<CookieSettings />} />
 
       {/* Company pages */}
-      <Route path="/about us" element={<AboutUs />} />
+      <Route path="/about" element={<AboutUs />} />
       <Route path="/careers" element={<Career />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/article/:id" element={<BlogArticles />} />
