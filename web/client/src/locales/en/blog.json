@@ -1,0 +1,23 @@
+{
+  "pageBadge": "Blog",
+  "pageTitle": "Insights on sales, product and",
+  "pageHighlight": "growth",
+  "pageDescription": "Practical writing from the team building the product — no fluff, no gated PDFs.",
+  "searchPlaceholder": "Search articles...",
+
+  "catAll": "All",
+  "catSales": "Sales",
+  "catProduct": "Product",
+  "catEngineering": "Engineering",
+  "catGrowth": "Growth",
+
+  "featuredLabel": "Featured",
+  "noResults": "No articles match your search.",
+
+  "newsletterTag": "Newsletter",
+  "newsletterTitle": "One useful email, twice a month",
+  "newsletterDesc": "No spam, no fluff. Unsubscribe in one click.",
+  "newsletterPlaceholder": "you@company.com",
+  "newsletterBtn": "Subscribe",
+  "newsletterSuccess": "You're subscribed!"
+}

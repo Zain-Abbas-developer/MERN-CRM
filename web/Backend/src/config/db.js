@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect( 'mongodb://localhost:27017/crm' && process.env.DB_URI);
+    const conn = await mongoose.connect(process.env.DB_URI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(error.message);

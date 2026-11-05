@@ -1,0 +1,23 @@
+{
+  "pageBadge": "博客",
+  "pageTitle": "关于销售、产品和",
+  "pageHighlight": "增长的洞察",
+  "pageDescription": "来自产品构建团队的实用文章 — 无废话，无门禁 PDF。",
+  "searchPlaceholder": "搜索文章...",
+
+  "catAll": "全部",
+  "catSales": "销售",
+  "catProduct": "产品",
+  "catEngineering": "工程",
+  "catGrowth": "增长",
+
+  "featuredLabel": "精选",
+  "noResults": "没有与您搜索匹配的文章。",
+
+  "newsletterTag": "新闻通讯",
+  "newsletterTitle": "每月两封有用的邮件",
+  "newsletterDesc": "无垃圾邮件，无废话。一键取消订阅。",
+  "newsletterPlaceholder": "you@company.com",
+  "newsletterBtn": "订阅",
+  "newsletterSuccess": "订阅成功！"
+}

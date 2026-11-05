@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   Search,
   Clock,
@@ -22,9 +23,23 @@ import {
 
 import { posts } from "../../mock/mockArticles.js";
 
-const categories = ["All", "Sales", "Product", "Engineering", "Growth"];
+const categories = [
+  { id: "All", labelKey: "catAll" },
+  { id: "Sales", labelKey: "catSales" },
+  { id: "Product", labelKey: "catProduct" },
+  { id: "Engineering", labelKey: "catEngineering" },
+  { id: "Growth", labelKey: "catGrowth" },
+];
+
+const categoryLabelMap = {
+  Sales: "catSales",
+  Product: "catProduct",
+  Engineering: "catEngineering",
+  Growth: "catGrowth",
+};
 
 const Blog = () => {
+  const { t } = useTranslation("blog");
   const [active, setActive] = useState("All");
   const [query, setQuery] = useState("");
   const [email, setEmail] = useState("");
@@ -55,10 +70,10 @@ const Blog = () => {
       <N />
 
       <PageHero
-        badge="Blog"
-        title="Insights on sales, product and"
-        highlight="growth"
-        description="Practical writing from the team building the product — no fluff, no gated PDFs."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       >
         <div className="relative max-w-xl mx-auto mt-6">
           <Search
@@ -68,7 +83,7 @@ const Blog = () => {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search articles..."
+            placeholder={t("searchPlaceholder")}
             className="w-full bg-[#181818] border border-[#2a2a2a] focus:border-orange-500 rounded-lg pl-11 pr-4 py-3.5 text-white placeholder:text-gray-500 outline-none transition-colors"
           />
         </div>
@@ -95,7 +110,7 @@ const Blog = () => {
               <div className="flex flex-col justify-center gap-4 p-8 sm:p-10">
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-bold uppercase tracking-wider text-orange-500 bg-orange-500/10 border border-orange-500/30 px-2.5 py-1 rounded-full">
-                    Featured
+                    {t("featuredLabel")}
                   </span>
                   <span className="text-gray-500 text-xs">{featured.date}</span>
                 </div>
@@ -143,16 +158,16 @@ const Blog = () => {
           >
             {categories.map((cat) => (
               <motion.button
-                key={cat}
+                key={cat.id}
                 variants={fadeInUp}
-                onClick={() => setActive(cat)}
+                onClick={() => setActive(cat.id)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors cursor-pointer ${
-                  active === cat
+                  active === cat.id
                     ? "bg-orange-500 border-orange-500 text-white"
                     : "bg-[#181818] border-[#2a2a2a] text-gray-400 hover:border-orange-500 hover:text-orange-500"
                 }`}
               >
-                {cat}
+                {t(cat.labelKey)}
               </motion.button>
             ))}
           </motion.div>
@@ -181,7 +196,7 @@ const Blog = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wider text-orange-500 bg-[#0f0f0f]/90 border border-orange-500/30 px-2.5 py-1 rounded-full">
-                      {post.category}
+                      {t(categoryLabelMap[post.category])}
                     </span>
                   </div>
 
@@ -218,7 +233,7 @@ const Blog = () => {
             </motion.div>
           ) : (
             <p className="text-center text-gray-500 py-16">
-              No articles match your search.
+              {t("noResults")}
             </p>
           )}
 
@@ -234,20 +249,18 @@ const Blog = () => {
               <div className="flex items-center justify-center lg:justify-start gap-2 text-orange-500 mb-2">
                 <Mail size={18} />
                 <span className="text-sm font-bold tracking-widest uppercase">
-                  Newsletter
+                  {t("newsletterTag")}
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-white tracking-wide">
-                One useful email, twice a month
+                {t("newsletterTitle")}
               </h3>
-              <p className="text-gray-400 mt-2">
-                No spam, no fluff. Unsubscribe in one click.
-              </p>
+              <p className="text-gray-400 mt-2">{t("newsletterDesc")}</p>
             </div>
 
             {subscribed ? (
               <div className="flex items-center gap-2 text-emerald-400 font-semibold">
-                <CheckCircle2 size={20} /> You're subscribed!
+                <CheckCircle2 size={20} /> {t("newsletterSuccess")}
               </div>
             ) : (
               <form
@@ -259,7 +272,7 @@ const Blog = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
+                  placeholder={t("newsletterPlaceholder")}
                   className="flex-1 lg:w-72 bg-[#0f0f0f] border border-[#2a2a2a] focus:border-orange-500 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 outline-none transition-colors"
                 />
                 <button
@@ -267,7 +280,7 @@ const Blog = () => {
                   className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg transition-colors cursor-pointer shrink-0"
                 >
                   <Send size={16} />
-                  <span className="hidden sm:inline">Subscribe</span>
+                  <span className="hidden sm:inline">{t("newsletterBtn")}</span>
                 </button>
               </form>
             )}

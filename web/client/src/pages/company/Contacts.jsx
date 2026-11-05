@@ -1,6 +1,7 @@
 // src/pages/Company/Contact.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   Mail,
   Phone,
@@ -25,33 +26,35 @@ import {
 const contactCards = [
   {
     icon: <Mail size={22} />,
-    title: "Email Us",
+    titleKey: "card1Title",
     lines: ["hello@yourcrm.com", "support@yourcrm.com"],
   },
   {
     icon: <Phone size={22} />,
-    title: "Call Us",
-    lines: ["+1 (555) 123-4567", "Mon–Fri, 9am – 6pm EST"],
+    titleKey: "card2Title",
+    line2Key: "card2Line2",
+    lines: ["+1 (555) 123-4567"],
   },
   {
     icon: <MapPin size={22} />,
-    title: "Visit Us",
-    lines: ["Office 402, Business Bay", "Dubai, United Arab Emirates"],
+    titleKey: "card3Title",
+    lines: [], // replaced below with translated keys
   },
 ];
 
 const reasons = [
-  { icon: <MessageSquare size={20} />, title: "General Inquiry", desc: "Questions about the product or company." },
-  { icon: <Headphones size={20} />, title: "Technical Support", desc: "Existing customers needing help." },
-  { icon: <Building2 size={20} />, title: "Sales & Enterprise", desc: "Custom plans, security reviews and demos." },
+  { icon: <MessageSquare size={20} />, titleKey: "reason1Title", descKey: "reason1Desc" },
+  { icon: <Headphones size={20} />, titleKey: "reason2Title", descKey: "reason2Desc" },
+  { icon: <Building2 size={20} />, titleKey: "reason3Title", descKey: "reason3Desc" },
 ];
 
 const Contact = () => {
+  const { t } = useTranslation("contact");
   const [form, setForm] = useState({
     name: "",
     email: "",
     company: "",
-    subject: "General Inquiry",
+    subject: "general",
     message: "",
   });
   const [sent, setSent] = useState(false);
@@ -77,10 +80,10 @@ const Contact = () => {
       <N />
 
       <PageHero
-        badge="Contact"
-        title="Let's talk about"
-        highlight="your team"
-        description="Questions, demos or support — pick the channel that suits you. We reply within one business day."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       />
 
       {/* CONTACT CARDS */}
@@ -92,34 +95,46 @@ const Contact = () => {
           variants={staggerContainer}
           className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6"
         >
-          {contactCards.map((card, i) => (
-            <motion.div
-              key={i}
-              variants={staggerItem}
-              whileHover={{ y: -8, borderColor: "#f97316" }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex flex-col gap-4 p-6 rounded-xl bg-[#181818]/90 border border-[#2a2a2a]"
-            >
-              <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-500">
-                {card.icon}
-              </div>
-              <h3 className="text-lg font-bold text-white">{card.title}</h3>
-              <div className="flex flex-col gap-1">
-                {card.lines.map((line, j) => (
-                  <span
-                    key={j}
-                    className={
-                      j === 0
-                        ? "text-gray-300 text-sm font-medium"
-                        : "text-gray-500 text-xs"
-                    }
-                  >
-                    {line}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          {contactCards.map((card, i) => {
+            // Build the display lines per card
+            let displayLines = card.lines;
+            if (card.line2Key) {
+              displayLines = [card.lines[0], t(card.line2Key)];
+            }
+            if (i === 2) {
+              displayLines = [t("card3Line1"), t("card3Line2")];
+            }
+            return (
+              <motion.div
+                key={i}
+                variants={staggerItem}
+                whileHover={{ y: -8, borderColor: "#f97316" }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="flex flex-col gap-4 p-6 rounded-xl bg-[#181818]/90 border border-[#2a2a2a]"
+              >
+                <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-500">
+                  {card.icon}
+                </div>
+                <h3 className="text-lg font-bold text-white">
+                  {t(card.titleKey)}
+                </h3>
+                <div className="flex flex-col gap-1">
+                  {displayLines.map((line, j) => (
+                    <span
+                      key={j}
+                      className={
+                        j === 0
+                          ? "text-gray-300 text-sm font-medium"
+                          : "text-gray-500 text-xs"
+                      }
+                    >
+                      {line}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </section>
 
@@ -135,11 +150,9 @@ const Contact = () => {
             className="lg:col-span-3 rounded-2xl border border-[#2a2a2a] bg-[#181818]/90 p-8 sm:p-10"
           >
             <h2 className="text-2xl font-bold text-white tracking-wide">
-              Send us a message
+              {t("formTitle")}
             </h2>
-            <p className="text-gray-400 text-sm mt-2">
-              Fill in the form and our team will get back to you shortly.
-            </p>
+            <p className="text-gray-400 text-sm mt-2">{t("formDesc")}</p>
 
             {sent ? (
               <div className="flex flex-col items-center gap-4 py-16 text-center">
@@ -147,11 +160,10 @@ const Contact = () => {
                   <CheckCircle2 size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-white">
-                  Message sent successfully!
+                  {t("successTitle")}
                 </h3>
                 <p className="text-gray-400 text-sm max-w-sm">
-                  Thanks for reaching out. We'll get back to you within one
-                  business day.
+                  {t("successDesc")}
                 </p>
                 <button
                   onClick={() => {
@@ -160,13 +172,13 @@ const Contact = () => {
                       name: "",
                       email: "",
                       company: "",
-                      subject: "General Inquiry",
+                      subject: "general",
                       message: "",
                     });
                   }}
                   className="mt-2 text-orange-500 font-semibold cursor-pointer"
                 >
-                  Send another message
+                  {t("sendAnother")}
                 </button>
               </div>
             ) : (
@@ -174,20 +186,20 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-300 text-sm font-medium">
-                      Full Name *
+                      {t("labelName")}
                     </label>
                     <input
                       required
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="John Doe"
+                      placeholder={t("placeholderName")}
                       className={inputClass}
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-300 text-sm font-medium">
-                      Email Address *
+                      {t("labelEmail")}
                     </label>
                     <input
                       required
@@ -195,7 +207,7 @@ const Contact = () => {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="john@company.com"
+                      placeholder={t("placeholderEmail")}
                       className={inputClass}
                     />
                   </div>
@@ -204,19 +216,19 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-300 text-sm font-medium">
-                      Company
+                      {t("labelCompany")}
                     </label>
                     <input
                       name="company"
                       value={form.company}
                       onChange={handleChange}
-                      placeholder="Company Inc."
+                      placeholder={t("placeholderCompany")}
                       className={inputClass}
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-300 text-sm font-medium">
-                      Subject *
+                      {t("labelSubject")}
                     </label>
                     <select
                       name="subject"
@@ -224,17 +236,17 @@ const Contact = () => {
                       onChange={handleChange}
                       className={`${inputClass} cursor-pointer`}
                     >
-                      <option>General Inquiry</option>
-                      <option>Technical Support</option>
-                      <option>Sales & Enterprise</option>
-                      <option>Partnership</option>
+                      <option value="general">{t("subjectGeneral")}</option>
+                      <option value="support">{t("subjectSupport")}</option>
+                      <option value="sales">{t("subjectSales")}</option>
+                      <option value="partnership">{t("subjectPartnership")}</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label className="text-gray-300 text-sm font-medium">
-                    Message *
+                    {t("labelMessage")}
                   </label>
                   <textarea
                     required
@@ -242,7 +254,7 @@ const Contact = () => {
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Tell us how we can help..."
+                    placeholder={t("placeholderMessage")}
                     className={`${inputClass} resize-none`}
                   />
                 </div>
@@ -256,7 +268,7 @@ const Contact = () => {
                   className="self-start inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-lg transition-colors cursor-pointer"
                 >
                   <Send size={18} />
-                  {loading ? "Sending..." : "Send Message"}
+                  {loading ? t("sending") : t("sendMessage")}
                 </motion.button>
               </form>
             )}
@@ -272,7 +284,7 @@ const Contact = () => {
           >
             <motion.div variants={staggerItem}>
               <h3 className="text-lg font-bold text-white mb-4">
-                What can we help with?
+                {t("helpTitle")}
               </h3>
               <div className="flex flex-col gap-4">
                 {reasons.map((r, i) => (
@@ -285,10 +297,10 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-white font-semibold text-sm">
-                        {r.title}
+                        {t(r.titleKey)}
                       </div>
                       <div className="text-gray-500 text-xs mt-0.5">
-                        {r.desc}
+                        {t(r.descKey)}
                       </div>
                     </div>
                   </div>
@@ -303,21 +315,27 @@ const Contact = () => {
               <div className="flex items-center gap-2 text-orange-500 mb-3">
                 <Clock size={18} />
                 <span className="font-bold text-sm tracking-wide">
-                  Support Hours
+                  {t("hoursTitle")}
                 </span>
               </div>
               <div className="flex flex-col gap-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Monday – Friday</span>
-                  <span className="text-gray-300 font-medium">9am – 6pm EST</span>
+                  <span className="text-gray-400">{t("hoursMonFri")}</span>
+                  <span className="text-gray-300 font-medium">
+                    {t("hoursMonFriTime")}
+                  </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Saturday</span>
-                  <span className="text-gray-300 font-medium">10am – 4pm EST</span>
+                  <span className="text-gray-400">{t("hoursSat")}</span>
+                  <span className="text-gray-300 font-medium">
+                    {t("hoursSatTime")}
+                  </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Sunday</span>
-                  <span className="text-gray-500 font-medium">Closed</span>
+                  <span className="text-gray-400">{t("hoursSun")}</span>
+                  <span className="text-gray-500 font-medium">
+                    {t("hoursClosed")}
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -326,12 +344,12 @@ const Contact = () => {
               variants={fadeInUp}
               className="rounded-xl border border-orange-500/30 bg-orange-500/10 p-6"
             >
-              <h4 className="text-white font-bold">Need urgent help?</h4>
+              <h4 className="text-white font-bold">{t("urgentTitle")}</h4>
               <p className="text-gray-400 text-sm mt-1.5">
-                Enterprise customers get 24/7 phone support with a 1-hour SLA.
+                {t("urgentDesc")}
               </p>
               <button className="mt-4 text-orange-500 font-semibold text-sm cursor-pointer">
-                Upgrade to Enterprise →
+                {t("urgentBtn")}
               </button>
             </motion.div>
           </motion.div>

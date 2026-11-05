@@ -1,6 +1,7 @@
 // src/pages/Company/Careers.jsx
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   MapPin,
   Clock,
@@ -24,31 +25,47 @@ import {
 } from "../../components/common/motionVariants";
 
 const perks = [
-  { icon: <Globe size={22} />, title: "Remote First", desc: "Work from anywhere. We hire across 20+ countries." },
-  { icon: <Wallet size={22} />, title: "Competitive Pay", desc: "Top-of-market salaries reviewed twice a year." },
-  { icon: <Heart size={22} />, title: "Health Coverage", desc: "Medical, dental and vision for you and your family." },
-  { icon: <GraduationCap size={22} />, title: "Learning Budget", desc: "$1,500 per year for courses, books and conferences." },
-  { icon: <Laptop size={22} />, title: "Equipment Stipend", desc: "Your ideal setup, funded by us on day one." },
-  { icon: <Coffee size={22} />, title: "Flexible Time Off", desc: "Unlimited PTO with a mandatory 15-day minimum." },
+  { icon: <Globe size={22} />, titleKey: "perk1Title", descKey: "perk1Desc" },
+  { icon: <Wallet size={22} />, titleKey: "perk2Title", descKey: "perk2Desc" },
+  { icon: <Heart size={22} />, titleKey: "perk3Title", descKey: "perk3Desc" },
+  { icon: <GraduationCap size={22} />, titleKey: "perk4Title", descKey: "perk4Desc" },
+  { icon: <Laptop size={22} />, titleKey: "perk5Title", descKey: "perk5Desc" },
+  { icon: <Coffee size={22} />, titleKey: "perk6Title", descKey: "perk6Desc" },
 ];
 
-const departments = ["All", "Engineering", "Design", "Sales", "Marketing", "Support"];
+const departments = [
+  { id: "All", labelKey: "deptAll" },
+  { id: "Engineering", labelKey: "deptEngineering" },
+  { id: "Design", labelKey: "deptDesign" },
+  { id: "Sales", labelKey: "deptSales" },
+  { id: "Marketing", labelKey: "deptMarketing" },
+  { id: "Support", labelKey: "deptSupport" },
+];
+
+const deptLabelMap = {
+  Engineering: "deptEngineering",
+  Design: "deptDesign",
+  Sales: "deptSales",
+  Marketing: "deptMarketing",
+  Support: "deptSupport",
+};
 
 const jobs = [
-  { title: "Senior Frontend Engineer", dept: "Engineering", location: "Remote", type: "Full-time" },
-  { title: "Backend Engineer (Node.js)", dept: "Engineering", location: "Remote", type: "Full-time" },
-  { title: "DevOps Engineer", dept: "Engineering", location: "Dubai, UAE", type: "Full-time" },
-  { title: "Product Designer", dept: "Design", location: "Remote", type: "Full-time" },
-  { title: "UX Researcher", dept: "Design", location: "Remote", type: "Contract" },
-  { title: "Account Executive", dept: "Sales", location: "London, UK", type: "Full-time" },
-  { title: "Sales Development Rep", dept: "Sales", location: "Remote", type: "Full-time" },
-  { title: "Content Marketing Manager", dept: "Marketing", location: "Remote", type: "Full-time" },
-  { title: "Growth Analyst", dept: "Marketing", location: "Remote", type: "Full-time" },
-  { title: "Customer Success Manager", dept: "Support", location: "Remote", type: "Full-time" },
-  { title: "Technical Support Specialist", dept: "Support", location: "Remote", type: "Part-time" },
+  { titleKey: "job1Title", dept: "Engineering", locationKey: "locRemote", typeKey: "typeFullTime" },
+  { titleKey: "job2Title", dept: "Engineering", locationKey: "locRemote", typeKey: "typeFullTime" },
+  { titleKey: "job3Title", dept: "Engineering", locationKey: "locDubai", typeKey: "typeFullTime" },
+  { titleKey: "job4Title", dept: "Design", locationKey: "locRemote", typeKey: "typeFullTime" },
+  { titleKey: "job5Title", dept: "Design", locationKey: "locRemote", typeKey: "typeContract" },
+  { titleKey: "job6Title", dept: "Sales", locationKey: "locLondon", typeKey: "typeFullTime" },
+  { titleKey: "job7Title", dept: "Sales", locationKey: "locRemote", typeKey: "typeFullTime" },
+  { titleKey: "job8Title", dept: "Marketing", locationKey: "locRemote", typeKey: "typeFullTime" },
+  { titleKey: "job9Title", dept: "Marketing", locationKey: "locRemote", typeKey: "typeFullTime" },
+  { titleKey: "job10Title", dept: "Support", locationKey: "locRemote", typeKey: "typeFullTime" },
+  { titleKey: "job11Title", dept: "Support", locationKey: "locRemote", typeKey: "typePartTime" },
 ];
 
 const Careers = () => {
+  const { t } = useTranslation("careers");
   const [active, setActive] = useState("All");
 
   const filtered = useMemo(
@@ -61,20 +78,21 @@ const Careers = () => {
       <N />
 
       <PageHero
-        badge="Careers"
-        title="Do the best work of your career"
-        highlight="with us"
-        description="We're a remote-first team of 85+ builders shipping software used by 12,000+ companies. Come build with us."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       >
         <div className="flex flex-wrap items-center justify-center gap-6 mt-4 text-gray-400 text-sm font-medium">
           <span className="flex items-center gap-2">
-            <Globe size={18} className="text-orange-500" /> Remote-first
+            <Globe size={18} className="text-orange-500" /> {t("statRemote")}
           </span>
           <span className="flex items-center gap-2">
-            <Briefcase size={18} className="text-orange-500" /> {jobs.length} open roles
+            <Briefcase size={18} className="text-orange-500" />{" "}
+            {t("statOpenRoles", { count: jobs.length })}
           </span>
           <span className="flex items-center gap-2">
-            <Heart size={18} className="text-orange-500" /> Great benefits
+            <Heart size={18} className="text-orange-500" /> {t("statBenefits")}
           </span>
         </div>
       </PageHero>
@@ -93,13 +111,14 @@ const Careers = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Benefits
+              {t("perksTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Why people <span className="text-orange-500">stay</span>
+              {t("perksTitle")}{" "}
+              <span className="text-orange-500">{t("perksHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -116,9 +135,11 @@ const Careers = () => {
                   {perk.icon}
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">{perk.title}</h3>
+                  <h3 className="text-base font-bold text-white">
+                    {t(perk.titleKey)}
+                  </h3>
                   <p className="text-gray-400 text-sm mt-1 leading-6">
-                    {perk.desc}
+                    {t(perk.descKey)}
                   </p>
                 </div>
               </motion.div>
@@ -143,13 +164,14 @@ const Careers = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Open Positions
+              {t("openPositionsTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Find your <span className="text-orange-500">next role</span>
+              {t("openPositionsTitle")}{" "}
+              <span className="text-orange-500">{t("openPositionsHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -160,15 +182,15 @@ const Careers = () => {
           >
             {departments.map((dept) => (
               <button
-                key={dept}
-                onClick={() => setActive(dept)}
+                key={dept.id}
+                onClick={() => setActive(dept.id)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors cursor-pointer ${
-                  active === dept
+                  active === dept.id
                     ? "bg-orange-500 border-orange-500 text-white"
                     : "bg-[#181818] border-[#2a2a2a] text-gray-400 hover:border-orange-500 hover:text-orange-500"
                 }`}
               >
-                {dept}
+                {t(dept.labelKey)}
               </button>
             ))}
           </motion.div>
@@ -191,33 +213,33 @@ const Careers = () => {
               >
                 <div className="flex flex-col gap-2">
                   <h3 className="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
-                    {job.title}
+                    {t(job.titleKey)}
                   </h3>
                   <div className="flex flex-wrap items-center gap-4 text-gray-400 text-sm">
                     <span className="flex items-center gap-1.5">
                       <Briefcase size={14} className="text-orange-500" />
-                      {job.dept}
+                      {t(deptLabelMap[job.dept])}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <MapPin size={14} className="text-orange-500" />
-                      {job.location}
+                      {t(job.locationKey)}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Clock size={14} className="text-orange-500" />
-                      {job.type}
+                      {t(job.typeKey)}
                     </span>
                   </div>
                 </div>
 
                 <span className="inline-flex items-center gap-2 text-orange-500 font-semibold text-sm shrink-0">
-                  Apply Now <ArrowUpRight size={16} />
+                  {t("applyNow")} <ArrowUpRight size={16} />
                 </span>
               </motion.div>
             ))}
 
             {filtered.length === 0 && (
               <p className="text-center text-gray-500 py-12">
-                No openings in this department right now.
+                {t("noOpenings")}
               </p>
             )}
           </motion.div>

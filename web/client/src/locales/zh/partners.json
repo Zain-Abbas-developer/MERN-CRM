@@ -1,0 +1,75 @@
+{
+  "pageBadge": "合作伙伴",
+  "pageTitle": "通过",
+  "pageHighlight": "合作与我们一起成长",
+  "pageDescription": "无论您是构建、销售还是推荐 — 我们的合作伙伴计划为您提供规模化所需的工具、利润和支持。",
+  "statActive": "300+ 活跃合作伙伴",
+  "statCommission": "最高 30% 佣金",
+  "statSupport": "专属支持",
+
+  "programsTag": "计划",
+  "programsTitle": "选择您的",
+  "programsHighlight": "路径",
+
+  "type1Title": "技术合作伙伴",
+  "type1Desc": "构建集成，将您的产品与我们的产品连接，触达数千共同客户。",
+  "type1Point1": "完整的 API 和沙盒访问权限",
+  "type1Point2": "联合营销机会",
+  "type1Point3": "在我们的应用市场上架",
+
+  "type2Title": "解决方案合作伙伴",
+  "type2Desc": "为您所在地区或行业的客户实施、定制和支持我们的平台。",
+  "type2Point1": "认证实施培训",
+  "type2Point2": "商机注册和保护",
+  "type2Point3": "专属合作伙伴经理",
+
+  "type3Title": "联盟合作伙伴",
+  "type3Desc": "每推荐一位客户到我们的平台，即可获得持续佣金。",
+  "type3Point1": "高达 30% 的持续佣金",
+  "type3Point2": "实时跟踪仪表板",
+  "type3Point3": "定制推广素材",
+
+  "applyNow": "立即申请",
+
+  "trustedBy": "全球领先企业信赖",
+
+  "tiersTag": "等级",
+  "tiersTitle": "合作伙伴",
+  "tiersHighlight": "等级",
+  "tiersDesc": "随着您的业务量增长而升级。所有等级均包含门户访问权限和收入分成。",
+
+  "tier1Name": "注册级",
+  "tier1Price": "免费",
+  "tier1Desc": "适合刚起步的代理商和顾问。",
+  "tier1Feature1": "合作伙伴门户访问权限",
+  "tier1Feature2": "20% 收入分成",
+  "tier1Feature3": "销售赋能工具包",
+  "tier1Feature4": "电子邮件支持",
+
+  "tier2Name": "白银级",
+  "tier2Price": "$0 / 月",
+  "tier2Desc": "适合拥有活跃商机的成熟合作伙伴。",
+  "tier2Feature1": "25% 收入分成",
+  "tier2Feature2": "商机注册",
+  "tier2Feature3": "联合营销预算",
+  "tier2Feature4": "优先支持",
+  "tier2Feature5": "合作伙伴徽章",
+
+  "tier3Name": "黄金级",
+  "tier3Price": "仅限邀请",
+  "tier3Desc": "适合推动大量业务的战略合作伙伴。",
+  "tier3Feature1": "30% 收入分成",
+  "tier3Feature2": "指定合作伙伴经理",
+  "tier3Feature3": "联合路线图会议",
+  "tier3Feature4": "联合网络研讨会和活动",
+  "tier3Feature5": "高管支持",
+
+  "recommended": "推荐",
+  "applyToJoin": "申请加入",
+
+  "ctaTag": "让我们合作",
+  "ctaTitle": "准备好一起成长了吗？",
+  "ctaDesc": "告诉我们您的业务，我们会找到合适的合作模式。",
+  "ctaPrimary": "立即申请",
+  "ctaSecondary": "联系合作团队"
+}

@@ -1,0 +1,75 @@
+{
+  "pageBadge": "Partners",
+  "pageTitle": "Grow with us through",
+  "pageHighlight": "partnership",
+  "pageDescription": "Whether you build, sell or refer — our partner program gives you the tools, margin and support to scale.",
+  "statActive": "300+ active partners",
+  "statCommission": "30% max commission",
+  "statSupport": "Dedicated support",
+
+  "programsTag": "Programs",
+  "programsTitle": "Choose your",
+  "programsHighlight": "path",
+
+  "type1Title": "Technology Partners",
+  "type1Desc": "Build integrations that connect your product to ours and reach thousands of mutual customers.",
+  "type1Point1": "Full API & sandbox access",
+  "type1Point2": "Co-marketing opportunities",
+  "type1Point3": "Listing in our marketplace",
+
+  "type2Title": "Solution Partners",
+  "type2Desc": "Implement, customize and support our platform for clients in your region or industry.",
+  "type2Point1": "Certified implementation training",
+  "type2Point2": "Deal registration & protection",
+  "type2Point3": "Dedicated partner manager",
+
+  "type3Title": "Affiliate Partners",
+  "type3Desc": "Earn recurring commission for every customer you refer to our platform.",
+  "type3Point1": "Up to 30% recurring commission",
+  "type3Point2": "Real-time tracking dashboard",
+  "type3Point3": "Custom promo assets",
+
+  "applyNow": "Apply Now",
+
+  "trustedBy": "Trusted by leading companies worldwide",
+
+  "tiersTag": "Tiers",
+  "tiersTitle": "Partner",
+  "tiersHighlight": "tiers",
+  "tiersDesc": "Move up as your volume grows. All tiers include portal access and revenue share.",
+
+  "tier1Name": "Registered",
+  "tier1Price": "Free",
+  "tier1Desc": "For agencies and consultants getting started.",
+  "tier1Feature1": "Partner portal access",
+  "tier1Feature2": "20% revenue share",
+  "tier1Feature3": "Sales enablement kit",
+  "tier1Feature4": "Email support",
+
+  "tier2Name": "Silver",
+  "tier2Price": "$0 / mo",
+  "tier2Desc": "For established partners with active pipeline.",
+  "tier2Feature1": "25% revenue share",
+  "tier2Feature2": "Deal registration",
+  "tier2Feature3": "Co-marketing budget",
+  "tier2Feature4": "Priority support",
+  "tier2Feature5": "Partner badge",
+
+  "tier3Name": "Gold",
+  "tier3Price": "Invite only",
+  "tier3Desc": "For strategic partners driving significant volume.",
+  "tier3Feature1": "30% revenue share",
+  "tier3Feature2": "Named partner manager",
+  "tier3Feature3": "Joint roadmap sessions",
+  "tier3Feature4": "Joint webinars & events",
+  "tier3Feature5": "Executive sponsorship",
+
+  "recommended": "RECOMMENDED",
+  "applyToJoin": "Apply to Join",
+
+  "ctaTag": "Let's Partner",
+  "ctaTitle": "Ready to grow together?",
+  "ctaDesc": "Tell us about your business and we'll find the right partnership model.",
+  "ctaPrimary": "Apply Now",
+  "ctaSecondary": "Talk to Partnerships"
+}

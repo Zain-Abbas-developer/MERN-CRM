@@ -1,0 +1,23 @@
+{
+  "pageBadge": "المدونة",
+  "pageTitle": "رؤى حول المبيعات والمنتج و",
+  "pageHighlight": "النمو",
+  "pageDescription": "كتابة عملية من الفريق الذي يبني المنتج — بلا حشو، بلا ملفات PDF محجوبة.",
+  "searchPlaceholder": "ابحث في المقالات...",
+
+  "catAll": "الكل",
+  "catSales": "المبيعات",
+  "catProduct": "المنتج",
+  "catEngineering": "الهندسة",
+  "catGrowth": "النمو",
+
+  "featuredLabel": "مميز",
+  "noResults": "لا توجد مقالات تطابق بحثك.",
+
+  "newsletterTag": "النشرة البريدية",
+  "newsletterTitle": "بريد مفيد واحد، مرتين شهريًا",
+  "newsletterDesc": "بلا بريد مزعج، بلا حشو. إلغاء الاشتراك بنقرة واحدة.",
+  "newsletterPlaceholder": "you@company.com",
+  "newsletterBtn": "اشترك",
+  "newsletterSuccess": "تم اشتراكك!"
+}

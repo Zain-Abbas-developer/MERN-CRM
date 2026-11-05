@@ -10,6 +10,10 @@ import enIntegration from "../locales/en/integrations.json";
 import enChangelog from '../locales/en/changelog.json';
 import enRoadmap from '../locales/en/roadmap.json';
 import enAbout from '../locales/en/about.json';
+import enCareers from '../locales/en/careers.json';
+import enContact from '../locales/en/contact.json';
+import enPartners from '../locales/en/partners.json';
+import enBlog from '../locales/en/blog.json';
 
 import esCommon from "../locales/es/common.json";
 import esHome from "../locales/es/home.json";
@@ -19,6 +23,10 @@ import esIntegration from "../locales/es/integrations.json";
 import esChangelog from '../locales/es/changelog.json';
 import esRoadmap from '../locales/es/roadmap.json';
 import esAbout from '../locales/es/about.json';
+import esCareers from '../locales/es/careers.json';
+import esContact from '../locales/es/contact.json';
+import esPartners from '../locales/es/partners.json';
+import esBlog from '../locales/es/blog.json';
 
 import frCommon from "../locales/fr/common.json";
 import frHome from "../locales/fr/home.json";
@@ -28,6 +36,10 @@ import frIntegration from "../locales/fr/integrations.json";
 import frChangelog from '../locales/fr/changelog.json';
 import frRoadmap from '../locales/fr/roadmap.json';
 import frAbout from '../locales/fr/about.json';
+import frCareers from '../locales/fr/careers.json';
+import frContact from '../locales/fr/contact.json';
+import frPartners from '../locales/fr/partners.json';
+import frBlog from '../locales/fr/blog.json';
 
 import arCommon from "../locales/ar/common.json";
 import arHome from "../locales/ar/home.json";
@@ -37,6 +49,10 @@ import arIntegration from "../locales/ar/integrations.json";
 import arChangelog from '../locales/ar/changelog.json';
 import arRoadmap from '../locales/ar/roadmap.json';
 import arAbout from '../locales/ar/about.json';
+import arCareers from '../locales/ar/careers.json';
+import arContact from '../locales/ar/contact.json';
+import arPartners from '../locales/ar/partners.json';
+import arBlog from '../locales/ar/blog.json';
 
 import zhCommon from "../locales/zh/common.json";
 import zhHome from "../locales/zh/home.json";
@@ -46,6 +62,10 @@ import zhIntegration from "../locales/zh/integrations.json";
 import zhChangelog from '../locales/zh/changelog.json';
 import zhRoadmap from '../locales/zh/roadmap.json';
 import zhAbout from '../locales/zh/about.json';
+import zhCareers from '../locales/zh/careers.json';
+import zhContact from '../locales/zh/contact.json';
+import zhPartners from '../locales/zh/partners.json';
+import zhBlog from '../locales/zh/blog.json';
 
 const resources = {
   en: {
@@ -57,6 +77,10 @@ const resources = {
     changelog: enChangelog,
     roadmap: enRoadmap,
     about: enAbout,
+    careers: enCareers,
+    contact: enContact,
+    partners: enPartners,
+    blog: enBlog,
   },
   es: {
     common: esCommon,
@@ -67,6 +91,10 @@ const resources = {
     changelog: esChangelog,
     roadmap: esRoadmap,
     about: esAbout,
+    careers: esCareers,
+    contact: esContact,
+    partners: esPartners,
+    blog: esBlog,
   },
   fr: {
     common: frCommon,
@@ -77,6 +105,10 @@ const resources = {
     changelog: frChangelog,
     roadmap: frRoadmap,
     about: frAbout,
+    careers: frCareers,
+    contact: frContact,
+    partners: frPartners,
+    blog: frBlog,
   },
   ar: {
     common: arCommon,
@@ -87,6 +119,10 @@ const resources = {
     changelog: arChangelog,
     roadmap: arRoadmap,
     about: arAbout,
+    careers: arCareers,
+    contact: arContact,
+    partners: arPartners,
+    blog: arBlog,
   },
   zh: {
     common: zhCommon,
@@ -97,6 +133,10 @@ const resources = {
     changelog: zhChangelog,
     roadmap: zhRoadmap,
     about: zhAbout,
+    careers: zhCareers,
+    contact: zhContact,
+    partners: zhPartners,
+    blog: zhBlog,
   },
 };
 

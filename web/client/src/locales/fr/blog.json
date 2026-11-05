@@ -1,0 +1,23 @@
+{
+  "pageBadge": "Blog",
+  "pageTitle": "Analyses sur les ventes, le produit et la",
+  "pageHighlight": "croissance",
+  "pageDescription": "Des écrits pratiques de l'équipe qui construit le produit — sans blabla, sans PDF verrouillés.",
+  "searchPlaceholder": "Rechercher des articles...",
+
+  "catAll": "Tous",
+  "catSales": "Ventes",
+  "catProduct": "Produit",
+  "catEngineering": "Ingénierie",
+  "catGrowth": "Croissance",
+
+  "featuredLabel": "À la une",
+  "noResults": "Aucun article ne correspond à votre recherche.",
+
+  "newsletterTag": "Newsletter",
+  "newsletterTitle": "Un e-mail utile, deux fois par mois",
+  "newsletterDesc": "Pas de spam, pas de blabla. Désabonnez-vous en un clic.",
+  "newsletterPlaceholder": "vous@entreprise.com",
+  "newsletterBtn": "S'abonner",
+  "newsletterSuccess": "Vous êtes abonné !"
+}

@@ -1,6 +1,7 @@
 // src/pages/Company/Partners.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   Handshake,
   Code2,
@@ -25,21 +26,21 @@ import {
 const partnerTypes = [
   {
     icon: <Code2 size={24} />,
-    title: "Technology Partners",
-    desc: "Build integrations that connect your product to ours and reach thousands of mutual customers.",
-    points: ["Full API & sandbox access", "Co-marketing opportunities", "Listing in our marketplace"],
+    titleKey: "type1Title",
+    descKey: "type1Desc",
+    pointKeys: ["type1Point1", "type1Point2", "type1Point3"],
   },
   {
     icon: <Users size={24} />,
-    title: "Solution Partners",
-    desc: "Implement, customize and support our platform for clients in your region or industry.",
-    points: ["Certified implementation training", "Deal registration & protection", "Dedicated partner manager"],
+    titleKey: "type2Title",
+    descKey: "type2Desc",
+    pointKeys: ["type2Point1", "type2Point2", "type2Point3"],
   },
   {
     icon: <Megaphone size={24} />,
-    title: "Affiliate Partners",
-    desc: "Earn recurring commission for every customer you refer to our platform.",
-    points: ["Up to 30% recurring commission", "Real-time tracking dashboard", "Custom promo assets"],
+    titleKey: "type3Title",
+    descKey: "type3Desc",
+    pointKeys: ["type3Point1", "type3Point2", "type3Point3"],
   },
 ];
 
@@ -47,48 +48,50 @@ const logos = ["Northwind", "Acme Corp", "Globex", "Initech", "Umbrella", "Soyle
 
 const tiers = [
   {
-    name: "Registered",
-    price: "Free",
-    desc: "For agencies and consultants getting started.",
-    features: ["Partner portal access", "20% revenue share", "Sales enablement kit", "Email support"],
+    nameKey: "tier1Name",
+    priceKey: "tier1Price",
+    descKey: "tier1Desc",
+    featureKeys: ["tier1Feature1", "tier1Feature2", "tier1Feature3", "tier1Feature4"],
     highlight: false,
   },
   {
-    name: "Silver",
-    price: "$0 / mo",
-    desc: "For established partners with active pipeline.",
-    features: ["25% revenue share", "Deal registration", "Co-marketing budget", "Priority support", "Partner badge"],
+    nameKey: "tier2Name",
+    priceKey: "tier2Price",
+    descKey: "tier2Desc",
+    featureKeys: ["tier2Feature1", "tier2Feature2", "tier2Feature3", "tier2Feature4", "tier2Feature5"],
     highlight: true,
   },
   {
-    name: "Gold",
-    price: "Invite only",
-    desc: "For strategic partners driving significant volume.",
-    features: ["30% revenue share", "Named partner manager", "Joint roadmap sessions", "Joint webinars & events", "Executive sponsorship"],
+    nameKey: "tier3Name",
+    priceKey: "tier3Price",
+    descKey: "tier3Desc",
+    featureKeys: ["tier3Feature1", "tier3Feature2", "tier3Feature3", "tier3Feature4", "tier3Feature5"],
     highlight: false,
   },
 ];
 
 const Partners = () => {
+  const { t } = useTranslation("partners");
+
   return (
     <>
       <N />
 
       <PageHero
-        badge="Partners"
-        title="Grow with us through"
-        highlight="partnership"
-        description="Whether you build, sell or refer — our partner program gives you the tools, margin and support to scale."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       >
         <div className="flex flex-wrap items-center justify-center gap-6 mt-4 text-gray-400 text-sm font-medium">
           <span className="flex items-center gap-2">
-            <Globe size={18} className="text-orange-500" /> 300+ active partners
+            <Globe size={18} className="text-orange-500" /> {t("statActive")}
           </span>
           <span className="flex items-center gap-2">
-            <TrendingUp size={18} className="text-orange-500" /> 30% max commission
+            <TrendingUp size={18} className="text-orange-500" /> {t("statCommission")}
           </span>
           <span className="flex items-center gap-2">
-            <Handshake size={18} className="text-orange-500" /> Dedicated support
+            <Handshake size={18} className="text-orange-500" /> {t("statSupport")}
           </span>
         </div>
       </PageHero>
@@ -107,13 +110,14 @@ const Partners = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Programs
+              {t("programsTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Choose your <span className="text-orange-500">path</span>
+              {t("programsTitle")}{" "}
+              <span className="text-orange-500">{t("programsHighlight")}</span>
             </motion.h2>
           </div>
 
@@ -129,18 +133,28 @@ const Partners = () => {
                 <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-500">
                   {type.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white">{type.title}</h3>
-                <p className="text-gray-400 text-sm leading-6">{type.desc}</p>
+                <h3 className="text-xl font-bold text-white">
+                  {t(type.titleKey)}
+                </h3>
+                <p className="text-gray-400 text-sm leading-6">
+                  {t(type.descKey)}
+                </p>
                 <ul className="flex flex-col gap-3 mt-2">
-                  {type.points.map((p, j) => (
-                    <li key={j} className="flex items-start gap-2 text-gray-300 text-sm">
-                      <CheckCircle2 size={16} className="text-orange-500 mt-0.5 shrink-0" />
-                      {p}
+                  {type.pointKeys.map((pk, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-2 text-gray-300 text-sm"
+                    >
+                      <CheckCircle2
+                        size={16}
+                        className="text-orange-500 mt-0.5 shrink-0"
+                      />
+                      {t(pk)}
                     </li>
                   ))}
                 </ul>
                 <button className="mt-auto self-start inline-flex items-center gap-2 text-orange-500 font-semibold text-sm cursor-pointer">
-                  Apply Now <ArrowUpRight size={15} />
+                  {t("applyNow")} <ArrowUpRight size={15} />
                 </button>
               </motion.div>
             ))}
@@ -163,7 +177,7 @@ const Partners = () => {
             variants={fadeInUp}
             className="text-gray-500 text-sm font-semibold tracking-widest uppercase text-center"
           >
-            Trusted by leading companies worldwide
+            {t("trustedBy")}
           </motion.p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
@@ -198,17 +212,17 @@ const Partners = () => {
               variants={fadeInUp}
               className="text-orange-500 text-sm font-bold tracking-widest uppercase"
             >
-              Tiers
+              {t("tiersTag")}
             </motion.div>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-white tracking-wide"
             >
-              Partner <span className="text-orange-500">tiers</span>
+              {t("tiersTitle")}{" "}
+              <span className="text-orange-500">{t("tiersHighlight")}</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-400 max-w-2xl">
-              Move up as your volume grows. All tiers include portal access and
-              revenue share.
+              {t("tiersDesc")}
             </motion.p>
           </div>
 
@@ -227,21 +241,29 @@ const Partners = () => {
               >
                 {tier.highlight && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-bold tracking-wide">
-                    RECOMMENDED
+                    {t("recommended")}
                   </div>
                 )}
 
-                <h3 className="text-xl font-bold text-white">{tier.name}</h3>
+                <h3 className="text-xl font-bold text-white">
+                  {t(tier.nameKey)}
+                </h3>
                 <div className="text-3xl font-bold text-orange-500 mt-3">
-                  {tier.price}
+                  {t(tier.priceKey)}
                 </div>
-                <p className="text-gray-400 text-sm mt-2">{tier.desc}</p>
+                <p className="text-gray-400 text-sm mt-2">{t(tier.descKey)}</p>
 
                 <ul className="flex flex-col gap-3 mt-7">
-                  {tier.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-3 text-gray-300 text-sm">
-                      <CheckCircle2 size={16} className="text-orange-500 mt-0.5 shrink-0" />
-                      {f}
+                  {tier.featureKeys.map((fk, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-3 text-gray-300 text-sm"
+                    >
+                      <CheckCircle2
+                        size={16}
+                        className="text-orange-500 mt-0.5 shrink-0"
+                      />
+                      {t(fk)}
                     </li>
                   ))}
                 </ul>
@@ -253,7 +275,7 @@ const Partners = () => {
                       : "border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
                   }`}
                 >
-                  Apply to Join
+                  {t("applyToJoin")}
                 </button>
               </motion.div>
             ))}
@@ -262,11 +284,11 @@ const Partners = () => {
       </section>
 
       <CtaBanner
-        tag="Let's Partner"
-        title="Ready to grow together?"
-        description="Tell us about your business and we'll find the right partnership model."
-        primaryLabel="Apply Now"
-        secondaryLabel="Talk to Partnerships"
+        tag={t("ctaTag")}
+        title={t("ctaTitle")}
+        description={t("ctaDesc")}
+        primaryLabel={t("ctaPrimary")}
+        secondaryLabel={t("ctaSecondary")}
       />
 
       <F />

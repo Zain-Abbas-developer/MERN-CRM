@@ -1,0 +1,75 @@
+{
+  "pageBadge": "Partenaires",
+  "pageTitle": "Grandissez avec nous grâce au",
+  "pageHighlight": "partenariat",
+  "pageDescription": "Que vous construisiez, vendiez ou recommandiez — notre programme partenaires vous donne les outils, la marge et le support pour évoluer.",
+  "statActive": "300+ partenaires actifs",
+  "statCommission": "Jusqu'à 30% de commission",
+  "statSupport": "Support dédié",
+
+  "programsTag": "Programmes",
+  "programsTitle": "Choisissez votre",
+  "programsHighlight": "voie",
+
+  "type1Title": "Partenaires technologiques",
+  "type1Desc": "Créez des intégrations qui connectent votre produit au nôtre et touchent des milliers de clients communs.",
+  "type1Point1": "Accès complet à l'API et au sandbox",
+  "type1Point2": "Opportunités de co-marketing",
+  "type1Point3": "Présence dans notre marketplace",
+
+  "type2Title": "Partenaires solutions",
+  "type2Desc": "Implémentez, personnalisez et supportez notre plateforme pour des clients dans votre région ou secteur.",
+  "type2Point1": "Formation certifiée à l'implémentation",
+  "type2Point2": "Enregistrement et protection des opportunités",
+  "type2Point3": "Responsable partenaires dédié",
+
+  "type3Title": "Partenaires affiliés",
+  "type3Desc": "Gagnez une commission récurrente pour chaque client que vous recommandez à notre plateforme.",
+  "type3Point1": "Jusqu'à 30% de commission récurrente",
+  "type3Point2": "Tableau de bord de suivi en temps réel",
+  "type3Point3": "Supports promotionnels personnalisés",
+
+  "applyNow": "Postuler",
+
+  "trustedBy": "Approuvé par les entreprises leaders mondiales",
+
+  "tiersTag": "Niveaux",
+  "tiersTitle": "Niveaux de",
+  "tiersHighlight": "partenariat",
+  "tiersDesc": "Évoluez au rythme de votre volume. Tous les niveaux incluent l'accès au portail et le partage des revenus.",
+
+  "tier1Name": "Enregistré",
+  "tier1Price": "Gratuit",
+  "tier1Desc": "Pour les agences et consultants qui démarrent.",
+  "tier1Feature1": "Accès au portail partenaires",
+  "tier1Feature2": "20% de partage des revenus",
+  "tier1Feature3": "Kit d'activation commerciale",
+  "tier1Feature4": "Support par e-mail",
+
+  "tier2Name": "Argent",
+  "tier2Price": "0$ / mois",
+  "tier2Desc": "Pour les partenaires établis avec un pipeline actif.",
+  "tier2Feature1": "25% de partage des revenus",
+  "tier2Feature2": "Enregistrement des opportunités",
+  "tier2Feature3": "Budget de co-marketing",
+  "tier2Feature4": "Support prioritaire",
+  "tier2Feature5": "Badge partenaire",
+
+  "tier3Name": "Or",
+  "tier3Price": "Sur invitation",
+  "tier3Desc": "Pour les partenaires stratégiques générant un volume significatif.",
+  "tier3Feature1": "30% de partage des revenus",
+  "tier3Feature2": "Responsable partenaires nommé",
+  "tier3Feature3": "Sessions de feuille de route conjointes",
+  "tier3Feature4": "Webinaires et événements conjoints",
+  "tier3Feature5": "Parrainage exécutif",
+
+  "recommended": "RECOMMANDÉ",
+  "applyToJoin": "Postuler pour rejoindre",
+
+  "ctaTag": "Devenons partenaires",
+  "ctaTitle": "Prêt à grandir ensemble ?",
+  "ctaDesc": "Parlez-nous de votre activité et nous trouverons le bon modèle de partenariat.",
+  "ctaPrimary": "Postuler",
+  "ctaSecondary": "Parler aux partenariats"
+}

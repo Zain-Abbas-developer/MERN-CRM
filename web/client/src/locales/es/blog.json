@@ -1,0 +1,23 @@
+{
+  "pageBadge": "Blog",
+  "pageTitle": "Ideas sobre ventas, producto y",
+  "pageHighlight": "crecimiento",
+  "pageDescription": "Escritura práctica del equipo que construye el producto — sin relleno, sin PDFs con registro.",
+  "searchPlaceholder": "Buscar artículos...",
+
+  "catAll": "Todos",
+  "catSales": "Ventas",
+  "catProduct": "Producto",
+  "catEngineering": "Ingeniería",
+  "catGrowth": "Crecimiento",
+
+  "featuredLabel": "Destacado",
+  "noResults": "Ningún artículo coincide con tu búsqueda.",
+
+  "newsletterTag": "Boletín",
+  "newsletterTitle": "Un correo útil, dos veces al mes",
+  "newsletterDesc": "Sin spam, sin relleno. Cancela la suscripción con un clic.",
+  "newsletterPlaceholder": "tu@empresa.com",
+  "newsletterBtn": "Suscribirse",
+  "newsletterSuccess": "¡Estás suscrito!"
+}

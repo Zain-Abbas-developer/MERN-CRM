@@ -1,0 +1,75 @@
+{
+  "pageBadge": "Socios",
+  "pageTitle": "Crece con nosotros a través de la",
+  "pageHighlight": "colaboración",
+  "pageDescription": "Ya sea que construyas, vendas o refieras — nuestro programa de socios te da las herramientas, el margen y el soporte para escalar.",
+  "statActive": "Más de 300 socios activos",
+  "statCommission": "Hasta 30% de comisión",
+  "statSupport": "Soporte dedicado",
+
+  "programsTag": "Programas",
+  "programsTitle": "Elige tu",
+  "programsHighlight": "camino",
+
+  "type1Title": "Socios Tecnológicos",
+  "type1Desc": "Construye integraciones que conecten tu producto con el nuestro y lleguen a miles de clientes mutuos.",
+  "type1Point1": "Acceso completo a API y sandbox",
+  "type1Point2": "Oportunidades de co-marketing",
+  "type1Point3": "Presencia en nuestro marketplace",
+
+  "type2Title": "Socios de Soluciones",
+  "type2Desc": "Implementa, personaliza y da soporte a nuestra plataforma para clientes de tu región o industria.",
+  "type2Point1": "Formación certificada en implementación",
+  "type2Point2": "Registro y protección de oportunidades",
+  "type2Point3": "Gerente de socios dedicado",
+
+  "type3Title": "Socios Afiliados",
+  "type3Desc": "Gana comisión recurrente por cada cliente que refieras a nuestra plataforma.",
+  "type3Point1": "Hasta 30% de comisión recurrente",
+  "type3Point2": "Panel de seguimiento en tiempo real",
+  "type3Point3": "Recursos promocionales personalizados",
+
+  "applyNow": "Aplicar ahora",
+
+  "trustedBy": "Con la confianza de empresas líderes en todo el mundo",
+
+  "tiersTag": "Niveles",
+  "tiersTitle": "Niveles de",
+  "tiersHighlight": "socios",
+  "tiersDesc": "Sube de nivel a medida que crece tu volumen. Todos los niveles incluyen acceso al portal y reparto de ingresos.",
+
+  "tier1Name": "Registrado",
+  "tier1Price": "Gratis",
+  "tier1Desc": "Para agencias y consultores que comienzan.",
+  "tier1Feature1": "Acceso al portal de socios",
+  "tier1Feature2": "20% de reparto de ingresos",
+  "tier1Feature3": "Kit de habilitación de ventas",
+  "tier1Feature4": "Soporte por correo",
+
+  "tier2Name": "Plata",
+  "tier2Price": "$0 / mes",
+  "tier2Desc": "Para socios establecidos con pipeline activo.",
+  "tier2Feature1": "25% de reparto de ingresos",
+  "tier2Feature2": "Registro de oportunidades",
+  "tier2Feature3": "Presupuesto de co-marketing",
+  "tier2Feature4": "Soporte prioritario",
+  "tier2Feature5": "Insignia de socio",
+
+  "tier3Name": "Oro",
+  "tier3Price": "Solo por invitación",
+  "tier3Desc": "Para socios estratégicos que generan un volumen significativo.",
+  "tier3Feature1": "30% de reparto de ingresos",
+  "tier3Feature2": "Gerente de socios designado",
+  "tier3Feature3": "Sesiones conjuntas de hoja de ruta",
+  "tier3Feature4": "Webinars y eventos conjuntos",
+  "tier3Feature5": "Patrocinio ejecutivo",
+
+  "recommended": "RECOMENDADO",
+  "applyToJoin": "Solicitar unirse",
+
+  "ctaTag": "Seamos socios",
+  "ctaTitle": "¿Listo para crecer juntos?",
+  "ctaDesc": "Cuéntanos sobre tu negocio y encontraremos el modelo de colaboración adecuado.",
+  "ctaPrimary": "Aplicar ahora",
+  "ctaSecondary": "Hablar con Alianzas"
+}
