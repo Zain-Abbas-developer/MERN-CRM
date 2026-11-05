@@ -1,0 +1,52 @@
+{
+  "pageBadge": "更新日志",
+  "pageTitle": "我们的",
+  "pageHighlight": "产品新功能",
+  "pageDescription": "每项改进、修复和新功能 — 已发布并有文档记录。我们每两周发布一次更新。",
+
+  "typeNew": "新增",
+  "typeImproved": "改进",
+  "typeFixed": "修复",
+
+  "rel1Version": "v3.4.0",
+  "rel1Date": "2025年3月14日",
+  "rel1Title": "工作流自动化 2.0",
+  "rel1Summary": "完全重建的自动化引擎，支持分支逻辑、延迟和 webhook 触发器。",
+  "rel1Changes": [
+    { "type": "new", "text": "工作流步骤内的分支条件" },
+    { "type": "new", "text": "原生 webhook 触发器和响应操作" },
+    { "type": "improved", "text": "自动化运行速度提升至4倍" },
+    { "type": "fixed", "text": "快速切换阶段时产生的重复邮件" }
+  ],
+
+  "rel2Version": "v3.3.2",
+  "rel2Date": "2025年2月27日",
+  "rel2Title": "报告性能更新",
+  "rel2Summary": "更快的仪表盘以及为管理者新增的收入预测小部件。",
+  "rel2Changes": [
+    { "type": "new", "text": "加权收入预测小部件" },
+    { "type": "improved", "text": "仪表盘加载时间减少60%" },
+    { "type": "fixed", "text": "活动报告中的时区偏移" }
+  ],
+
+  "rel3Version": "v3.3.0",
+  "rel3Date": "2025年2月8日",
+  "rel3Title": "移动端体验焕新",
+  "rel3Summary": "重新设计的移动应用，支持离线模式和快速添加操作。",
+  "rel3Changes": [
+    { "type": "new", "text": "联系人和笔记的离线模式" },
+    { "type": "new", "text": "快速添加悬浮操作按钮" },
+    { "type": "improved", "text": "iOS 和 Android 生物识别登录" },
+    { "type": "fixed", "text": "读取后推送通知未清除" }
+  ],
+
+  "rel4Version": "v3.2.1",
+  "rel4Date": "2025年1月19日",
+  "rel4Title": "安全与合规",
+  "rel4Summary": "在我们的 SOC 2 Type II 审计前进行的加固处理。",
+  "rel4Changes": [
+    { "type": "new", "text": "企业版 SAML 单点登录" },
+    { "type": "improved", "text": "会话超时现在可配置" },
+    { "type": "fixed", "text": "审计日志缺少权限变更记录" }
+  ]
+}

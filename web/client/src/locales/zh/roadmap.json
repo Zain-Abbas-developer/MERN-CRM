@@ -1,0 +1,36 @@
+{
+  "pageBadge": "路线图",
+  "pageTitle": "我们的",
+  "pageHighlight": "下一步方向",
+  "pageDescription": "我们的公开路线图。优先级会随客户反馈而调整 —— 请为您团队最关心的功能投票。",
+
+  "colPlannedLabel": "计划中",
+  "colProgressLabel": "进行中",
+  "colShippedLabel": "已上线",
+
+  "colPlannedItems": [
+    { "title": "AI 潜在客户评分", "desc": "使用历史信号预测哪些交易最有可能成交。", "tag": "2025年第三季度" },
+    { "title": "自定义对象", "desc": "对联系人和交易之外的任何业务实体进行建模。", "tag": "2025年第三季度" },
+    { "title": "WhatsApp 渠道", "desc": "双向 WhatsApp 对话记录在联系人时间线上。", "tag": "2025年第四季度" }
+  ],
+  "colProgressItems": [
+    { "title": "可视化报告构建器", "desc": "通过拖放创建自定义报告，支持保存视图和共享。", "tag": "即将推出" },
+    { "title": "多币种交易", "desc": "按交易设置币种，报告中自动进行汇率换算。", "tag": "即将推出" },
+    { "title": "短信序列", "desc": "在现有邮件自动化工作流中添加短信步骤。", "tag": "测试版" }
+  ],
+  "colShippedItems": [
+    { "title": "工作流自动化 2.0", "desc": "分支逻辑、延迟和 webhook 触发器。", "tag": "v3.4.0" },
+    { "title": "收入预测", "desc": "为管理者提供的加权管道预测小部件。", "tag": "v3.3.2" },
+    { "title": "移动端离线模式", "desc": "无需联网即可访问联系人和笔记。", "tag": "v3.3.0" }
+  ],
+
+  "feedbackTitle": "有想法或功能请求？",
+  "feedbackDesc": "我们与客户共同构建。提交请求并跟踪其进度。",
+  "feedbackBtn": "提交反馈",
+
+  "ctaTag": "开始使用",
+  "ctaTitle": "试用我们已上线的功能",
+  "ctaDesc": "每项已发布的功能目前对所有试用账户都可用。",
+  "ctaPrimary": "开始免费试用",
+  "ctaSecondary": "查看更新日志"
+}

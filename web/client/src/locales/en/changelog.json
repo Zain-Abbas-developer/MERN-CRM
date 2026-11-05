@@ -1,0 +1,52 @@
+{
+  "pageBadge": "Changelog",
+  "pageTitle": "What's new in",
+  "pageHighlight": "our product",
+  "pageDescription": "Every improvement, fix and new feature — shipped and documented. We release updates every two weeks.",
+
+  "typeNew": "New",
+  "typeImproved": "Improved",
+  "typeFixed": "Fixed",
+
+  "rel1Version": "v3.4.0",
+  "rel1Date": "March 14, 2025",
+  "rel1Title": "Workflow Automation 2.0",
+  "rel1Summary": "A completely rebuilt automation engine with branching logic, delays and webhook triggers.",
+  "rel1Changes": [
+    { "type": "new", "text": "Branching conditions inside workflow steps" },
+    { "type": "new", "text": "Native webhook trigger and response actions" },
+    { "type": "improved", "text": "Automation runs up to 4x faster" },
+    { "type": "fixed", "text": "Duplicate emails on rapid stage changes" }
+  ],
+
+  "rel2Version": "v3.3.2",
+  "rel2Date": "February 27, 2025",
+  "rel2Title": "Reporting Performance Update",
+  "rel2Summary": "Faster dashboards and a new revenue forecasting widget for managers.",
+  "rel2Changes": [
+    { "type": "new", "text": "Weighted revenue forecast widget" },
+    { "type": "improved", "text": "Dashboard load time reduced by 60%" },
+    { "type": "fixed", "text": "Timezone offset in activity reports" }
+  ],
+
+  "rel3Version": "v3.3.0",
+  "rel3Date": "February 08, 2025",
+  "rel3Title": "Mobile Experience Refresh",
+  "rel3Summary": "A redesigned mobile app with offline mode and quick-add actions.",
+  "rel3Changes": [
+    { "type": "new", "text": "Offline mode for contacts and notes" },
+    { "type": "new", "text": "Quick-add floating action button" },
+    { "type": "improved", "text": "Biometric login on iOS and Android" },
+    { "type": "fixed", "text": "Push notifications not clearing on read" }
+  ],
+
+  "rel4Version": "v3.2.1",
+  "rel4Date": "January 19, 2025",
+  "rel4Title": "Security & Compliance",
+  "rel4Summary": "Hardening pass ahead of our SOC 2 Type II audit.",
+  "rel4Changes": [
+    { "type": "new", "text": "SAML single sign-on for Enterprise" },
+    { "type": "improved", "text": "Session timeout is now configurable" },
+    { "type": "fixed", "text": "Audit log missing permission changes" }
+  ]
+}

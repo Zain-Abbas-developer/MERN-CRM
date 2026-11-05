@@ -1,0 +1,52 @@
+{
+  "pageBadge": "Journal des modifications",
+  "pageTitle": "Les nouveautés de",
+  "pageHighlight": "notre produit",
+  "pageDescription": "Chaque amélioration, correction et nouvelle fonctionnalité — livrée et documentée. Nous publions des mises à jour toutes les deux semaines.",
+
+  "typeNew": "Nouveau",
+  "typeImproved": "Amélioré",
+  "typeFixed": "Corrigé",
+
+  "rel1Version": "v3.4.0",
+  "rel1Date": "14 mars 2025",
+  "rel1Title": "Automatisation des workflows 2.0",
+  "rel1Summary": "Un moteur d'automatisation entièrement reconstruit avec logique de branchement, délais et déclencheurs webhook.",
+  "rel1Changes": [
+    { "type": "new", "text": "Conditions de branchement dans les étapes du workflow" },
+    { "type": "new", "text": "Déclencheurs et réponses webhook natifs" },
+    { "type": "improved", "text": "L'automatisation est jusqu'à 4 fois plus rapide" },
+    { "type": "fixed", "text": "E-mails en double lors de changements d'étape rapides" }
+  ],
+
+  "rel2Version": "v3.3.2",
+  "rel2Date": "27 février 2025",
+  "rel2Title": "Mise à jour des performances de reporting",
+  "rel2Summary": "Tableaux de bord plus rapides et un nouveau widget de prévision de revenus pour les managers.",
+  "rel2Changes": [
+    { "type": "new", "text": "Widget de prévision de revenus pondérée" },
+    { "type": "improved", "text": "Temps de chargement du tableau de bord réduit de 60 %" },
+    { "type": "fixed", "text": "Décalage horaire dans les rapports d'activité" }
+  ],
+
+  "rel3Version": "v3.3.0",
+  "rel3Date": "08 février 2025",
+  "rel3Title": "Refonte de l'expérience mobile",
+  "rel3Summary": "Une application mobile repensée avec mode hors ligne et actions d'ajout rapide.",
+  "rel3Changes": [
+    { "type": "new", "text": "Mode hors ligne pour les contacts et les notes" },
+    { "type": "new", "text": "Bouton d'action flottant d'ajout rapide" },
+    { "type": "improved", "text": "Connexion biométrique sur iOS et Android" },
+    { "type": "fixed", "text": "Notifications push qui ne se fermaient pas à la lecture" }
+  ],
+
+  "rel4Version": "v3.2.1",
+  "rel4Date": "19 janvier 2025",
+  "rel4Title": "Sécurité et conformité",
+  "rel4Summary": "Passe de durcissement avant notre audit SOC 2 Type II.",
+  "rel4Changes": [
+    { "type": "new", "text": "Authentification unique SAML pour Entreprise" },
+    { "type": "improved", "text": "Le délai d'expiration de session est désormais configurable" },
+    { "type": "fixed", "text": "Journal d'audit sans les changements de permissions" }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "pageBadge": "Hoja de ruta",
+  "pageTitle": "Hacia dónde",
+  "pageHighlight": "vamos",
+  "pageDescription": "Nuestra hoja de ruta pública. Las prioridades cambian con los comentarios de los clientes — vota por lo que más importa a tu equipo.",
+
+  "colPlannedLabel": "Planeado",
+  "colProgressLabel": "En curso",
+  "colShippedLabel": "Lanzado",
+
+  "colPlannedItems": [
+    { "title": "Puntuación de leads con IA", "desc": "Predice qué negocios tienen más probabilidades de cerrarse usando señales históricas.", "tag": "T3 2025" },
+    { "title": "Objetos personalizados", "desc": "Modela cualquier entidad de negocio más allá de contactos y negocios.", "tag": "T3 2025" },
+    { "title": "Canal de WhatsApp", "desc": "Conversaciones bidireccionales de WhatsApp registradas en la línea de tiempo del contacto.", "tag": "T4 2025" }
+  ],
+  "colProgressItems": [
+    { "title": "Constructor visual de informes", "desc": "Informes personalizados con arrastrar y soltar, vistas guardadas y compartir.", "tag": "Próximamente" },
+    { "title": "Negocios multidivisa", "desc": "Moneda por negocio con conversión automática de divisas en informes.", "tag": "Próximamente" },
+    { "title": "Secuencias SMS", "desc": "Añade pasos SMS dentro de los flujos de automatización de correo existentes.", "tag": "Beta" }
+  ],
+  "colShippedItems": [
+    { "title": "Automatización de flujos 2.0", "desc": "Lógica de ramificación, retrasos y disparadores de webhook.", "tag": "v3.4.0" },
+    { "title": "Previsión de ingresos", "desc": "Widget de previsión de pipeline ponderada para gerentes.", "tag": "v3.3.2" },
+    { "title": "Modo sin conexión móvil", "desc": "Accede a contactos y notas sin conexión.", "tag": "v3.3.0" }
+  ],
+
+  "feedbackTitle": "¿Tienes una idea o solicitud de función?",
+  "feedbackDesc": "Construimos con nuestros clientes. Envía una solicitud y sigue su progreso.",
+  "feedbackBtn": "Enviar comentario",
+
+  "ctaTag": "Comenzar",
+  "ctaTitle": "Prueba lo que ya hemos lanzado",
+  "ctaDesc": "Cada función lanzada está activa hoy para todas las cuentas de prueba.",
+  "ctaPrimary": "Comenzar prueba gratuita",
+  "ctaSecondary": "Ver registro de cambios"
+}

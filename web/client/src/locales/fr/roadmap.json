@@ -1,0 +1,36 @@
+{
+  "pageBadge": "Feuille de route",
+  "pageTitle": "Où nous",
+  "pageHighlight": "allons ensuite",
+  "pageDescription": "Notre feuille de route publique. Les priorités évoluent avec les retours clients — votez pour ce qui compte le plus pour votre équipe.",
+
+  "colPlannedLabel": "Prévu",
+  "colProgressLabel": "En cours",
+  "colShippedLabel": "Livré",
+
+  "colPlannedItems": [
+    { "title": "Scoring des leads par IA", "desc": "Prédisez quelles transactions sont les plus susceptibles de se conclure grâce aux signaux historiques.", "tag": "T3 2025" },
+    { "title": "Objets personnalisés", "desc": "Modélisez toute entité métier au-delà des contacts et des transactions.", "tag": "T3 2025" },
+    { "title": "Canal WhatsApp", "desc": "Conversations WhatsApp bidirectionnelles enregistrées sur la chronologie du contact.", "tag": "T4 2025" }
+  ],
+  "colProgressItems": [
+    { "title": "Générateur de rapports visuels", "desc": "Rapports personnalisés par glisser-déposer avec vues enregistrées et partage.", "tag": "Bientôt disponible" },
+    { "title": "Transactions multidevises", "desc": "Devise par transaction avec conversion automatique dans les rapports.", "tag": "Bientôt disponible" },
+    { "title": "Séquences SMS", "desc": "Ajoutez des étapes SMS dans les workflows d'automatisation d'e-mails existants.", "tag": "Bêta" }
+  ],
+  "colShippedItems": [
+    { "title": "Automatisation des workflows 2.0", "desc": "Logique de branchement, délais et déclencheurs webhook.", "tag": "v3.4.0" },
+    { "title": "Prévision des revenus", "desc": "Widget de prévision de pipeline pondérée pour les managers.", "tag": "v3.3.2" },
+    { "title": "Mode hors ligne mobile", "desc": "Accédez aux contacts et notes sans connexion.", "tag": "v3.3.0" }
+  ],
+
+  "feedbackTitle": "Vous avez une idée ou une demande de fonctionnalité ?",
+  "feedbackDesc": "Nous construisons avec nos clients. Soumettez une demande et suivez sa progression.",
+  "feedbackBtn": "Envoyer un retour",
+
+  "ctaTag": "Commencer",
+  "ctaTitle": "Essayez ce que nous avons déjà livré",
+  "ctaDesc": "Chaque fonctionnalité publiée est active aujourd'hui pour tous les comptes d'essai.",
+  "ctaPrimary": "Démarrer l'essai gratuit",
+  "ctaSecondary": "Voir le journal des modifications"
+}

@@ -1,0 +1,52 @@
+{
+  "pageBadge": "Registro de cambios",
+  "pageTitle": "Novedades en",
+  "pageHighlight": "nuestro producto",
+  "pageDescription": "Cada mejora, corrección y nueva función — publicada y documentada. Lanzamos actualizaciones cada dos semanas.",
+
+  "typeNew": "Nuevo",
+  "typeImproved": "Mejorado",
+  "typeFixed": "Corregido",
+
+  "rel1Version": "v3.4.0",
+  "rel1Date": "14 de marzo de 2025",
+  "rel1Title": "Automatización de flujos de trabajo 2.0",
+  "rel1Summary": "Un motor de automatización completamente reconstruido con lógica de ramificación, retrasos y disparadores de webhook.",
+  "rel1Changes": [
+    { "type": "new", "text": "Condiciones de ramificación dentro de los pasos del flujo" },
+    { "type": "new", "text": "Disparadores y respuestas nativas de webhook" },
+    { "type": "improved", "text": "La automatización es hasta 4 veces más rápida" },
+    { "type": "fixed", "text": "Correos duplicados en cambios rápidos de etapa" }
+  ],
+
+  "rel2Version": "v3.3.2",
+  "rel2Date": "27 de febrero de 2025",
+  "rel2Title": "Actualización de rendimiento en informes",
+  "rel2Summary": "Paneles más rápidos y un nuevo widget de previsión de ingresos para gerentes.",
+  "rel2Changes": [
+    { "type": "new", "text": "Widget de previsión de ingresos ponderada" },
+    { "type": "improved", "text": "Tiempo de carga del panel reducido en un 60%" },
+    { "type": "fixed", "text": "Desfase horario en informes de actividad" }
+  ],
+
+  "rel3Version": "v3.3.0",
+  "rel3Date": "08 de febrero de 2025",
+  "rel3Title": "Renovación de la experiencia móvil",
+  "rel3Summary": "Una app móvil rediseñada con modo sin conexión y acciones de creación rápida.",
+  "rel3Changes": [
+    { "type": "new", "text": "Modo sin conexión para contactos y notas" },
+    { "type": "new", "text": "Botón flotante de creación rápida" },
+    { "type": "improved", "text": "Inicio de sesión biométrico en iOS y Android" },
+    { "type": "fixed", "text": "Notificaciones push que no se borraban al leer" }
+  ],
+
+  "rel4Version": "v3.2.1",
+  "rel4Date": "19 de enero de 2025",
+  "rel4Title": "Seguridad y cumplimiento",
+  "rel4Summary": "Refuerzo previo a nuestra auditoría SOC 2 Tipo II.",
+  "rel4Changes": [
+    { "type": "new", "text": "Inicio de sesión único SAML para Empresarial" },
+    { "type": "improved", "text": "El tiempo de sesión ahora es configurable" },
+    { "type": "fixed", "text": "Registro de auditoría sin cambios de permisos" }
+  ]
+}

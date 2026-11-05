@@ -1,0 +1,36 @@
+{
+  "pageBadge": "Roadmap",
+  "pageTitle": "Where we're",
+  "pageHighlight": "heading next",
+  "pageDescription": "Our public roadmap. Priorities shift with customer feedback — vote on what matters most to your team.",
+
+  "colPlannedLabel": "Planned",
+  "colProgressLabel": "In Progress",
+  "colShippedLabel": "Shipped",
+
+  "colPlannedItems": [
+    { "title": "AI Lead Scoring", "desc": "Predict which deals are most likely to close using historical signals.", "tag": "Q3 2025" },
+    { "title": "Custom Objects", "desc": "Model any business entity beyond contacts and deals.", "tag": "Q3 2025" },
+    { "title": "WhatsApp Channel", "desc": "Two-way WhatsApp conversations logged on the contact timeline.", "tag": "Q4 2025" }
+  ],
+  "colProgressItems": [
+    { "title": "Visual Report Builder", "desc": "Drag-and-drop custom reports with saved views and sharing.", "tag": "Shipping soon" },
+    { "title": "Multi-currency Deals", "desc": "Per-deal currency with automatic FX conversion in reports.", "tag": "Shipping soon" },
+    { "title": "SMS Sequences", "desc": "Add SMS steps inside existing email automation workflows.", "tag": "Beta" }
+  ],
+  "colShippedItems": [
+    { "title": "Workflow Automation 2.0", "desc": "Branching logic, delays and webhook triggers.", "tag": "v3.4.0" },
+    { "title": "Revenue Forecasting", "desc": "Weighted pipeline forecast widget for managers.", "tag": "v3.3.2" },
+    { "title": "Mobile Offline Mode", "desc": "Access contacts and notes without a connection.", "tag": "v3.3.0" }
+  ],
+
+  "feedbackTitle": "Have an idea or feature request?",
+  "feedbackDesc": "We build with our customers. Submit a request and track its progress.",
+  "feedbackBtn": "Submit Feedback",
+
+  "ctaTag": "Get Started",
+  "ctaTitle": "Try what we've already shipped",
+  "ctaDesc": "Every released feature is live for all trial accounts today.",
+  "ctaPrimary": "Start Free Trial",
+  "ctaSecondary": "View Changelog"
+}

@@ -1,6 +1,7 @@
 // src/pages/Product/Changelog.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Rocket, Wrench, Bug, ChevronDown } from "lucide-react";
 import N from "../../components/parts/Navbar.jsx";
 import F from "../../components/parts/Footer.jsx";
@@ -12,61 +13,35 @@ import {
 } from "../../components/common/motionVariants";
 
 const typeMeta = {
-  new: { label: "New", icon: <Rocket size={14} />, color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/30" },
-  improved: { label: "Improved", icon: <Wrench size={14} />, color: "text-orange-500", bg: "bg-orange-500/10 border-orange-500/30" },
-  fixed: { label: "Fixed", icon: <Bug size={14} />, color: "text-sky-400", bg: "bg-sky-500/10 border-sky-500/30" },
+  new: {
+    labelKey: "typeNew",
+    icon: <Rocket size={14} />,
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/10 border-emerald-500/30",
+  },
+  improved: {
+    labelKey: "typeImproved",
+    icon: <Wrench size={14} />,
+    color: "text-orange-500",
+    bg: "bg-orange-500/10 border-orange-500/30",
+  },
+  fixed: {
+    labelKey: "typeFixed",
+    icon: <Bug size={14} />,
+    color: "text-sky-400",
+    bg: "bg-sky-500/10 border-sky-500/30",
+  },
 };
 
 const releases = [
-  {
-    version: "v3.4.0",
-    date: "March 14, 2025",
-    title: "Workflow Automation 2.0",
-    summary: "A completely rebuilt automation engine with branching logic, delays and webhook triggers.",
-    changes: [
-      { type: "new", text: "Branching conditions inside workflow steps" },
-      { type: "new", text: "Native webhook trigger and response actions" },
-      { type: "improved", text: "Automation runs up to 4x faster" },
-      { type: "fixed", text: "Duplicate emails on rapid stage changes" },
-    ],
-  },
-  {
-    version: "v3.3.2",
-    date: "February 27, 2025",
-    title: "Reporting Performance Update",
-    summary: "Faster dashboards and a new revenue forecasting widget for managers.",
-    changes: [
-      { type: "new", text: "Weighted revenue forecast widget" },
-      { type: "improved", text: "Dashboard load time reduced by 60%" },
-      { type: "fixed", text: "Timezone offset in activity reports" },
-    ],
-  },
-  {
-    version: "v3.3.0",
-    date: "February 08, 2025",
-    title: "Mobile Experience Refresh",
-    summary: "A redesigned mobile app with offline mode and quick-add actions.",
-    changes: [
-      { type: "new", text: "Offline mode for contacts and notes" },
-      { type: "new", text: "Quick-add floating action button" },
-      { type: "improved", text: "Biometric login on iOS and Android" },
-      { type: "fixed", text: "Push notifications not clearing on read" },
-    ],
-  },
-  {
-    version: "v3.2.1",
-    date: "January 19, 2025",
-    title: "Security & Compliance",
-    summary: "Hardening pass ahead of our SOC 2 Type II audit.",
-    changes: [
-      { type: "new", text: "SAML single sign-on for Enterprise" },
-      { type: "improved", text: "Session timeout is now configurable" },
-      { type: "fixed", text: "Audit log missing permission changes" },
-    ],
-  },
+  { versionKey: "rel1Version", dateKey: "rel1Date", titleKey: "rel1Title", summaryKey: "rel1Summary", changesKey: "rel1Changes" },
+  { versionKey: "rel2Version", dateKey: "rel2Date", titleKey: "rel2Title", summaryKey: "rel2Summary", changesKey: "rel2Changes" },
+  { versionKey: "rel3Version", dateKey: "rel3Date", titleKey: "rel3Title", summaryKey: "rel3Summary", changesKey: "rel3Changes" },
+  { versionKey: "rel4Version", dateKey: "rel4Date", titleKey: "rel4Title", summaryKey: "rel4Summary", changesKey: "rel4Changes" },
 ];
 
 const ChangeRow = ({ change }) => {
+  const { t } = useTranslation("changelog");
   const meta = typeMeta[change.type];
   return (
     <li className="flex items-start gap-3 text-gray-300 text-sm leading-6">
@@ -74,7 +49,7 @@ const ChangeRow = ({ change }) => {
         className={`inline-flex items-center gap-1.5 shrink-0 mt-0.5 px-2 py-0.5 rounded-full border text-[11px] font-bold uppercase tracking-wide ${meta.bg} ${meta.color}`}
       >
         {meta.icon}
-        {meta.label}
+        {t(meta.labelKey)}
       </span>
       <span>{change.text}</span>
     </li>
@@ -82,6 +57,7 @@ const ChangeRow = ({ change }) => {
 };
 
 const Changelog = () => {
+  const { t } = useTranslation("changelog");
   const [open, setOpen] = useState(0);
 
   return (
@@ -89,10 +65,10 @@ const Changelog = () => {
       <N />
 
       <PageHero
-        badge="Changelog"
-        title="What's new in"
-        highlight="our product"
-        description="Every improvement, fix and new feature — shipped and documented. We release updates every two weeks."
+        badge={t("pageBadge")}
+        title={t("pageTitle")}
+        highlight={t("pageHighlight")}
+        description={t("pageDescription")}
       />
 
       <section className="w-full bg-[#0f0f0f] px-6 sm:px-10 lg:px-20 py-20">
@@ -105,9 +81,11 @@ const Changelog = () => {
         >
           {releases.map((release, i) => {
             const isOpen = open === i;
+            const changesRaw = t(release.changesKey, { returnObjects: true });
+            const changes = Array.isArray(changesRaw) ? changesRaw : [];
             return (
               <motion.div
-                key={release.version}
+                key={release.versionKey}
                 variants={staggerItem}
                 className="relative rounded-2xl border border-[#2a2a2a] bg-[#181818]/90 overflow-hidden"
               >
@@ -118,17 +96,17 @@ const Changelog = () => {
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="px-3 py-1 rounded-md bg-orange-500/15 border border-orange-500/30 text-orange-500 text-sm font-bold tracking-wide">
-                        {release.version}
+                        {t(release.versionKey)}
                       </span>
                       <span className="text-gray-500 text-sm font-medium">
-                        {release.date}
+                        {t(release.dateKey)}
                       </span>
                     </div>
                     <h3 className="text-xl font-bold text-white">
-                      {release.title}
+                      {t(release.titleKey)}
                     </h3>
                     <p className="text-gray-400 text-sm leading-6">
-                      {release.summary}
+                      {t(release.summaryKey)}
                     </p>
                   </div>
 
@@ -147,7 +125,7 @@ const Changelog = () => {
                     className="border-t border-[#2a2a2a] px-6 sm:px-7 py-6"
                   >
                     <ul className="flex flex-col gap-3">
-                      {release.changes.map((c, j) => (
+                      {changes.map((c, j) => (
                         <ChangeRow key={j} change={c} />
                       ))}
                     </ul>
