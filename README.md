@@ -1,305 +1,258 @@
-# 🚀 MERN CRM System
+# MERN CRM
 
-A modern **Customer Relationship Management (CRM)** application built with the **MERN Stack (MongoDB, Express.js, React, Node.js)**. The system helps businesses manage customers, leads, tasks, employees, and communication through a secure role-based platform.
+A full-stack Customer Relationship Management platform built with MongoDB, Express, React, and Node.js. MERN CRM helps teams manage customers, leads, tasks, opportunities, communication, and business performance from role-based dashboards.
 
----
+**Live application:** [mern-crm-eta.vercel.app](https://mern-crm-eta.vercel.app)
 
-## 📌 Overview
+## Overview
 
-This CRM is designed to streamline customer relationship management by providing dedicated dashboards and features for different user roles.
+MERN CRM provides separate experiences for administrators, employees, and customers. The application includes protected authentication, customer and lead management, task tracking, analytics, real-time communication, and a growing set of sales and productivity modules.
 
-### 👥 User Roles
+### User roles
 
-* **Admin**
+- **Admin**: manage customers, employees, leads, tasks, analytics, and communication.
+- **Employee**: work with assigned leads and tasks and review personal performance.
+- **Customer**: access profile information, assigned work, and communication with the team.
 
-  * Manage employees and customers
-  * Manage leads
-  * Assign tasks
-  * View analytics
-  * Chat with customers
-  * Monitor business performance
+## Features
 
-* **Employee**
+- JWT-based authentication and protected routes
+- Role-based access control
+- Customer profiles, search, notes, tags, and status management
+- Lead creation, assignment, source tracking, priorities, and status updates
+- Task assignment, priorities, due dates, and progress tracking
+- Opportunity and sales pipeline support
+- Dashboard metrics and analytics charts
+- Real-time chat powered by Socket.IO
+- Profile management
+- Responsive React interface
+- Internationalization foundation with `i18next`
+- File upload and export service foundations
 
-  * View assigned leads
-  * Manage assigned tasks
-  * Update lead status
-  * View personal dashboard
+Some modules are still under active development. Planned work includes expanded notifications, calendar integration, quotations and invoices, AI insights, broader test coverage, and CI/CD automation.
 
-* **Customer**
+## Technology stack
 
-  * View profile
-  * Track assigned tasks
-  * Chat with admin
+### Frontend
 
----
+- React 19
+- Vite
+- React Router
+- Axios
+- Socket.IO Client
+- Chart.js and `react-chartjs-2`
+- Framer Motion
+- Tailwind CSS / Tailwind Vite integration
+- `i18next` and `react-i18next`
 
-# ✨ Features
+### Backend
 
-### 🔐 Authentication & Security
+- Node.js
+- Express 5
+- MongoDB with Mongoose
+- JSON Web Tokens
+- bcryptjs
+- Socket.IO
+- Multer
+- PDFKit
+- dotenv and CORS
 
-* JWT Authentication
-* Protected Routes
-* Role-Based Access Control (RBAC)
-* Password Encryption (bcrypt)
-
-### 📊 Dashboard
-
-* Total Customers
-* Total Employees
-* Total Leads
-* Revenue Overview
-* Active Tasks
-* Recent Activities
-
-### 👥 Customer Management
-
-* Add Customer
-* Update Customer
-* Delete Customer
-* Search Customers
-
-### 🎯 Lead Management
-
-* Create Leads
-* Update Lead Status
-* Assign Leads
-* Lead Priority
-* Lead Source Tracking
-
-### ✅ Task Management
-
-* Create Tasks
-* Assign Tasks
-* Update Task Status
-* Task Priority
-* Due Dates
-
-### 💬 Chat System
-
-* Real-time Admin ↔ Customer Chat
-* Typing Indicator
-* Message History
-
-### 📈 Analytics
-
-* Revenue Analytics
-* Lead Analytics
-* Customer Statistics
-* Task Reports
-
-### 👤 Profile Management
-
-* Update Profile
-* Change Personal Information
-
-### 🎨 Modern UI
-
-* Fully Responsive
-* Clean Dashboard
-* Animated Components
-* Mobile Friendly
-
----
-
-# 🛠️ Tech Stack
-
-## Frontend
-
-* React.js
-* Vite
-* Tailwind CSS
-* Axios
-* React Router
-* Framer Motion
-
-## Backend
-
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* JWT Authentication
-* bcrypt
-
----
-
-# 📁 Project Structure
+## Repository structure
 
 ```text
-mern-crm/
-│
-├── Backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── utils/
-│   └── server.js
-│
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── context/
-│   │   ├── hooks/
-│   │   ├── assets/
-│   │   └── App.jsx
-│   │
-│   └── package.json
-│
-└── README.md
+MERN-CRM/
+├── README.md
+├── CRM Feature list.txt
+├── CRM-flowchart.md.txt
+├── screenshots/
+└── web/
+    ├── Backend/
+    │   ├── README.md
+    │   └── src/
+    │       ├── config/
+    │       ├── controllers/
+    │       ├── middleware/
+    │       ├── models/
+    │       ├── routes/
+    │       ├── seeders/
+    │       ├── services/
+    │       ├── socket/
+    │       ├── utils/
+    │       ├── .env.example
+    │       ├── package.json
+    │       └── server.js
+    ├── client/
+    │   ├── src/
+    │   │   ├── Context/
+    │   │   ├── Layouts/
+    │   │   ├── Routes/
+    │   │   ├── components/
+    │   │   ├── guards/
+    │   │   ├── hooks/
+    │   │   ├── i18n/
+    │   │   ├── pages/
+    │   │   ├── services/
+    │   │   └── socket.js
+    │   ├── .env.example
+    │   └── package.json
+    └── docker-compose.yml
 ```
 
----
+## Prerequisites
 
-# ⚙️ Installation
+- Node.js 18 or newer
+- npm
+- MongoDB running locally or a MongoDB Atlas connection
 
-## Clone Repository
+## Getting started
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/mern-crm.git
+git clone https://github.com/Zain-Abbas-developer/MERN-CRM.git
+cd MERN-CRM
 ```
 
-```bash
-cd mern-crm
-```
-
----
-
-## Backend Setup
+### 2. Configure the backend
 
 ```bash
-cd Backend
+cd web/Backend/src
+cp .env.example .env
 npm install
+```
+
+Update `.env` with values for your environment:
+
+```env
+PORT=4000
+DB_URI=mongodb://localhost:27017/mern-crm
+JWT_SECRET=replace_with_a_long_random_secret
+CLIENT_URL=http://localhost:5173
+NODE_ENV=development
+```
+
+Start the API server:
+
+```bash
 npm run dev
 ```
 
----
+The backend runs at `http://localhost:4000` by default.
 
-## Frontend Setup
+### 3. Configure the frontend
+
+Open a second terminal:
 
 ```bash
-cd client
+cd web/client
+cp .env.example .env
 npm install
+```
+
+Set the API URL in `.env`:
+
+```env
+VITE_API_URL=http://localhost:4000/api
+```
+
+Start the Vite development server:
+
+```bash
 npm run dev
 ```
 
----
+The frontend is then available at the local URL printed by Vite, normally `http://localhost:5173`.
 
-# 🔑 Environment Variables
+## Available scripts
 
-Create a `.env` file inside the **Backend** folder.
+### Backend (`web/Backend/src`)
 
-```env
-PORT=5000
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the API with Nodemon |
+| `npm start` | Start the API in production mode |
 
-MONGO_URI=your_mongodb_connection_string
+### Frontend (`web/client`)
 
-JWT_SECRET=your_secret_key
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Backend API areas
+
+The API is mounted under `/api` and includes authentication plus protected modules for:
+
+- Authentication and profiles: `/api/auth`
+- Customers
+- Leads
+- Opportunities
+- Tasks
+- Analytics
+- Chat and real-time events
+
+Protected requests use a bearer token:
+
+```http
+Authorization: Bearer <jwt-token>
 ```
 
-For Frontend:
+See [`web/Backend/README.md`](./web/Backend/README.md) for the backend endpoint and data-model reference.
 
-```env
-VITE_API_URL=http://localhost:5000/api
-```
+## Screenshots
 
----
+| Login | Admin dashboard |
+| --- | --- |
+| ![Login](./screenshots/login.png) | ![Admin dashboard](./screenshots/admin-dashboard.png) |
 
-## 📸 Screenshots
+| Leads | Customers |
+| --- | --- |
+| ![Leads](./screenshots/leads.png) | ![Customers](./screenshots/customers.png) |
 
-### Login
+| Tasks | Analytics |
+| --- | --- |
+| ![Tasks](./screenshots/tasks.png) | ![Analytics](./screenshots/analytics.png) |
 
-![Login](./screenshots/login.png)
+## Deployment
 
-### Admin Dashboard
+The frontend is configured for Vercel deployment. For production deployments:
 
-![Admin Dashboard](./screenshots/admin-dashboard.png)
+1. Deploy `web/client` as the frontend project.
+2. Deploy `web/Backend/src` to a Node.js host such as Render or Railway.
+3. Set `VITE_API_URL` to the deployed backend API URL.
+4. Configure `DB_URI`, `JWT_SECRET`, `CLIENT_URL`, and `NODE_ENV` on the backend host.
+5. Update the backend CORS allowlist for the deployed frontend origin.
 
-### Leads
+Never commit `.env` files or production secrets.
 
-![Leads](./screenshots/leads.png)
+## Roadmap
 
-### Customers
+- Sales pipeline and deals improvements
+- Quotations and invoices
+- PDF and spreadsheet exports
+- Email and in-app notifications
+- Calendar integration and activity logs
+- Additional file upload workflows
+- WhatsApp integration
+- AI-assisted CRM insights
+- Expanded automated tests
+- Docker and CI/CD workflows
 
-![Customers](./screenshots/customers.png)
+## Contributing
 
-### Tasks
+1. Fork the repository.
+2. Create a feature branch.
+3. Make and test your changes.
+4. Open a pull request with a clear description.
 
-![Tasks](./screenshots/tasks.png)
-
-### Analytics
-
-![Analytics](./screenshots/analytics.png)
-
-### Chat
-
-![Chat](./screenshots/chat.png)
-
----
-
-# 📡 API Modules
-
-* Authentication
-* Users
-* Customers
-* Employees
-* Leads
-* Tasks
-* Analytics
-* Chat
-
----
-
-# 🔒 Security
-
-* JWT Authentication
-* Password Hashing
-* Protected API Routes
-* Role-Based Authorization
-
----
-
-# 🚀 Future Improvements
-
-* Email Notifications
-* File Uploads
-* Calendar Integration
-* Report Export (PDF/Excel)
-* Activity Logs
-* AI-powered CRM Insights
-* Multi-language Support
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push the branch
-5. Open a Pull Request
-
----
-
-# 📄 License
+## License
 
 This project is licensed under the MIT License.
 
----
-
-# 👨‍💻 Author
+## Author
 
 **Zain Abbas**
 
-* Full Stack MERN Developer
-* Passionate about building scalable web applications
-* Open to collaboration and learning opportunities
-
----
-
-⭐ If you like this project, don't forget to **star** the repository.
+- GitHub: [@Zain-Abbas-developer](https://github.com/Zain-Abbas-developer)
