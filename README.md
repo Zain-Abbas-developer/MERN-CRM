@@ -1,61 +1,85 @@
+<div align="center">
+
 # MERN CRM
 
-A full-stack Customer Relationship Management platform built with MongoDB, Express, React, and Node.js. MERN CRM helps teams manage customers, leads, tasks, opportunities, communication, and business performance from role-based dashboards.
+### A modern, role-based CRM for managing customers, leads, tasks, opportunities, and team performance.
 
-**Live application:** [mern-crm-eta.vercel.app](https://mern-crm-eta.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-mern--crm--eta.vercel.app-2563eb?style=for-the-badge&logo=vercel&logoColor=white)](https://mern-crm-eta.vercel.app)
+[![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47a248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Socket.IO](https://img.shields.io/badge/Realtime-Socket.IO-010101?style=flat-square&logo=socket.io&logoColor=white)](https://socket.io/)
 
-## Overview
+[Features](#features) · [Architecture](#architecture) · [Getting started](#getting-started) · [Deployment](#deployment) · [Roadmap](#roadmap)
 
-MERN CRM provides separate experiences for administrators, employees, and customers. The application includes protected authentication, customer and lead management, task tracking, analytics, real-time communication, and a growing set of sales and productivity modules.
+</div>
 
-### User roles
+---
 
-- **Admin**: manage customers, employees, leads, tasks, analytics, and communication.
-- **Employee**: work with assigned leads and tasks and review personal performance.
-- **Customer**: access profile information, assigned work, and communication with the team.
+## Product overview
+
+MERN CRM is a full-stack customer relationship management platform built for teams that need a central workspace for customer data, sales activity, assignments, communication, and performance visibility.
+
+The system provides tailored dashboards for **administrators**, **employees**, and **customers**, with protected routes and role-aware workflows throughout the application.
+
+> **Project status:** Active development. The core CRM experience is available; several sales, automation, and operational modules are being expanded.
 
 ## Features
 
-- JWT-based authentication and protected routes
-- Role-based access control
-- Customer profiles, search, notes, tags, and status management
-- Lead creation, assignment, source tracking, priorities, and status updates
-- Task assignment, priorities, due dates, and progress tracking
-- Opportunity and sales pipeline support
-- Dashboard metrics and analytics charts
-- Real-time chat powered by Socket.IO
-- Profile management
-- Responsive React interface
-- Internationalization foundation with `i18next`
-- File upload and export service foundations
+### Core CRM
 
-Some modules are still under active development. Planned work includes expanded notifications, calendar integration, quotations and invoices, AI insights, broader test coverage, and CI/CD automation.
+- Customer profiles with search, notes, tags, and status management
+- Lead creation, assignment, source tracking, priorities, and status updates
+- Opportunity and sales pipeline workflows
+- Task assignment with priorities, due dates, and progress tracking
+- Dashboard metrics and analytics charts
+- Profile management and role-aware navigation
+
+### Collaboration and platform
+
+- JWT authentication and protected routes
+- Role-based access control for admin, employee, and customer experiences
+- Real-time communication with Socket.IO
+- Responsive interface for desktop and mobile layouts
+- Internationalization foundation with `i18next`
+- File upload and PDF export service foundations
+
+### User roles
+
+| Role | Main responsibilities |
+| --- | --- |
+| **Admin** | Manage employees, customers, leads, tasks, analytics, and communication. |
+| **Employee** | Work with assigned leads and tasks and review personal performance. |
+| **Customer** | View profile information, assigned work, and team communication. |
+
+## Architecture
+
+```text
+┌──────────────────────┐       HTTP / JWT        ┌────────────────────────┐
+│   React + Vite UI    │ ──────────────────────▶ │   Express REST API     │
+│   Role-aware routes   │                         │   Protected modules    │
+└──────────┬───────────┘                         └───────────┬────────────┘
+           │                                                 │
+           │ Socket.IO                                       │ Mongoose
+           ▼                                                 ▼
+┌──────────────────────┐                         ┌────────────────────────┐
+│ Real-time messaging  │                         │   MongoDB database     │
+└──────────────────────┘                         └────────────────────────┘
+```
+
+The frontend is located in `web/client`. The backend entry point is `web/Backend/src/server.js`, with controllers, models, routes, middleware, services, and Socket.IO integration organized beneath the same source directory.
 
 ## Technology stack
 
-### Frontend
-
-- React 19
-- Vite
-- React Router
-- Axios
-- Socket.IO Client
-- Chart.js and `react-chartjs-2`
-- Framer Motion
-- Tailwind CSS / Tailwind Vite integration
-- `i18next` and `react-i18next`
-
-### Backend
-
-- Node.js
-- Express 5
-- MongoDB with Mongoose
-- JSON Web Tokens
-- bcryptjs
-- Socket.IO
-- Multer
-- PDFKit
-- dotenv and CORS
+| Layer | Technologies |
+| --- | --- |
+| Frontend | React 19, Vite, React Router, Axios, Tailwind CSS, Framer Motion |
+| Data visualization | Chart.js, `react-chartjs-2` |
+| Communication | Socket.IO and `socket.io-client` |
+| Backend | Node.js, Express 5, Mongoose |
+| Authentication | JSON Web Tokens, bcryptjs, protected route middleware |
+| Platform services | Multer, PDFKit, dotenv, CORS |
+| Deployment | Vercel-compatible frontend and Node.js backend hosting |
 
 ## Repository structure
 
@@ -69,42 +93,43 @@ MERN-CRM/
     ├── Backend/
     │   ├── README.md
     │   └── src/
-    │       ├── config/
-    │       ├── controllers/
-    │       ├── middleware/
-    │       ├── models/
-    │       ├── routes/
-    │       ├── seeders/
-    │       ├── services/
-    │       ├── socket/
-    │       ├── utils/
+    │       ├── config/          # Database configuration
+    │       ├── controllers/     # Request and business logic
+    │       ├── middleware/      # Auth and error handling
+    │       ├── models/          # Mongoose schemas
+    │       ├── routes/          # API route definitions
+    │       ├── seeders/         # Seed data and setup helpers
+    │       ├── services/        # Reusable backend services
+    │       ├── socket/          # Socket.IO setup and events
+    │       ├── utils/           # Shared backend utilities
     │       ├── .env.example
     │       ├── package.json
-    │       └── server.js
+    │       └── server.js        # HTTP server entry point
     ├── client/
     │   ├── src/
-    │   │   ├── Context/
-    │   │   ├── Layouts/
-    │   │   ├── Routes/
-    │   │   ├── components/
-    │   │   ├── guards/
-    │   │   ├── hooks/
-    │   │   ├── i18n/
-    │   │   ├── pages/
-    │   │   ├── services/
-    │   │   └── socket.js
+    │   │   ├── Context/         # Shared application state
+    │   │   ├── Layouts/         # Dashboard and page layouts
+    │   │   ├── Routes/          # Application route configuration
+    │   │   ├── components/      # Reusable UI components
+    │   │   ├── guards/          # Protected and role-aware routes
+    │   │   ├── hooks/           # Reusable React hooks
+    │   │   ├── i18n/            # Internationalization setup
+    │   │   ├── pages/           # Feature pages and dashboards
+    │   │   ├── services/        # API and feature service clients
+    │   │   └── socket.js        # Frontend Socket.IO client
     │   ├── .env.example
     │   └── package.json
     └── docker-compose.yml
 ```
 
-## Prerequisites
+## Getting started
+
+### Prerequisites
 
 - Node.js 18 or newer
 - npm
-- MongoDB running locally or a MongoDB Atlas connection
-
-## Getting started
+- MongoDB local instance or MongoDB Atlas
+- Git
 
 ### 1. Clone the repository
 
@@ -113,7 +138,7 @@ git clone https://github.com/Zain-Abbas-developer/MERN-CRM.git
 cd MERN-CRM
 ```
 
-### 2. Configure the backend
+### 2. Install and configure the backend
 
 ```bash
 cd web/Backend/src
@@ -121,7 +146,7 @@ cp .env.example .env
 npm install
 ```
 
-Update `.env` with values for your environment:
+Set the backend environment variables:
 
 ```env
 PORT=4000
@@ -137,11 +162,11 @@ Start the API server:
 npm run dev
 ```
 
-The backend runs at `http://localhost:4000` by default.
+The API is available at `http://localhost:4000`.
 
-### 3. Configure the frontend
+### 3. Install and configure the frontend
 
-Open a second terminal:
+Open a second terminal from the repository root:
 
 ```bash
 cd web/client
@@ -149,7 +174,7 @@ cp .env.example .env
 npm install
 ```
 
-Set the API URL in `.env`:
+Set the frontend API URL:
 
 ```env
 VITE_API_URL=http://localhost:4000/api
@@ -161,51 +186,73 @@ Start the Vite development server:
 npm run dev
 ```
 
-The frontend is then available at the local URL printed by Vite, normally `http://localhost:5173`.
+The frontend is normally available at `http://localhost:5173`.
+
+## Environment variables
+
+### Backend: `web/Backend/src/.env`
+
+| Variable | Required | Description | Example |
+| --- | --- | --- | --- |
+| `PORT` | No | API server port | `4000` |
+| `DB_URI` | Yes | MongoDB connection string | `mongodb://localhost:27017/mern-crm` |
+| `JWT_SECRET` | Yes | Secret used to sign authentication tokens | Long random value |
+| `CLIENT_URL` | Yes | Frontend origin used by the deployment | `http://localhost:5173` |
+| `NODE_ENV` | No | Runtime environment | `development` |
+
+### Frontend: `web/client/.env`
+
+| Variable | Required | Description | Example |
+| --- | --- | --- | --- |
+| `VITE_API_URL` | Yes | Base URL for the backend API | `http://localhost:4000/api` |
+
+Never commit `.env` files, JWT secrets, database credentials, or production tokens.
 
 ## Available scripts
 
 ### Backend (`web/Backend/src`)
 
-| Command | Description |
+| Command | Purpose |
 | --- | --- |
-| `npm run dev` | Start the API with Nodemon |
-| `npm start` | Start the API in production mode |
+| `npm run dev` | Run the API with Nodemon during development |
+| `npm start` | Run the API in production mode |
 
 ### Frontend (`web/client`)
 
-| Command | Description |
+| Command | Purpose |
 | --- | --- |
 | `npm run dev` | Start the Vite development server |
-| `npm run build` | Create a production build |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint |
+| `npm run build` | Create the production frontend bundle |
+| `npm run preview` | Preview the production bundle locally |
+| `npm run lint` | Run ESLint against the frontend |
 
-## Backend API areas
+## API surface
 
-The API is mounted under `/api` and includes authentication plus protected modules for:
+The API is mounted under `/api` and currently includes these functional areas:
 
-- Authentication and profiles: `/api/auth`
-- Customers
-- Leads
-- Opportunities
-- Tasks
-- Analytics
-- Chat and real-time events
+- `/api/auth` — registration, login, profile access, and profile updates
+- Customers — customer CRUD operations, notes, and assignments
+- Leads — lead CRUD operations, status changes, notes, and conversion workflows
+- Opportunities — opportunity tracking, stages, notes, and customer relationships
+- Tasks — task assignment and progress workflows
+- Analytics — dashboard and reporting data
+- Chat — real-time communication and Socket.IO events
 
-Protected requests use a bearer token:
+Protected requests require a bearer token:
 
 ```http
 Authorization: Bearer <jwt-token>
 ```
 
-See [`web/Backend/README.md`](./web/Backend/README.md) for the backend endpoint and data-model reference.
+For detailed endpoints and data models, see [`web/Backend/README.md`](./web/Backend/README.md).
 
 ## Screenshots
 
+<div align="center">
+
 | Login | Admin dashboard |
 | --- | --- |
-| ![Login](./screenshots/login.png) | ![Admin dashboard](./screenshots/admin-dashboard.png) |
+| ![Login screen](./screenshots/login.png) | ![Admin dashboard](./screenshots/admin-dashboard.png) |
 
 | Leads | Customers |
 | --- | --- |
@@ -215,44 +262,74 @@ See [`web/Backend/README.md`](./web/Backend/README.md) for the backend endpoint 
 | --- | --- |
 | ![Tasks](./screenshots/tasks.png) | ![Analytics](./screenshots/analytics.png) |
 
+</div>
+
 ## Deployment
 
-The frontend is configured for Vercel deployment. For production deployments:
+### Frontend
 
-1. Deploy `web/client` as the frontend project.
-2. Deploy `web/Backend/src` to a Node.js host such as Render or Railway.
-3. Set `VITE_API_URL` to the deployed backend API URL.
-4. Configure `DB_URI`, `JWT_SECRET`, `CLIENT_URL`, and `NODE_ENV` on the backend host.
-5. Update the backend CORS allowlist for the deployed frontend origin.
+Deploy `web/client` to Vercel or another static hosting provider:
 
-Never commit `.env` files or production secrets.
+- **Root directory:** `web/client`
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Environment variable:** `VITE_API_URL=<deployed-api-url>/api`
+
+### Backend
+
+Deploy `web/Backend/src` to a Node.js host such as Render or Railway:
+
+- **Build/install command:** `npm install`
+- **Start command:** `npm start`
+- Configure `DB_URI`, `JWT_SECRET`, `CLIENT_URL`, and `NODE_ENV`.
+- Use a production MongoDB database such as MongoDB Atlas.
+- Update the backend CORS allowlist for the deployed frontend origin.
+- Enable HTTPS and restrict database network access.
+
+### Production checklist
+
+- [ ] Use a strong, unique `JWT_SECRET`.
+- [ ] Use a production MongoDB connection string.
+- [ ] Set `NODE_ENV=production`.
+- [ ] Configure the exact frontend origin in CORS.
+- [ ] Keep secrets in the hosting provider's environment settings.
+- [ ] Enable HTTPS for frontend, API, and WebSocket traffic.
+- [ ] Review logging, backups, rate limiting, and input validation before public launch.
 
 ## Roadmap
 
-- Sales pipeline and deals improvements
-- Quotations and invoices
-- PDF and spreadsheet exports
-- Email and in-app notifications
-- Calendar integration and activity logs
-- Additional file upload workflows
-- WhatsApp integration
-- AI-assisted CRM insights
-- Expanded automated tests
-- Docker and CI/CD workflows
+- [ ] Complete sales pipeline and deals workflows
+- [ ] Add quotations and invoices
+- [ ] Expand PDF and spreadsheet exports
+- [ ] Add email and in-app notifications
+- [ ] Add calendar integration and activity logs
+- [ ] Expand file upload workflows
+- [ ] Add WhatsApp integration
+- [ ] Introduce AI-assisted CRM insights
+- [ ] Add comprehensive unit and integration tests
+- [ ] Add Docker and CI/CD workflows
 
 ## Contributing
 
+Contributions are welcome and appreciated.
+
 1. Fork the repository.
-2. Create a feature branch.
-3. Make and test your changes.
-4. Open a pull request with a clear description.
+2. Create a focused feature branch: `git checkout -b feat/your-feature`.
+3. Install dependencies and run the relevant lint/build checks.
+4. Commit your changes with a clear message.
+5. Push the branch and open a pull request.
+
+For larger changes, please describe the problem, implementation approach, testing performed, and any environment changes in the pull request.
+
+## Support
+
+If you find a bug or want to suggest an improvement, please [open an issue](https://github.com/Zain-Abbas-developer/MERN-CRM/issues) with reproduction steps, expected behavior, and relevant logs or screenshots.
 
 ## License
 
-This project is licensed under the MIT License.
+A license file has not yet been added to this repository. Add an appropriate open-source license before distributing the project for external use.
 
 ## Author
 
-**Zain Abbas**
-
-- GitHub: [@Zain-Abbas-developer](https://github.com/Zain-Abbas-developer)
+**Zain Abbas**  
+[GitHub: @Zain-Abbas-developer](https://github.com/Zain-Abbas-developer)
